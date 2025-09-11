@@ -1,19 +1,19 @@
 // Dados da Academia - Fitness Exclusive
 export const banners = [
   {
-    src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80",
+    src: "/images/banner1.png",
     alt: "Treine com os melhores equipamentos",
     titulo: "Equipamentos de Última Geração",
     subtitulo: "Tecnologia e qualidade para o seu treino"
   },
   {
-    src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80",
+    src: "/images/banner2.png",
     alt: "Ambiente moderno e climatizado",
     titulo: "Ambiente Moderno e Climatizado",
     subtitulo: "Conforto e bem-estar em cada treino"
   },
   {
-    src: "https://images.unsplash.com/photo-1544737151673-6e4dce35765a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80",
+    src: "/images/banner3.png",
     alt: "Profissionais qualificados para te ajudar",
     titulo: "Profissionais Qualificados",
     subtitulo: "Acompanhamento especializado para seus objetivos"
@@ -85,7 +85,7 @@ export const estruturas = [
   {
     titulo: "Musculação",
     descricao: "Equipamentos modernos para todos os grupos musculares",
-    imagem: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    imagem: "/images/musculacao.jpg",
     destaque: true,
     video: "/videos/musculacao.mp4",
     equipamentos: ["50+ Halteres", "20 Estações", "Cabos Reguláveis", "Barras Olímpicas"],
@@ -100,7 +100,7 @@ export const estruturas = [
   {
     titulo: "Cross Training",
     descricao: "Treinos funcionais de alta intensidade",
-    imagem: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    imagem: "/images/cross.jpg",
     destaque: false,
     video: "/videos/cross.mp4",
     equipamentos: ["Kettlebells", "Medicine Balls", "TRX", "Caixas Pliométricas"],
@@ -115,7 +115,7 @@ export const estruturas = [
   {
     titulo: "Aeróbicos",
     descricao: "Esteiras, bikes e elípticos de última geração",
-    imagem: "https://images.unsplash.com/photo-1544737151673-6e4dce35765a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    imagem: "/images/aerobicos.jpg",
     destaque: false,
     video: "/videos/aerobicos.mp4",
     equipamentos: ["15 Esteiras", "10 Bikes", "8 Elípticos", "5 Remo"],
@@ -130,7 +130,7 @@ export const estruturas = [
   {
     titulo: "Funcional",
     descricao: "Espaço amplo para treinos funcionais e flexibilidade",
-    imagem: "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80",
+    imagem: "/images/funcional.jpg",
     destaque: false,
     video: "/videos/funcional.mp4",
     equipamentos: ["Suspensão", "Elásticos", "Steps", "Bosus"],
@@ -149,19 +149,19 @@ export const depoimentos = [
     nome: "Maria Silva",
     avaliacao: 5,
     comentario: "Melhor academia da região! Equipamentos novos e professores atenciosos. Já perdi 15kg em 6 meses!",
-    foto: "https://images.unsplash.com/photo-1494790108755-2616b6d9c269?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80"
+    foto: "/images/depoimento1.jpg"
   },
   {
     nome: "João Santos",
     avaliacao: 5,
     comentario: "Ambiente motivador e limpo. O personal trainer me ajudou muito a alcançar meus objetivos.",
-    foto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80"
+    foto: "/images/depoimento2.jpg"
   },
   {
     nome: "Ana Costa",
     avaliacao: 5,
     comentario: "Adoro as aulas de cross training! A equipe é super qualificada e sempre dispostos a ajudar.",
-    foto: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80"
+    foto: "/images/depoimento3.jpg"
   }
 ];
 
@@ -172,7 +172,7 @@ export const unidades = [
     cidade: "Crato - CE",
     telefone: "(88) 99333-3152",
     horarios: "Seg–Sex 05h–22h | Sáb 08h–14h | Dom 10h–12h",
-    imagem: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+    imagem: "/images/banner1.png",
     destaque: true
   },
   {
