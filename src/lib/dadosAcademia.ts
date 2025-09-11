@@ -1,19 +1,19 @@
 // Dados da Academia - Fitness Exclusive
 export const banners = [
   {
-    src: "/images/banner1.png",
+    src: "/images/banner1.webp",
     alt: "Treine com os melhores equipamentos",
     titulo: "Equipamentos de Última Geração",
     subtitulo: "Tecnologia e qualidade para o seu treino"
   },
   {
-    src: "/images/banner2.png",
+    src: "/images/banner2.webp",
     alt: "Ambiente moderno e climatizado",
     titulo: "Ambiente Moderno e Climatizado",
     subtitulo: "Conforto e bem-estar em cada treino"
   },
   {
-    src: "/images/banner3.png",
+    src: "/images/banner3.webp",
     alt: "Profissionais qualificados para te ajudar",
     titulo: "Profissionais Qualificados",
     subtitulo: "Acompanhamento especializado para seus objetivos"
@@ -85,7 +85,7 @@ export const estruturas = [
   {
     titulo: "Musculação",
     descricao: "Equipamentos modernos para todos os grupos musculares",
-    imagem: "/images/musculacao.jpg",
+    imagem: "/images/musculacao.webp",
     destaque: true,
     video: "/videos/musculacao.mp4",
     equipamentos: ["50+ Halteres", "20 Estações", "Cabos Reguláveis", "Barras Olímpicas"],
@@ -100,7 +100,7 @@ export const estruturas = [
   {
     titulo: "Cross Training",
     descricao: "Treinos funcionais de alta intensidade",
-    imagem: "/images/cross.jpg",
+    imagem: "/images/cross.webp",
     destaque: false,
     video: "/videos/cross.mp4",
     equipamentos: ["Kettlebells", "Medicine Balls", "TRX", "Caixas Pliométricas"],
@@ -115,7 +115,7 @@ export const estruturas = [
   {
     titulo: "Aeróbicos",
     descricao: "Esteiras, bikes e elípticos de última geração",
-    imagem: "/images/aerobicos.jpg",
+    imagem: "/images/aerobicos.webp",
     destaque: false,
     video: "/videos/aerobicos.mp4",
     equipamentos: ["15 Esteiras", "10 Bikes", "8 Elípticos", "5 Remo"],
@@ -130,7 +130,7 @@ export const estruturas = [
   {
     titulo: "Funcional",
     descricao: "Espaço amplo para treinos funcionais e flexibilidade",
-    imagem: "/images/funcional.jpg",
+    imagem: "/images/funcional.webp",
     destaque: false,
     video: "/videos/funcional.mp4",
     equipamentos: ["Suspensão", "Elásticos", "Steps", "Bosus"],
@@ -149,19 +149,19 @@ export const depoimentos = [
     nome: "Maria Silva",
     avaliacao: 5,
     comentario: "Melhor academia da região! Equipamentos novos e professores atenciosos. Já perdi 15kg em 6 meses!",
-    foto: "/images/depoimento1.jpg"
+    foto: "/images/depoimento1.webp"
   },
   {
     nome: "João Santos",
     avaliacao: 5,
     comentario: "Ambiente motivador e limpo. O personal trainer me ajudou muito a alcançar meus objetivos.",
-    foto: "/images/depoimento2.jpg"
+    foto: "/images/depoimento3.webp"
   },
   {
     nome: "Ana Costa",
     avaliacao: 5,
     comentario: "Adoro as aulas de cross training! A equipe é super qualificada e sempre dispostos a ajudar.",
-    foto: "/images/depoimento3.jpg"
+    foto: "/images/depoimento2.webp"
   }
 ];
 
@@ -172,7 +172,7 @@ export const unidades = [
     cidade: "Crato - CE",
     telefone: "(88) 99333-3152",
     horarios: "Seg–Sex 05h–22h | Sáb 08h–14h | Dom 10h–12h",
-    imagem: "/images/banner1.png",
+    imagem: "/images/banner1.webp",
     destaque: true
   },
   {
@@ -181,7 +181,7 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 05h–22h | Sáb/Fer 06h–12h | Dom 09h–13h",
-    imagem: "/images/unidades/unidade-premium.jpg",
+    imagem: "/images/unidades/unidade-premium.webp",
     destaque: true
   },
   {
@@ -190,7 +190,7 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 05h–22h | Sáb 06h–12h | Dom 09h–13h",
-    imagem: "/images/unidades/unidade-tiradentes.jpg",
+    imagem: "/images/unidades/unidade-tiradentes.webp",
     destaque: false
   },
   {
@@ -199,7 +199,7 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 05h–22h | Sáb 08h–16h | Dom 09h–13h",
-    imagem: "/images/unidades/unidade-lagoa-seca.jpg",
+    imagem: "/images/unidades/unidade-lagoa-seca.webp",
     destaque: false
   },
   {
@@ -208,7 +208,7 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "—",
     horarios: "Seg–Sex 05h–22h | Sáb 08h–14h | Dom 09h–13h",
-    imagem: "/images/unidades/unidade-sao-jose.jpg",
+    imagem: "/images/unidades/unidade-sao-jose.webp",
     destaque: false
   },
   {
@@ -217,7 +217,7 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "(89) 9906-6688",
     horarios: "Seg–Sex 05h–22h | Sáb 10h–18h | Dom 09h–13h",
-    imagem: "/images/unidades/unidade-salesianos.jpg",
+    imagem: "/images/unidades/unidade-salesianos.webp",
     destaque: false
   },
   {
@@ -226,7 +226,7 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "(88) 99333-3152",
     horarios: "Seg–Sex 05h–22h | Sáb 10h–16h | Dom 09h–13h",
-    imagem: "/images/unidades/unidade-parque-ecologico.jpg",
+    imagem: "/images/unidades/unidade-parque-ecologico.webp",
     destaque: false
   },
   {
@@ -235,7 +235,7 @@ export const unidades = [
     cidade: "Araripina - PE",
     telefone: "(87) 99888-7766",
     horarios: "Seg–Sex 05h–22h | Sáb 06h–18h | Dom 08h–16h",
-    imagem: "/images/unidades/unidade-centro.jpg",
+    imagem: "/images/unidades/unidade-centro.webp",
     destaque: false
   },
   {
@@ -253,7 +253,7 @@ export const unidades = [
     cidade: "Crato - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 06h–22h | Sáb 08h–20h | Dom 09h–18h",
-    imagem: "/images/unidades/unidade-aabb.jpg",
+    imagem: "/images/unidades/unidade-aabb.webp",
     destaque: false
   }
 ];
