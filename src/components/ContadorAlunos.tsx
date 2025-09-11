@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
-import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 export default function ContadorAlunos() {
@@ -53,25 +52,25 @@ export default function ContadorAlunos() {
     {
       numero: stats.alunos.toLocaleString(),
       label: "Alunos Ativos",
-      icone: "/images/icones/alunos.png",
+      icone: "👥",
       cor: "bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent"
     },
     {
       numero: stats.unidades,
       label: "Unidades",
-      icone: "/images/icones/unidades.png",
+      icone: "🏢",
       cor: "text-green-400"
     },
     {
       numero: stats.treinadores,
       label: "Treinadores",
-      icone: "/images/icones/treinadores.png",
+      icone: "💪",
       cor: "text-blue-400"
     },
     {
       numero: stats.anos,
       label: "Anos de Experiência",
-      icone: "/images/icones/experiencia.png",
+      icone: "⭐",
       cor: "text-purple-400"
     }
   ];
@@ -99,13 +98,9 @@ export default function ContadorAlunos() {
             >
               <div className="text-center bg-zinc-900 rounded-3xl p-8 border-2 border-gray-700 hover:border-gradient-to-r hover:from-[#EBA730] hover:to-[#FAC934] transition-all duration-300 hover:-translate-y-2">
                 <div className="flex justify-center mb-4">
-                  <Image
-                    src={stat.icone}
-                    alt={stat.label}
-                    width={64}
-                    height={64}
-                    className="object-contain"
-                  />
+                  <div className="text-6xl">
+                    {stat.icone}
+                  </div>
                 </div>
                 <div className={`text-4xl font-black mb-2 ${stat.cor}`}>
                   {stat.numero}
