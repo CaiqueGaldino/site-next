@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fitness Exclusive - Site da Academia
 
-## Getting Started
+Site moderno e responsivo para a academia Fitness Exclusive, desenvolvido com Next.js 15 e Tailwind CSS.
 
-First, run the development server:
+## 🚀 Deploy no GitHub Pages
 
+Este site está configurado para deploy automático no GitHub Pages. Siga os passos abaixo:
+
+### 1. Preparar o Repositório
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Adicionar todos os arquivos
+git add .
+
+# Fazer commit
+git commit -m "Configuração para GitHub Pages"
+
+# Enviar para o GitHub
+git push origin main
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Configurar GitHub Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Vá para o seu repositório no GitHub
+2. Clique em **Settings** (Configurações)
+3. No menu lateral, clique em **Pages**
+4. Em **Source**, selecione **GitHub Actions**
+5. O deploy será feito automaticamente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Acessar o Site
 
-## Learn More
+Após o deploy, seu site estará disponível em:
+```
+https://[seu-usuario].github.io/[nome-do-repositorio]
+```
 
-To learn more about Next.js, take a look at the following resources:
+Por exemplo: `https://caiquegaldino.github.io/site-next`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Funcionalidades
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 🎨 Design moderno com gradientes dourados
+- 📱 Totalmente responsivo
+- 🖼️ Carrossel de banners
+- 💳 Seção de planos com destaques especiais
+- 🏋️ Slides interativos dos diferenciais
+- 💬 Depoimentos de clientes
+- 📍 Informações de unidades
+- ❓ FAQ interativo
+- 💬 Botão WhatsApp flutuante
 
-## Deploy on Vercel
+## 🛠️ Tecnologias
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Next.js 15** - Framework React
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** - Estilização
+- **GitHub Actions** - Deploy automático
+- **GitHub Pages** - Hospedagem gratuita
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 Notas Importantes
+
+- O deploy é automático a cada push na branch `main`
+- As imagens devem estar otimizadas para web
+- O site é gerado estaticamente para melhor performance
+- Todas as animações são feitas com CSS puro
+
+## 🎯 Performance
+
+- ⚡ Carregamento rápido
+- 🔍 SEO otimizado
+- 📊 Build otimizado para produção
+- 🖼️ Imagens otimizadas
+
+---
+
+**Desenvolvido com ❤️ para Fitness Exclusive**

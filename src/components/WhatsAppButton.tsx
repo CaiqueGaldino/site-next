@@ -19,7 +19,7 @@ export default function WhatsAppButton() {
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "5511999999999"; // Número da academia
-    const message = "Olá! Gostaria de saber mais sobre os planos da academia Corpo em Forma.";
+    const message = "Olá! Gostaria de saber mais sobre os planos da academia Fitness Exclusive.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
   };

@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 export default function ContadorAlunos() {
@@ -10,12 +11,12 @@ export default function ContadorAlunos() {
     anos: 0,
   });
 
-  const finalStats = {
+  const finalStats = useMemo(() => ({
     alunos: 2847,
     unidades: 10,
     treinadores: 45,
     anos: 8,
-  };
+  }), []);
 
   useEffect(() => {
     const duration = 2000; // 2 segundos
@@ -46,31 +47,31 @@ export default function ContadorAlunos() {
     }, duration / steps);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [finalStats]);
 
   const estatisticas = [
     {
       numero: stats.alunos.toLocaleString(),
       label: "Alunos Ativos",
-      icone: "👥",
-      cor: "text-yellow-400"
+      icone: "/images/icones/alunos.png",
+      cor: "bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent"
     },
     {
       numero: stats.unidades,
       label: "Unidades",
-      icone: "🏢",
+      icone: "/images/icones/unidades.png",
       cor: "text-green-400"
     },
     {
       numero: stats.treinadores,
       label: "Treinadores",
-      icone: "💪",
+      icone: "/images/icones/treinadores.png",
       cor: "text-blue-400"
     },
     {
       numero: stats.anos,
       label: "Anos de Experiência",
-      icone: "⭐",
+      icone: "/images/icones/experiencia.png",
       cor: "text-purple-400"
     }
   ];
@@ -96,8 +97,16 @@ export default function ContadorAlunos() {
               direction="up" 
               delay={150 + (index * 75)}
             >
-              <div className="text-center bg-zinc-900 rounded-3xl p-8 border-2 border-gray-700 hover:border-yellow-400 transition-all duration-300 hover:-translate-y-2">
-                <div className="text-5xl mb-4">{stat.icone}</div>
+              <div className="text-center bg-zinc-900 rounded-3xl p-8 border-2 border-gray-700 hover:border-gradient-to-r hover:from-[#EBA730] hover:to-[#FAC934] transition-all duration-300 hover:-translate-y-2">
+                <div className="flex justify-center mb-4">
+                  <Image
+                    src={stat.icone}
+                    alt={stat.label}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
+                </div>
                 <div className={`text-4xl font-black mb-2 ${stat.cor}`}>
                   {stat.numero}
                 </div>
@@ -109,14 +118,14 @@ export default function ContadorAlunos() {
 
         <ScrollReveal direction="up" delay={400}>
           <div className="text-center mt-16">
-            <div className="bg-zinc-900 rounded-3xl p-8 border-2 border-yellow-400 max-w-4xl mx-auto">
+            <div className="bg-zinc-900 rounded-3xl p-8 border-2 border-gradient-to-r from-[#EBA730] to-[#FAC934] max-w-4xl mx-auto">
               <h3 className="text-2xl font-bold text-white mb-4">
                 🏆 Conquiste Seus Objetivos Conosco!
               </h3>
               <p className="text-gray-300 text-lg mb-6">
                 Faça parte da maior rede de academias da região e transforme sua vida!
               </p>
-              <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-8 py-4 rounded-full shadow-lg transition-all transform hover:scale-105 text-lg">
+              <button className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-8 py-4 rounded-full shadow-lg transition-all transform hover:scale-105 text-lg">
                 Comece Hoje Mesmo
               </button>
             </div>

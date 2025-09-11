@@ -1,22 +1,22 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { banners } from "../lib/dadosAcademia";
 
 export default function HeroCarrossel() {
   const [atual, setAtual] = useState(0);
 
-  const proximo = () => setAtual((atual + 1) % banners.length);
+  const proximo = useCallback(() => setAtual((atual + 1) % banners.length), [atual]);
   const anterior = () => setAtual((atual - 1 + banners.length) % banners.length);
 
   // Auto-play do carrossel
   useEffect(() => {
     const interval = setInterval(proximo, 5000);
     return () => clearInterval(interval);
-  }, [atual]);
+  }, [proximo]);
 
   return (
-    <section id="inicio" className="relative w-full h-[70vh] min-h-[500px] overflow-hidden">
+    <section id="inicio" className="relative w-full h-[540px] overflow-hidden">
       <div className="relative w-full h-full">
         <Image
           src={banners[atual].src}
@@ -25,7 +25,7 @@ export default function HeroCarrossel() {
           className="object-cover transition-all duration-700"
           priority
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/20" />
         
 
 
@@ -54,7 +54,7 @@ export default function HeroCarrossel() {
               key={idx}
               onClick={() => setAtual(idx)}
               className={`w-2 h-2 rounded-full transition-all ${
-                idx === atual ? "bg-yellow-400 scale-125" : "bg-white/60"
+                idx === atual ? "bg-gradient-to-r from-[#EBA730] to-[#FAC934] scale-125" : "bg-white/60"
               }`}
             />
           ))}

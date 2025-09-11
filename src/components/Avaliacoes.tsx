@@ -18,7 +18,7 @@ export default function Avaliacoes() {
     return Array.from({ length: 5 }, (_, i) => (
       <svg
         key={i}
-        className={`w-5 h-5 ${i < avaliacao ? "text-yellow-400" : "text-zinc-300"}`}
+        className={`w-5 h-5 ${i < avaliacao ? "text-[#EBA730]" : "text-zinc-300"}`}
         fill="currentColor"
         viewBox="0 0 20 20"
       >
@@ -48,7 +48,7 @@ export default function Avaliacoes() {
                     src={depoimentos[depoimentoAtual].foto}
                     alt={depoimentos[depoimentoAtual].nome}
                     fill
-                    className="object-cover rounded-full border-4 border-yellow-400"
+                    className="object-cover rounded-full border-4 border-gradient-to-r from-[#EBA730] to-[#FAC934]"
                   />
                 </div>
               </div>
@@ -58,9 +58,9 @@ export default function Avaliacoes() {
                   {renderEstrelas(depoimentos[depoimentoAtual].avaliacao)}
                 </div>
                 <blockquote className="text-lg md:text-xl text-white mb-4 italic">
-                  "{depoimentos[depoimentoAtual].comentario}"
+                  &ldquo;{depoimentos[depoimentoAtual].comentario}&rdquo;
                 </blockquote>
-                <cite className="text-xl font-bold text-yellow-400">
+                <cite className="text-xl font-bold bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent">
                   {depoimentos[depoimentoAtual].nome}
                 </cite>
               </div>
@@ -92,7 +92,7 @@ export default function Avaliacoes() {
                 key={idx}
                 onClick={() => setDepoimentoAtual(idx)}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  idx === depoimentoAtual ? "bg-yellow-400 scale-110" : "bg-gray-600 hover:bg-gray-500"
+                  idx === depoimentoAtual ? "bg-gradient-to-r from-[#EBA730] to-[#FAC934] scale-110" : "bg-gray-600 hover:bg-gray-500"
                 }`}
               />
             ))}

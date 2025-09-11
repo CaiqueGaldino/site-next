@@ -26,7 +26,7 @@ export default function Estrutura() {
               direction="up" 
               delay={200 + (idx * 75)}
             >
-              <div className="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:shadow-yellow-400/20 transition-all duration-300 hover:-translate-y-2 border-2 border-gray-700">
+              <div className="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:shadow-[#EBA730]/20 transition-all duration-300 hover:-translate-y-2 border-2 border-gray-700">
                 <div className="relative h-64 overflow-hidden">
                   <Image
                     src={estrutura.imagem}
@@ -53,21 +53,21 @@ export default function Estrutura() {
 
         <ScrollReveal direction="up" delay={400}>
           <div className="text-center mt-16">
-            <div className="bg-zinc-900 rounded-3xl p-8 border-2 border-yellow-400 max-w-4xl mx-auto">
+            <div className="bg-zinc-900 rounded-3xl p-8 border-2 border-gradient-to-r from-[#EBA730] to-[#FAC934] max-w-4xl mx-auto">
               <h3 className="text-2xl font-bold text-white mb-4">
                 🏆 Infraestrutura Completa
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 <div>
-                  <div className="text-3xl font-black text-yellow-400 mb-2">200+</div>
+                  <div className="text-3xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-2">200+</div>
                   <p className="text-gray-300">Equipamentos Modernos</p>
                 </div>
                 <div>
-                  <div className="text-3xl font-black text-yellow-400 mb-2">100%</div>
+                  <div className="text-3xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-2">100%</div>
                   <p className="text-gray-300">Climatizado</p>
                 </div>
                 <div>
-                  <div className="text-3xl font-black text-yellow-400 mb-2">24h</div>
+                  <div className="text-3xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-2">24h</div>
                   <p className="text-gray-300">Monitoramento</p>
                 </div>
               </div>

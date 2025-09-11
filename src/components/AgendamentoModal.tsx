@@ -84,7 +84,7 @@ export default function AgendamentoModal({ isOpen, onClose }: AgendamentoModalPr
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-zinc-900 rounded-3xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-yellow-400/20">
+      <div className="bg-zinc-900 rounded-3xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#EBA730]/20">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-white">
             Agendar Aula Experimental
@@ -109,7 +109,7 @@ export default function AgendamentoModal({ isOpen, onClose }: AgendamentoModalPr
                 value={formData.nome}
                 onChange={handleChange}
                 required
-                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-yellow-400 focus:outline-none"
+                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-[#EBA730] focus:outline-none"
               />
             </div>
 
@@ -123,7 +123,7 @@ export default function AgendamentoModal({ isOpen, onClose }: AgendamentoModalPr
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-yellow-400 focus:outline-none"
+                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-[#EBA730] focus:outline-none"
               />
             </div>
 
@@ -137,7 +137,7 @@ export default function AgendamentoModal({ isOpen, onClose }: AgendamentoModalPr
                 value={formData.telefone}
                 onChange={handleChange}
                 required
-                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-yellow-400 focus:outline-none"
+                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-[#EBA730] focus:outline-none"
               />
             </div>
 
@@ -150,7 +150,7 @@ export default function AgendamentoModal({ isOpen, onClose }: AgendamentoModalPr
                 value={formData.unidade}
                 onChange={handleChange}
                 required
-                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-yellow-400 focus:outline-none"
+                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-[#EBA730] focus:outline-none"
               >
                 <option value="">Selecione uma unidade</option>
                 {unidades.map((unidade) => (
@@ -170,7 +170,7 @@ export default function AgendamentoModal({ isOpen, onClose }: AgendamentoModalPr
                 value={formData.modalidade}
                 onChange={handleChange}
                 required
-                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-yellow-400 focus:outline-none"
+                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-[#EBA730] focus:outline-none"
               >
                 <option value="">Selecione uma modalidade</option>
                 {modalidades.map((modalidade) => (
@@ -190,7 +190,7 @@ export default function AgendamentoModal({ isOpen, onClose }: AgendamentoModalPr
                 value={formData.horario}
                 onChange={handleChange}
                 required
-                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-yellow-400 focus:outline-none"
+                className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-[#EBA730] focus:outline-none"
               >
                 <option value="">Selecione um horário</option>
                 {horarios.map((horario) => (
@@ -211,7 +211,7 @@ export default function AgendamentoModal({ isOpen, onClose }: AgendamentoModalPr
               value={formData.mensagem}
               onChange={handleChange}
               rows={3}
-              className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-yellow-400 focus:outline-none resize-none"
+              className="w-full bg-black/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-[#EBA730] focus:outline-none resize-none"
               placeholder="Conte-nos mais sobre seus objetivos..."
             />
           </div>
@@ -226,7 +226,7 @@ export default function AgendamentoModal({ isOpen, onClose }: AgendamentoModalPr
             </button>
             <button
               type="submit"
-              className="flex-1 bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full transition-colors"
+              className="flex-1 bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-3 px-6 rounded-full transition-colors"
             >
               Agendar Aula
             </button>

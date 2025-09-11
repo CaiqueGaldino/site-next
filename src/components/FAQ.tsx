@@ -70,7 +70,7 @@ export default function FAQ() {
               direction="up" 
               delay={150 + (index * 50)}
             >
-              <div className="bg-black rounded-2xl border-2 border-gray-700 hover:border-yellow-400 transition-all duration-300">
+              <div className="bg-black rounded-2xl border-2 border-gray-700 hover:border-[#EBA730] transition-all duration-300">
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full p-6 text-left flex items-center justify-between focus:outline-none"
@@ -80,7 +80,7 @@ export default function FAQ() {
                   </h3>
                   <div className="flex-shrink-0">
                     <svg
-                      className={`w-6 h-6 text-yellow-400 transform transition-transform duration-300 ${
+                      className={`w-6 h-6 text-[#EBA730] transform transition-transform duration-300 ${
                         openIndex === index ? 'rotate-180' : ''
                       }`}
                       fill="none"
@@ -113,7 +113,7 @@ export default function FAQ() {
 
         <ScrollReveal direction="up" delay={400}>
           <div className="text-center mt-12">
-            <div className="bg-black rounded-3xl p-8 border-2 border-yellow-400 max-w-2xl mx-auto">
+            <div className="bg-black rounded-3xl p-8 border-2 border-[#EBA730] max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold text-white mb-4">
                 Ainda tem dúvidas?
               </h3>
@@ -121,10 +121,10 @@ export default function FAQ() {
                 Nossa equipe está pronta para ajudar você!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-6 py-3 rounded-full transition-all transform hover:scale-105">
+                <button className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-6 py-3 rounded-full transition-all transform hover:scale-105">
                   Falar no WhatsApp
                 </button>
-                <button className="bg-transparent border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold px-6 py-3 rounded-full transition-all">
+                <button className="bg-transparent border-2 border-[#EBA730] text-[#EBA730] hover:bg-gradient-to-r hover:from-[#EBA730] hover:to-[#FAC934] hover:text-black font-bold px-6 py-3 rounded-full transition-all">
                   Agendar Visita
                 </button>
               </div>

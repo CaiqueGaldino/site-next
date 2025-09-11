@@ -1,4 +1,4 @@
-// Dados da Academia - Corpo em Forma
+// Dados da Academia - Fitness Exclusive
 export const banners = [
   {
     src: "/images/banner1.png",
@@ -22,48 +22,62 @@ export const banners = [
 
 export const planos = [
   {
-    nome: "Mensal",
-    preco: "R$ 149",
+    nome: "Anual Recorrente",
+    preco: "R$ 139,90",
     periodo: "/mês",
-    descricao: "Ideal para quem quer experimentar",
+    descricao: "Plano com renovação automática",
     beneficios: [
-      "Acesso livre à academia",
-      "Musculação completa", 
-      "Aeróbicos",
-      "Vestiário com armários",
-      "Avaliação física inicial"
+      "APP do treino",
+      "Horário livre",
+      "Área de musculação e aeróbicos",
+      "Leve 5 amigos",
+      "Massagem do fisioterapeuta",
+      "Aulas coletivas e de dança",
+      "Cadeira de massagem",
+      "Válido por 7 dias"
     ],
-    popular: false
+    popular: false,
+    adesao: "Zero",
+    anuidade: "Zero"
   },
   {
-    nome: "Trimestral",
-    preco: "R$ 119",
+    nome: "Anual Crédito",
+    preco: "R$ 119,90",
     periodo: "/mês",
-    descricao: "Melhor custo-benefício",
+    descricao: "Plano anual pago à vista",
     beneficios: [
-      "Tudo do plano Mensal",
-      "Aulas coletivas incluídas",
-      "Cross training",
-      "Treino funcional",
-      "Acompanhamento nutricional",
-      "2 sessões de personal trainer"
+      "APP do treino",
+      "Horário livre",
+      "Área de musculação e aeróbicos",
+      "Leve 5 amigos",
+      "Massagem do fisioterapeuta",
+      "Aulas coletivas e de dança",
+      "Cadeira de massagem",
+      "Válido por 7 dias"
     ],
-    popular: true
+    popular: true,
+    adesao: "Zero",
+    anuidade: "Zero"
   },
   {
-    nome: "Anual",
-    preco: "R$ 89",
+    nome: "Plano Benefício",
+    preco: "R$ 9,90",
     periodo: "/mês",
-    descricao: "Máximo resultado e economia",
+    descricao: "Complemento dos planos anuais (não vendido separadamente)",
     beneficios: [
-      "Tudo do plano Trimestral",
-      "Personal trainer ilimitado",
-      "Acesso 24h",
-      "Suplementação incluída",
-      "Fisioterapia gratuita",
-      "Convidados: 2 por mês"
+      "APP do treino",
+      "Horário livre",
+      "Área de musculação e aeróbicos",
+      "Leve 5 amigos",
+      "Massagem do fisioterapeuta",
+      "Aulas coletivas e de dança",
+      "Cadeira de massagem",
+      "Válido por 7 dias"
     ],
-    popular: false
+    popular: false,
+    adesao: "Zero",
+    anuidade: "Zero",
+    observacao: "Plano Benefício é um complemento dos planos Anual Recorrente e Anual Crédito. Não é vendido separadamente!"
   }
 ];
 
@@ -71,22 +85,62 @@ export const estruturas = [
   {
     titulo: "Musculação",
     descricao: "Equipamentos modernos para todos os grupos musculares",
-    imagem: "/images/musculacao.jpg"
+    imagem: "/images/musculacao.jpg",
+    destaque: true,
+    video: "/videos/musculacao.mp4",
+    equipamentos: ["50+ Halteres", "20 Estações", "Cabos Reguláveis", "Barras Olímpicas"],
+    horarios: "24h - Todas as unidades",
+    beneficios: ["Ganho de massa", "Fortalecimento", "Definição muscular"],
+    especificacoes: {
+      area: "400m²",
+      equipamentos: "80+ máquinas",
+      capacidade: "60 pessoas"
+    }
   },
   {
     titulo: "Cross Training",
     descricao: "Treinos funcionais de alta intensidade",
-    imagem: "/images/cross.jpg"
+    imagem: "/images/cross.jpg",
+    destaque: false,
+    video: "/videos/cross.mp4",
+    equipamentos: ["Kettlebells", "Medicine Balls", "TRX", "Caixas Pliométricas"],
+    horarios: "5h às 23h",
+    beneficios: ["Queima de gordura", "Resistência", "Agilidade"],
+    especificacoes: {
+      area: "200m²",
+      equipamentos: "50+ acessórios",
+      capacidade: "25 pessoas"
+    }
   },
   {
     titulo: "Aeróbicos",
     descricao: "Esteiras, bikes e elípticos de última geração",
-    imagem: "/images/aerobicos.jpg"
+    imagem: "/images/aerobicos.jpg",
+    destaque: false,
+    video: "/videos/aerobicos.mp4",
+    equipamentos: ["15 Esteiras", "10 Bikes", "8 Elípticos", "5 Remo"],
+    horarios: "24h - Climatizado",
+    beneficios: ["Condicionamento", "Queima calórica", "Saúde cardiovascular"],
+    especificacoes: {
+      area: "300m²",
+      equipamentos: "38 máquinas",
+      capacidade: "40 pessoas"
+    }
   },
   {
     titulo: "Funcional",
     descricao: "Espaço amplo para treinos funcionais e flexibilidade",
-    imagem: "/images/funcional.jpg"
+    imagem: "/images/funcional.jpg",
+    destaque: false,
+    video: "/videos/funcional.mp4",
+    equipamentos: ["Suspensão", "Elásticos", "Steps", "Bosus"],
+    horarios: "6h às 22h",
+    beneficios: ["Mobilidade", "Coordenação", "Prevenção de lesões"],
+    especificacoes: {
+      area: "250m²",
+      equipamentos: "30+ acessórios",
+      capacidade: "20 pessoas"
+    }
   }
 ];
 
@@ -203,3 +257,66 @@ export const unidades = [
     destaque: false
   }
 ];
+
+// Por que escolher a Fitness Exclusive
+export const diferenciais = [
+  {
+    titulo: "Planos flexíveis",
+    descricao: "Descubra a liberdade de escolher o plano que combina com o seu ritmo. Aqui, você dita o tempo!",
+    icone: "💪"
+  },
+  {
+    titulo: "Ambiente moderno",
+    descricao: "Energia renovada e estrutura acolhedora para cuidar do seu corpo com conforto.",
+    icone: "🏢"
+  },
+  {
+    titulo: "Aulas diversificadas",
+    descricao: "A cada aula, uma nova aventura para manter o pique alto e o tédio longe.",
+    icone: "🎯"
+  },
+  {
+    titulo: "Profissionais qualificados",
+    descricao: "Especialistas dedicados para apoiar cada conquista na sua jornada fitness.",
+    icone: "👥"
+  }
+];
+
+// Benefícios exclusivos
+export const beneficiosExclusivos = [
+  {
+    titulo: "App Fitness Exclusive",
+    descricao: "Gerencie seus treinos e pagamentos de forma fácil e rápida.",
+    icone: "📱"
+  },
+  {
+    titulo: "Campanha Portabilidade Ativa",
+    descricao: "Garanta o valor da sua academia anterior por 3 meses.",
+    icone: "🔄"
+  },
+  {
+    titulo: "Massagem e relaxamento",
+    descricao: "Massagem do fisioterapeuta e cadeira de massagem disponíveis para recuperação e relaxamento.",
+    icone: "💆"
+  },
+  {
+    titulo: "Aulas coletivas",
+    descricao: "Acesso às aulas coletivas e de dança para diversificar o treino.",
+    icone: "🎵"
+  }
+];
+
+// Sobre nós
+export const sobreNos = {
+  titulo: "SOBRE NÓS",
+  descricao: "Somos a Fitness Exclusive, uma academia que nasceu de um sonho em uma garagem e hoje marca presença em várias cidades do Nordeste.",
+  missao: "Nossa missão é transformar vidas através de experiências saudáveis, oferecendo um ambiente moderno, acolhedor e equipado com tecnologia de ponta.",
+  equipe: "Nossa equipe apaixonada pelo fitness está pronta para ajudar você a alcançar seus objetivos com inovação, qualidade e muita energia positiva."
+};
+
+// Informações de contato
+export const contato = {
+  telefone: "+55 (87) 99359-5368",
+  email: "fitnessexclusive@fitnessexclusive.com.br",
+  instagram: "@academiafitnessexclusive"
+};

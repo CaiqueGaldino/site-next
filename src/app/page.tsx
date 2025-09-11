@@ -2,8 +2,10 @@
 import Header from "../components/Header";
 import HeroCarrossel from "../components/Carrossel";
 import Planos from "../components/Planos";
-import Estrutura from "../components/Estrutura";
+import EstruturaModerna from "../components/EstruturaModerna";
 import ContadorAlunos from "../components/ContadorAlunos";
+import DiferenciaisStack from "../components/DiferenciaisStack";
+import Beneficios from "../components/Beneficios";
 import Avaliacoes from "../components/Avaliacoes";
 import Unidades from "../components/Unidades";
 import FAQ from "../components/FAQ";
@@ -19,8 +21,10 @@ export default function Home() {
       <main className="pt-20">
         <HeroCarrossel />
         <Planos />
-        <Estrutura />
+        <EstruturaModerna />
         <ContadorAlunos />
+        <DiferenciaisStack />
+        <Beneficios />
         <Avaliacoes />
         <Unidades />
         <FAQ />
