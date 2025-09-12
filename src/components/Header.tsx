@@ -13,7 +13,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             <div className="relative w-40 h-12">
               <Image
-                src="/images/logo.webp"
+                src="/images/logo.png"
                 alt="Fitness Exclusive"
                 fill
                 className="object-contain"
