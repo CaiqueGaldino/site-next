@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { getAssetPath } from "../lib/utils";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,8 +18,8 @@ export const metadata: Metadata = {
   description: "A melhor academia da região com equipamentos modernos, professores qualificados e planos flexíveis. Transforme seu corpo na Fitness Exclusive!",
   icons: {
     icon: [
-      { url: '/images/icones/icone3.svg', type: 'image/svg+xml' },
-      { url: '/images/icones/icone3.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: getAssetPath('/images/icones/icone3.svg'), type: 'image/svg+xml' },
+      { url: getAssetPath('/images/icones/icone3.ico'), sizes: '32x32', type: 'image/x-icon' },
     ],
   },
 };

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { getAssetPath } from "../lib/utils";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             <div className="relative w-40 h-12">
               <Image
-                src="/images/logo.webp"
+                src={getAssetPath("/images/logo.png")}
                 alt="Fitness Exclusive"
                 fill
                 className="object-contain"
