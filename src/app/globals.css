@@ -34,3 +34,128 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
 }
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Touch-optimized scroll behavior */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Optimize text rendering for mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Touch manipulation optimization */
+  button, [role="button"], input, select, textarea {
+    touch-action: manipulation;
+  }
+  
+  /* Prevent zoom on input focus (mobile) */
+  input[type="text"], 
+  input[type="email"], 
+  input[type="number"], 
+  input[type="tel"], 
+  textarea, 
+  select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Optimize animations for mobile */
+  .animate-bounce, .animate-pulse, .animate-ping {
+    animation-duration: 1.5s; /* Slower animations for better battery */
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-bounce, .animate-pulse, .animate-ping {
+    animation: none !important;
+  }
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* GPU acceleration for smooth animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Loading state utilities */
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Mobile-optimized focus states */
+@media (max-width: 768px) {
+  button:focus, 
+  [role="button"]:focus {
+    outline: 2px solid #EBA730;
+    outline-offset: 2px;
+  }
+  
+  /* Better tap highlighting */
+  button, 
+  [role="button"] {
+    -webkit-tap-highlight-color: rgba(235, 167, 48, 0.3);
+  }
+}
+
+/* Text utilities for consistent layouts */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}

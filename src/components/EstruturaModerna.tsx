@@ -62,10 +62,10 @@ export default function EstruturaModerna() {
                 onMouseLeave={() => setHoveredCard(null)}
                 onClick={() => setSelectedEstrutura(estrutura)}
               >
-                <div className="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:shadow-[#EBA730]/20 transition-all duration-500 border-2 border-gray-700 hover:border-[#EBA730]/50 h-full">
+                <div className="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:shadow-[#EBA730]/20 transition-all duration-500 border-2 border-gray-700 hover:border-[#EBA730]/50 h-full flex flex-col">
                   
                   {/* Área da imagem - altura uniforme */}
-                  <div className="relative overflow-hidden h-48">
+                  <div className="relative overflow-hidden h-48 flex-shrink-0">
                     <Image
                       src={estrutura.imagem}
                       alt={estrutura.titulo}
@@ -102,19 +102,19 @@ export default function EstruturaModerna() {
                   </div>
 
                   {/* Área de informações uniforme */}
-                  <div className="p-4">
-                    <div className="grid grid-cols-1 gap-3">
+                  <div className="p-4 flex-1 flex flex-col">
+                    <div className="grid grid-cols-1 gap-3 flex-1">
                       <div>
                         <h4 className="text-[#EBA730] font-bold text-sm mb-1">Horários</h4>
-                        <p className="text-white text-xs">{estrutura.horarios}</p>
+                        <p className="text-white text-xs line-clamp-2">{estrutura.horarios}</p>
                       </div>
                       <div>
                         <h4 className="text-[#EBA730] font-bold text-sm mb-1">Equipamentos</h4>
-                        <p className="text-white text-xs">{estrutura.especificacoes.equipamentos}</p>
+                        <p className="text-white text-xs line-clamp-2">{estrutura.especificacoes.equipamentos}</p>
                       </div>
                     </div>
                     
-                    <button className="w-full mt-3 bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 text-sm">
+                    <button className="w-full mt-3 bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 text-sm flex-shrink-0">
                       Ver Detalhes
                     </button>
                   </div>
@@ -158,85 +158,88 @@ export default function EstruturaModerna() {
 
         {/* Modal de detalhes */}
         {selectedEstrutura && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-zinc-900 rounded-3xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto border-2 border-[#EBA730]/50 relative">
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-hidden">
+            <div className="bg-zinc-900 rounded-3xl p-6 max-w-4xl w-full h-full max-h-[95vh] border-2 border-[#EBA730]/50 relative flex flex-col overflow-hidden">
               {/* Botão fechar */}
               <button
                 onClick={() => setSelectedEstrutura(null)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl bg-black/50 rounded-full w-10 h-10 flex items-center justify-center"
+                className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl bg-black/50 rounded-full w-10 h-10 flex items-center justify-center z-10"
               >
                 ✕
               </button>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Imagem principal */}
-                <div className="relative h-80 rounded-2xl overflow-hidden">
-                  <Image
-                    src={selectedEstrutura.imagem}
-                    alt={selectedEstrutura.titulo}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                </div>
-
-                {/* Informações detalhadas */}
-                <div>
-                  <h2 className="text-3xl font-bold text-white mb-4">{selectedEstrutura.titulo}</h2>
-                  <p className="text-gray-300 mb-6">{selectedEstrutura.descricao}</p>
-
-                  {/* Especificações */}
-                  <div className="bg-black/50 rounded-2xl p-6 mb-6">
-                    <h3 className="text-[#EBA730] font-bold mb-4">📊 Especificações</h3>
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <span className="text-gray-400">Área:</span>
-                        <p className="text-white font-bold">{selectedEstrutura.especificacoes.area}</p>
-                      </div>
-                      <div>
-                        <span className="text-gray-400">Equipamentos:</span>
-                        <p className="text-white font-bold">{selectedEstrutura.especificacoes.equipamentos}</p>
-                      </div>
-                      <div>
-                        <span className="text-gray-400">Capacidade:</span>
-                        <p className="text-white font-bold">{selectedEstrutura.especificacoes.capacidade}</p>
-                      </div>
-                      <div>
-                        <span className="text-gray-400">Horários:</span>
-                        <p className="text-white font-bold">{selectedEstrutura.horarios}</p>
-                      </div>
-                    </div>
+              {/* Conteúdo com scroll customizado */}
+              <div className="flex-1 overflow-y-auto scrollbar-hide pt-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
+                  {/* Imagem principal */}
+                  <div className="relative h-80 lg:h-full min-h-[300px] rounded-2xl overflow-hidden">
+                    <Image
+                      src={selectedEstrutura.imagem}
+                      alt={selectedEstrutura.titulo}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   </div>
 
-                  {/* Equipamentos */}
-                  <div className="mb-6">
-                    <h3 className="text-[#EBA730] font-bold mb-3">🏋️ Equipamentos Disponíveis</h3>
-                    <div className="grid grid-cols-2 gap-2">
-                      {selectedEstrutura.equipamentos.map((equipamento, i) => (
-                        <div key={i} className="flex items-center text-gray-300 text-sm">
-                          <span className="w-2 h-2 bg-gradient-to-r from-[#EBA730] to-[#FAC934] rounded-full mr-2"></span>
-                          {equipamento}
+                  {/* Informações detalhadas */}
+                  <div className="flex flex-col">
+                    <h2 className="text-3xl font-bold text-white mb-4">{selectedEstrutura.titulo}</h2>
+                    <p className="text-gray-300 mb-6">{selectedEstrutura.descricao}</p>
+
+                    {/* Especificações */}
+                    <div className="bg-black/50 rounded-2xl p-6 mb-6">
+                      <h3 className="text-[#EBA730] font-bold mb-4">📊 Especificações</h3>
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <span className="text-gray-400">Área:</span>
+                          <p className="text-white font-bold">{selectedEstrutura.especificacoes.area}</p>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Benefícios */}
-                  <div className="mb-6">
-                    <h3 className="text-[#EBA730] font-bold mb-3">💪 Benefícios</h3>
-                    <div className="space-y-2">
-                      {selectedEstrutura.beneficios.map((beneficio, i) => (
-                        <div key={i} className="flex items-center text-gray-300 text-sm">
-                          <span className="text-[#EBA730] mr-2">✓</span>
-                          {beneficio}
+                        <div>
+                          <span className="text-gray-400">Equipamentos:</span>
+                          <p className="text-white font-bold">{selectedEstrutura.especificacoes.equipamentos}</p>
                         </div>
-                      ))}
+                        <div>
+                          <span className="text-gray-400">Capacidade:</span>
+                          <p className="text-white font-bold">{selectedEstrutura.especificacoes.capacidade}</p>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">Horários:</span>
+                          <p className="text-white font-bold">{selectedEstrutura.horarios}</p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-                  <button className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105">
-                    🎯 Conhecer Pessoalmente
-                  </button>
+                    {/* Equipamentos */}
+                    <div className="mb-6">
+                      <h3 className="text-[#EBA730] font-bold mb-3">🏋️ Equipamentos Disponíveis</h3>
+                      <div className="grid grid-cols-2 gap-2">
+                        {selectedEstrutura.equipamentos.map((equipamento, i) => (
+                          <div key={i} className="flex items-center text-gray-300 text-sm">
+                            <span className="w-2 h-2 bg-gradient-to-r from-[#EBA730] to-[#FAC934] rounded-full mr-2 flex-shrink-0"></span>
+                            {equipamento}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Benefícios */}
+                    <div className="mb-6">
+                      <h3 className="text-[#EBA730] font-bold mb-3">💪 Benefícios</h3>
+                      <div className="space-y-2">
+                        {selectedEstrutura.beneficios.map((beneficio, i) => (
+                          <div key={i} className="flex items-center text-gray-300 text-sm">
+                            <span className="text-[#EBA730] mr-2 flex-shrink-0">✓</span>
+                            {beneficio}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <button className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 mt-auto">
+                      🎯 Conhecer Pessoalmente
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

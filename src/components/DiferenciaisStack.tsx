@@ -6,6 +6,8 @@ import ScrollReveal from "./ScrollReveal";
 export default function Diferenciais() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % diferenciais.length);
@@ -13,6 +15,30 @@ export default function Diferenciais() {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + diferenciais.length) % diferenciais.length);
+  };
+
+  // Funções para touch/swipe nos diferenciais
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
   };
 
   return (
@@ -24,21 +50,28 @@ export default function Diferenciais() {
         style={{ height: `${diferenciais.length * 50}vh` }}
       >
         {/* Container das seções empilhadas */}
-        <div className="sticky top-0 h-screen overflow-hidden">
-          {/* Botão anterior - lateral esquerda */}
+        <div 
+          className="sticky top-0 h-screen overflow-hidden cursor-grab active:cursor-grabbing"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Botão anterior - lateral esquerda - Touch targets maiores */}
           <button
             onClick={prevSlide}
-            className="absolute left-8 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-[#EBA730]/80 text-white p-4 rounded-full transition-all duration-300 group backdrop-blur-sm border border-gray-600 hover:border-[#EBA730]"
+            className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-[#EBA730]/80 text-white p-4 md:p-4 rounded-full transition-all duration-300 group backdrop-blur-sm border border-gray-600 hover:border-[#EBA730] touch-manipulation"
+            aria-label="Diferencial anterior"
           >
             <svg className="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
-          {/* Botão próximo - lateral direita */}
+          {/* Botão próximo - lateral direita - Touch targets maiores */}
           <button
             onClick={nextSlide}
-            className="absolute right-8 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-[#EBA730]/80 text-white p-4 rounded-full transition-all duration-300 group backdrop-blur-sm border border-gray-600 hover:border-[#EBA730]"
+            className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-[#EBA730]/80 text-white p-4 md:p-4 rounded-full transition-all duration-300 group backdrop-blur-sm border border-gray-600 hover:border-[#EBA730] touch-manipulation"
+            aria-label="Próximo diferencial"
           >
             <svg className="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -93,17 +126,18 @@ export default function Diferenciais() {
             </div>
           ))}
 
-          {/* Indicador de posição - único e sobreposto */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex justify-center items-center gap-2">
+          {/* Indicador de posição - único e sobreposto - Touch targets maiores */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex justify-center items-center gap-3">
             {diferenciais.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`touch-manipulation transition-all duration-300 ${
                   index === currentSlide 
-                    ? 'bg-[#EBA730] scale-125' 
-                    : 'bg-gray-600 hover:bg-gray-400'
+                    ? 'w-8 h-4 md:w-6 md:h-3 bg-[#EBA730] rounded-full' 
+                    : 'w-4 h-4 md:w-3 md:h-3 rounded-full bg-gray-600 hover:bg-gray-400'
                 }`}
+                aria-label={`Ir para diferencial ${index + 1}`}
               />
             ))}
           </div>

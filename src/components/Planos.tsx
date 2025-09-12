@@ -125,21 +125,29 @@ export default function Planos() {
                   ))}
                 </ul>
 
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <button
                     onClick={() => setSelectedPlano(plano)}
-                    className="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full transition-colors text-sm"
+                    className="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 md:py-2 px-4 rounded-full transition-all text-base md:text-sm touch-manipulation active:scale-95"
                   >
                     Ver Detalhes
                   </button>
                   <button 
-                    className={`w-full py-3 rounded-full font-bold text-sm transition-all transform hover:scale-105 ${
+                    onClick={() => {
+                      // Haptic feedback simulation
+                      if (typeof window !== 'undefined' && 'vibrate' in navigator) {
+                        navigator.vibrate(100);
+                      }
+                      // Aqui você pode adicionar lógica para abrir formulário ou WhatsApp
+                      window.open('https://wa.me/5587993595368?text=' + encodeURIComponent(`Olá! Gostaria de assinar o plano ${plano.nome} 💪`), '_blank');
+                    }}
+                    className={`w-full py-4 md:py-3 rounded-full font-bold text-base md:text-sm transition-all transform hover:scale-105 active:scale-95 touch-manipulation shadow-lg ${
                       plano.popular
-                        ? "bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black shadow-lg"
+                        ? "bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black"
                         : "bg-white text-black hover:bg-gray-100"
                     }`}
                   >
-                    Assinar {plano.nome}
+                    🚀 Assinar {plano.nome}
                   </button>
                 </div>
               </div>
