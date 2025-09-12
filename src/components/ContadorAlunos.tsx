@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
+import { getAssetPath } from "../lib/utils";
 
 export default function ContadorAlunos() {
   const [stats, setStats] = useState({
@@ -53,25 +54,25 @@ export default function ContadorAlunos() {
     {
       numero: stats.alunos.toLocaleString(),
       label: "Alunos Ativos",
-      icone: "/images/icones/alunos.png",
+      icone: getAssetPath("/images/icones/alunos.png"),
       cor: "bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent"
     },
     {
       numero: stats.unidades,
       label: "Unidades",
-      icone: "/images/icones/unidades.png",
+      icone: getAssetPath("/images/icones/unidades.png"),
       cor: "text-green-400"
     },
     {
       numero: stats.treinadores,
       label: "Treinadores",
-      icone: "/images/icones/treinadores.png",
+      icone: getAssetPath("/images/icones/treinadores.png"),
       cor: "text-blue-400"
     },
     {
       numero: stats.anos,
       label: "Anos de Experiência",
-      icone: "/images/icones/experiencia.png",
+      icone: getAssetPath("/images/icones/experiencia.png"),
       cor: "text-purple-400"
     }
   ];
