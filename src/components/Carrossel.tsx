@@ -72,9 +72,9 @@ export default function HeroCarrossel() {
           src={banners[atual].src}
           alt={banners[atual].alt}
           fill
-          className="object-cover transition-all duration-700"
           priority
           sizes="100vw"
+          className="object-cover transition-all duration-700"
         />
         <div className="absolute inset-0 bg-black/20" />
         
