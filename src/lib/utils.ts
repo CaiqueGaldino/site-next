@@ -1,11 +1,11 @@
-// Utilitário para paths de assets
-const isProd = process.env.NODE_ENV === 'production';
-const basePath = isProd ? '/site-next' : '';
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
 
-export const getAssetPath = (path: string) => {
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+export function getAssetPath(path: string): string {
+  const basePath = process.env.NODE_ENV === 'production' ? '/site-next' : '';
   return `${basePath}${path}`;
-};
-
-export const getImagePath = (imageName: string) => {
-  return getAssetPath(`/images/${imageName}`);
-};
+}
