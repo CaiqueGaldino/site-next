@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import ScrollReveal from "./ScrollReveal";
+import ScrollReveal from "../shared/ScrollReveal";
 
 interface FAQItem {
   question: string;

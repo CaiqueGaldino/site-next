@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { hapticFeedback } from "../../lib/mobileUtils";
 import DockNavigation from "./DockNavigation";
-import HeroCarrosselMobile from "./HeroCarrosselMobile";
+import BannerOverlay from "./BannerOverlay";
 import PlanosMobile from "./PlanosMobile";
 import BeneficiosMobile from "./BeneficiosMobile";
 import FAQMobile from "./FAQMobile";
 import ModalidadesMobile from "./ModalidadesMobile";
 import ContadorAlunosMobile from "./ContadorAlunosMobile";
-import EstruturaModerna from "../EstruturaModerna";
-import Unidades from "../Unidades";
-import AulaExperimental from "../AulaExperimental";
+import EstruturaModerna from "../desktop/EstruturaModerna";
+import Unidades from "../desktop/Unidades";
+import AulaExperimental from "../desktop/AulaExperimental";
 
 type Section = "home" | "estrutura" | "unidades" | "planos" | "faq";
 
@@ -65,7 +65,7 @@ export default function OnePageMobile() {
       case "home":
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
-            <HeroCarrosselMobile />
+            <ModalidadesMobile />
             <ContadorAlunosMobile />
             <div className="h-24"></div>
           </div>
@@ -74,7 +74,6 @@ export default function OnePageMobile() {
       case "estrutura":
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
-            <ModalidadesMobile />
             <EstruturaModerna />
             <div className="h-24"></div>
           </div>
@@ -112,7 +111,10 @@ export default function OnePageMobile() {
   };
 
   return (
-    <div className="h-screen w-screen overflow-hidden bg-black flex flex-col fixed inset-0">
+    <div className="h-screen w-screen overflow-hidden bg-black flex flex-col fixed inset-0 mobile-one-page">
+      {/* Banner Overlay - Aparece ao carregar */}
+      <BannerOverlay />
+
       {/* Content Area - Fixed height */}
       <div className="flex-1 overflow-hidden relative">
         <AnimatePresence mode="wait" custom={direction}>

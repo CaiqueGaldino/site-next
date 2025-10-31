@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { depoimentos } from "../lib/dadosAcademia";
+import { depoimentos } from "../../lib/dadosAcademia";
 
 export default function Avaliacoes() {
   const [depoimentoAtual, setDepoimentoAtual] = useState(0);

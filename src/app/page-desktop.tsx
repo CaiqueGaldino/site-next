@@ -1,17 +1,17 @@
 import HeaderDesktop from "../components/desktop/HeaderDesktop";
-import HeroCarrossel from "../components/Carrossel";
-import Planos from "../components/Planos";
-import EstruturaModerna from "../components/EstruturaModerna";
-import ContadorAlunos from "../components/ContadorAlunos";
-import DiferenciaisStack from "../components/DiferenciaisStack";
-import Beneficios from "../components/Beneficios";
-import Avaliacoes from "../components/Avaliacoes";
-import Unidades from "../components/Unidades";
-import FAQ from "../components/FAQ";
-import AulaExperimental from "../components/AulaExperimental";
-import Footer from "../components/Footer";
-import WhatsAppButton from "../components/WhatsAppButton";
-import ScrollToTop from "../components/ScrollToTop";
+import HeroCarrossel from "../components/shared/Carrossel";
+import Planos from "../components/desktop/Planos";
+import EstruturaModerna from "../components/desktop/EstruturaModerna";
+import ContadorAlunos from "../components/desktop/ContadorAlunos";
+import DiferenciaisStack from "../components/desktop/DiferenciaisStack";
+import Beneficios from "../components/desktop/Beneficios";
+import Avaliacoes from "../components/desktop/Avaliacoes";
+import Unidades from "../components/desktop/Unidades";
+import FAQ from "../components/desktop/FAQ";
+import AulaExperimental from "../components/desktop/AulaExperimental";
+import Footer from "../components/desktop/Footer";
+import WhatsAppButton from "../components/shared/WhatsAppButton";
+import ScrollToTop from "../components/shared/ScrollToTop";
 
 export default function HomeDesktop() {
   return (

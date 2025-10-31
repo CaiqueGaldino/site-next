@@ -99,8 +99,8 @@ export default function ModalidadesMobile() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Indicadores */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        {/* Indicadores - Movido para cima */}
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2">
           {diferenciais.map((_, index) => (
             <button
               key={index}

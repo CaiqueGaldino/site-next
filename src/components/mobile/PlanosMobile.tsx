@@ -20,6 +20,18 @@ export default function PlanosMobile() {
     ...plano,
   }));
 
+  // Encontrar o índice do plano popular
+  const popularIndex = planosDetalhados.findIndex((plano) => plano.popular);
+
+  React.useEffect(() => {
+    // Scroll para o plano popular quando o componente montar
+    if (scrollRef.current && popularIndex !== -1) {
+      const cardWidth = 280 + 16; // largura do card + gap
+      const scrollPosition = popularIndex * cardWidth - (window.innerWidth / 2 - 140);
+      scrollRef.current.scrollLeft = scrollPosition;
+    }
+  }, [popularIndex]);
+
   const openModal = (plano: PlanoDetalhes) => {
     setSelectedPlano(plano);
     hapticFeedback('medium');
@@ -38,10 +50,10 @@ export default function PlanosMobile() {
   };
 
   return (
-    <section id="planos" className="py-12 bg-zinc-900">
-      <div className="px-4">
+    <section id="planos" className="py-8 bg-zinc-900 min-h-screen flex flex-col">
+      <div className="px-4 flex-1 flex flex-col">
         {/* Título */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h2 className="text-3xl font-black text-white mb-3">
             Escolha o Plano Ideal
           </h2>
@@ -53,11 +65,12 @@ export default function PlanosMobile() {
         {/* Scroll Horizontal de Planos */}
         <div 
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide touch-pan-x"
+          className="flex gap-4 overflow-x-auto pb-4 pt-4 snap-x snap-mandatory scrollbar-hide touch-pan-x flex-1"
           style={{ 
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
-            WebkitOverflowScrolling: 'touch'
+            WebkitOverflowScrolling: 'touch',
+            maxHeight: 'calc(100vh - 220px)'
           }}
         >
           {planosDetalhados.map((plano, idx) => (
@@ -65,7 +78,7 @@ export default function PlanosMobile() {
               key={`${plano.nome}-${idx}`}
               className="flex-shrink-0 w-[280px] snap-center"
             >
-              <div className={`relative h-full ${plano.popular ? 'scale-105' : ''}`}>
+              <div className={`relative ${plano.popular ? 'scale-105' : ''}`}>
                 {/* Badge Popular */}
                 {plano.popular && (
                   <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-10">
@@ -76,18 +89,18 @@ export default function PlanosMobile() {
                 )}
 
                 <div
-                  className={`bg-black rounded-2xl shadow-xl p-5 h-full flex flex-col border-2 transition-all ${
+                  className={`bg-black rounded-2xl shadow-xl p-4 flex flex-col border-2 transition-all ${
                     plano.popular 
                       ? "border-[#EBA730] shadow-[#EBA730]/20" 
                       : "border-gray-700"
                   }`}
                 >
                   {/* Header do Card */}
-                  <div className="text-center mb-5">
+                  <div className="text-center mb-4">
                     <h3 className="text-lg font-bold text-white mb-2">
                       {plano.nome}
                     </h3>
-                    <p className="text-gray-400 text-xs mb-3 line-clamp-2">
+                    <p className="text-gray-400 text-xs mb-2 line-clamp-2">
                       {plano.descricao}
                     </p>
                     <div className="flex items-baseline justify-center mb-2">
@@ -101,7 +114,7 @@ export default function PlanosMobile() {
                   </div>
 
                   {/* Benefícios */}
-                  <ul className="space-y-2 mb-5 flex-grow">
+                  <ul className="space-y-1.5 mb-4 flex-grow">
                     {plano.beneficios.slice(0, 4).map((beneficio, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <svg className="w-4 h-4 text-[#EBA730] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -121,13 +134,13 @@ export default function PlanosMobile() {
                   <div className="space-y-2">
                     <button
                       onClick={() => openModal(plano)}
-                      className="w-full bg-gray-700 active:bg-gray-600 text-white font-medium py-3 px-4 rounded-full transition-all text-sm touch-manipulation active:scale-95"
+                      className="w-full bg-gray-700 active:bg-gray-600 text-white font-medium py-2.5 px-4 rounded-full transition-all text-sm touch-manipulation active:scale-95"
                     >
                       Ver Detalhes
                     </button>
                     <button 
                       onClick={() => handleAssinar(plano)}
-                      className={`w-full py-3 rounded-full font-bold text-sm transition-all transform active:scale-95 touch-manipulation shadow-lg ${
+                      className={`w-full py-2.5 rounded-full font-bold text-sm transition-all transform active:scale-95 touch-manipulation shadow-lg ${
                         plano.popular
                           ? "bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black"
                           : "bg-white text-black"
@@ -142,12 +155,7 @@ export default function PlanosMobile() {
           ))}
         </div>
 
-        {/* Indicador de Scroll */}
-        <div className="text-center mt-4 text-gray-400 text-xs flex items-center justify-center gap-2">
-          <span>👈</span>
-          <span>Deslize para ver mais planos</span>
-          <span>👉</span>
-        </div>
+        
       </div>
 
       {/* Modal de Detalhes - Fullscreen Mobile */}

@@ -115,61 +115,75 @@ export default function BeneficiosMobile() {
           ))}
         </div>
 
-        {/* Detalhes Expandidos - Modal Bottom Sheet */}
+        {/* Detalhes Expandidos - Dialog Centralizado Overlay */}
         {expandedIndex !== null && (
           <div 
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-end"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in"
             onClick={() => {
               setExpandedIndex(null);
               hapticFeedback('light');
             }}
           >
             <div 
-              className="bg-zinc-900 rounded-t-3xl w-full max-h-[70vh] overflow-y-auto p-6 animate-slide-up border-t-4 border-[#EBA730]"
+              className="bg-gradient-to-br from-zinc-900 to-black rounded-3xl w-full max-w-md max-h-[70vh] overflow-hidden border-2 border-[#EBA730]/50 shadow-2xl animate-scale-in"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Handle visual */}
-              <div className="w-12 h-1 bg-gray-600 rounded-full mx-auto mb-6"></div>
-              
-              {/* Conteúdo */}
-              <div className="text-center mb-6">
-                <div className="text-5xl mb-3">
-                  {beneficios[expandedIndex].icone}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  {beneficios[expandedIndex].titulo}
-                </h3>
-                <p className="text-gray-300 text-sm">
-                  {beneficios[expandedIndex].descricao}
-                </p>
-              </div>
-
-              {/* Destaques */}
-              <div className="space-y-3 mb-6">
-                {beneficios[expandedIndex].destaque.map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-black/50 p-3 rounded-xl">
-                    <div className="w-2 h-2 bg-gradient-to-r from-[#EBA730] to-[#FAC934] rounded-full flex-shrink-0"></div>
-                    <span className="text-sm text-gray-200">{item}</span>
+              {/* Header do Modal */}
+              <div className="bg-gradient-to-r from-[#EBA730]/20 to-[#FAC934]/20 p-5 border-b border-gray-700 relative">
+                <button
+                  onClick={() => {
+                    setExpandedIndex(null);
+                    hapticFeedback('light');
+                  }}
+                  className="absolute top-4 right-4 text-gray-400 hover:text-white active:text-[#EBA730] text-2xl p-2 active:scale-95 touch-manipulation transition-colors"
+                  aria-label="Fechar"
+                >
+                  ✕
+                </button>
+                <div className="text-center">
+                  <div className="text-5xl mb-3">
+                    {beneficios[expandedIndex].icone}
                   </div>
-                ))}
+                  <h3 className="text-xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-1">
+                    {beneficios[expandedIndex].titulo}
+                  </h3>
+                  <p className="text-gray-400 text-sm">
+                    {beneficios[expandedIndex].descricao}
+                  </p>
+                </div>
               </div>
 
-              {/* Botão Fechar */}
-              <button
-                onClick={() => {
-                  setExpandedIndex(null);
-                  hapticFeedback('light');
-                }}
-                className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold py-3 rounded-full touch-manipulation active:scale-95"
-              >
-                Fechar
-              </button>
+              {/* Conteúdo do Modal - Scrollable */}
+              <div className="overflow-y-auto max-h-[calc(70vh-240px)] p-5">
+                {/* Destaques */}
+                <div className="space-y-3 mb-4">
+                  {beneficios[expandedIndex].destaque.map((item, i) => (
+                    <div key={i} className="flex items-start gap-3 bg-black/50 p-3 rounded-xl">
+                      <div className="w-2 h-2 bg-gradient-to-r from-[#EBA730] to-[#FAC934] rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-sm text-gray-200 leading-relaxed">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer do Modal */}
+              <div className="p-5 bg-zinc-900/90 border-t border-gray-700">
+                <button
+                  onClick={() => {
+                    setExpandedIndex(null);
+                    hapticFeedback('light');
+                  }}
+                  className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold py-3 rounded-full touch-manipulation active:scale-95"
+                >
+                  Fechar
+                </button>
+              </div>
             </div>
           </div>
         )}
 
-        {/* Call to action */}
-        <div className="bg-gradient-to-r from-zinc-900 via-black to-zinc-900 rounded-3xl p-6 border-2 border-[#EBA730] relative overflow-hidden">
+        {/* Call to action - Movido para cima */}
+        <div className="bg-gradient-to-r from-zinc-900 via-black to-zinc-900 rounded-3xl p-6 border-2 border-[#EBA730] relative overflow-hidden mb-20">
           <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/10 via-transparent to-[#FAC934]/10"></div>
           <div className="relative z-10 text-center">
             <h3 className="text-xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-3">

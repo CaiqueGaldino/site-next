@@ -39,13 +39,12 @@ export default function DockNavigation({ activeSection, onNavigate }: DockNaviga
       >
         {navigationItems.map((item) => (
           <DockItem key={item.id}>
-            <DockLabel>{item.label}</DockLabel>
             <DockIcon>
               <button
                 onClick={() => handleNavigate(item.id)}
                 className={`w-full h-full flex items-center justify-center rounded-lg transition-colors touch-manipulation ${
                   activeSection === item.id
-                    ? 'bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black'
+                    ? 'text-[#EBA730]'
                     : 'text-white hover:bg-white/10'
                 }`}
                 aria-label={item.label}

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import { banners } from "../lib/dadosAcademia";
+import { banners } from "../../lib/dadosAcademia";
 
 export default function HeroCarrossel() {
   const [atual, setAtual] = useState(0);
@@ -69,14 +69,13 @@ export default function HeroCarrossel() {
         onTouchEnd={handleTouchEnd}
       >
         <Image
-          src={banners[atual].src}
+          src={banners[atual].desktop}
           alt={banners[atual].alt}
           fill
           priority
           sizes="100vw"
           className="object-cover transition-all duration-700"
         />
-        <div className="absolute inset-0 bg-black/20" />
         
         {/* Botões de navegação - Touch targets maiores */}
         <button 

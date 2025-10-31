@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { estruturas } from "../lib/dadosAcademia";
-import ScrollReveal from "./ScrollReveal";
+import { estruturas } from "../../lib/dadosAcademia";
+import ScrollReveal from "../shared/ScrollReveal";
 
 interface EstruturaDetalhes {
   titulo: string;
@@ -60,14 +60,17 @@ export default function EstruturaModerna() {
                 }`}
                 onMouseEnter={() => setHoveredCard(idx)}
                 onMouseLeave={() => setHoveredCard(null)}
-                onClick={() => setSelectedEstrutura(estrutura)}
+                onClick={() => setSelectedEstrutura({
+                  ...estrutura,
+                  imagem: estrutura.desktop
+                })}
               >
                 <div className="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:shadow-[#EBA730]/20 transition-all duration-500 border-2 border-gray-700 hover:border-[#EBA730]/50 h-full flex flex-col">
                   
                   {/* Área da imagem - altura uniforme */}
                   <div className="relative overflow-hidden h-48 flex-shrink-0">
                     <Image
-                      src={estrutura.imagem}
+                      src={estrutura.desktop}
                       alt={estrutura.titulo}
                       fill
                       className="object-cover transition-all duration-700 group-hover:scale-110"
@@ -169,7 +172,7 @@ export default function EstruturaModerna() {
               </button>
 
               {/* Conteúdo com scroll customizado */}
-              <div className="flex-1 overflow-y-auto scrollbar-hide pt-8">
+              <div className="flex-1 overflow-y-auto scrollbar-hide pt-8 pb-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
                   {/* Imagem principal */}
                   <div className="relative h-80 lg:h-full min-h-[300px] rounded-2xl overflow-hidden">
@@ -236,7 +239,7 @@ export default function EstruturaModerna() {
                       </div>
                     </div>
 
-                    <button className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 mt-auto">
+                    <button className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 mt-auto mb-24">
                       🎯 Conhecer Pessoalmente
                     </button>
                   </div>

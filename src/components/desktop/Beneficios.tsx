@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import ScrollReveal from "./ScrollReveal";
+import ScrollReveal from "../shared/ScrollReveal";
 
 const beneficios = [
   {

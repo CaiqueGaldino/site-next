@@ -57,6 +57,10 @@
   animation: fadeIn 0.3s ease-out;
 }
 
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
 .animate-slide-up {
   animation: slideUp 0.3s ease-out;
 }
@@ -246,13 +250,17 @@ textarea {
 /* Smooth scroll behavior for one-page */
 html {
   scroll-padding-top: 80px;
-  overflow: hidden; /* Prevent main page scroll */
 }
 
-body {
-  overflow: hidden; /* Prevent body scroll */
+/* Prevent scroll only on mobile one-page */
+.mobile-one-page {
+  overflow: hidden;
   height: 100vh;
   width: 100vw;
+}
+
+.mobile-one-page body {
+  overflow: hidden;
 }
 
 /* Hide default scrollbar on mobile dock */

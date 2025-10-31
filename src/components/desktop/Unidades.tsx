@@ -1,8 +1,8 @@
 ﻿"use client";
 import React from "react";
 import Image from "next/image";
-import { unidades } from "../lib/dadosAcademia";
-import ScrollReveal from "./ScrollReveal";
+import { unidades } from "../../lib/dadosAcademia";
+import ScrollReveal from "../shared/ScrollReveal";
 
 export default function Unidades() {
   const handleMapClick = (endereco: string, cidade: string) => {
@@ -38,7 +38,7 @@ export default function Unidades() {
               <div className="relative bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:shadow-[#EBA730]/20 transition-all duration-300 hover:-translate-y-2 border-2 border-gray-700">
                 <div className="relative h-40 overflow-hidden">
                   <Image
-                    src={unidade.imagem}
+                    src={unidade.desktop}
                     alt={unidade.nome}
                     fill
                     className="object-cover transition-transform duration-300 hover:scale-110"

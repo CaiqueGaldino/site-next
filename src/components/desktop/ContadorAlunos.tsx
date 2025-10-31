@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
-import ScrollReveal from "./ScrollReveal";
-import { getAssetPath } from "../lib/utils";
+import ScrollReveal from "../shared/ScrollReveal";
+import { getAssetPath } from "../../lib/utils";
 
 export default function ContadorAlunos() {
   const [stats, setStats] = useState({

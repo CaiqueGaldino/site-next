@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
-import { diferenciais, sobreNos } from "../lib/dadosAcademia";
-import ScrollReveal from "./ScrollReveal";
+import { diferenciais, sobreNos } from "../../lib/dadosAcademia";
+import ScrollReveal from "../shared/ScrollReveal";
 
 export default function Diferenciais() {
   const containerRef = useRef<HTMLDivElement>(null);

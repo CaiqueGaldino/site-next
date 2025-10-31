@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { planos } from "../lib/dadosAcademia";
-import ScrollReveal from "./ScrollReveal";
+import { planos } from "../../lib/dadosAcademia";
+import ScrollReveal from "../shared/ScrollReveal";
 
 interface PlanoDetalhes {
   nome: string;

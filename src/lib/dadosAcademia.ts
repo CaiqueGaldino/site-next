@@ -2,19 +2,22 @@
 
 export const banners = [
   {
-    src: getAssetPath("/images/banner1.webp"),
+    desktop: getAssetPath("/images/banners/desktop/banner1.webp"),
+    mobile: getAssetPath("/images/banners/mobile/banner1.webp"),
     alt: "Treine com os melhores equipamentos",
     titulo: "Equipamentos de Última Geração",
     subtitulo: "Tecnologia e qualidade para o seu treino"
   },
   {
-    src: getAssetPath("/images/banner2.webp"),
+    desktop: getAssetPath("/images/banners/desktop/banner2.jpg"),
+    mobile: getAssetPath("/images/banners/mobile/banner2.jpg"),
     alt: "Ambiente moderno e climatizado",
     titulo: "Ambiente Moderno e Climatizado",
     subtitulo: "Conforto e bem-estar em cada treino"
   },
   {
-    src: getAssetPath("/images/banner3.webp"),
+    desktop: getAssetPath("/images/banners/desktop/banner3.webp"),
+    mobile: getAssetPath("/images/banners/mobile/banner3.webp"),
     alt: "Profissionais qualificados para te ajudar",
     titulo: "Profissionais Qualificados",
     subtitulo: "Acompanhamento especializado para seus objetivos"
@@ -25,7 +28,8 @@ export const estruturas = [
   {
     titulo: "Musculação",
     descricao: "Equipamentos modernos para todos os grupos musculares",
-    imagem: getAssetPath("/images/musculacao.webp"),
+    desktop: getAssetPath("/images/estruturas/desktop/musculacao.webp"),
+    mobile: getAssetPath("/images/estruturas/mobile/musculacao.webp"),
     destaque: true,
     video: "/videos/musculacao.mp4",
     equipamentos: ["50+ Halteres", "20 Estações", "Cabos Reguláveis", "Barras Olímpicas"],
@@ -40,7 +44,8 @@ export const estruturas = [
   {
     titulo: "Cross Training",
     descricao: "Treinos funcionais de alta intensidade",
-    imagem: getAssetPath("/images/cross.webp"),
+    desktop: getAssetPath("/images/estruturas/desktop/cross.webp"),
+    mobile: getAssetPath("/images/estruturas/mobile/cross.webp"),
     destaque: false,
     video: "/videos/cross.mp4",
     equipamentos: ["Kettlebells", "Medicine Balls", "TRX", "Caixas Pliométricas"],
@@ -55,7 +60,8 @@ export const estruturas = [
   {
     titulo: "Aeróbicos",
     descricao: "Esteiras, bikes e elípticos de última geração",
-    imagem: getAssetPath("/images/aerobicos.webp"),
+    desktop: getAssetPath("/images/estruturas/desktop/aerobicos.webp"),
+    mobile: getAssetPath("/images/estruturas/mobile/aerobicos.webp"),
     destaque: false,
     video: "/videos/aerobicos.mp4",
     equipamentos: ["15 Esteiras", "10 Bikes", "8 Elípticos", "5 Remo"],
@@ -70,7 +76,8 @@ export const estruturas = [
   {
     titulo: "Funcional",
     descricao: "Espaço amplo para treinos funcionais e flexibilidade",
-    imagem: getAssetPath("/images/funcional.webp"),
+    desktop: getAssetPath("/images/estruturas/desktop/funcional.webp"),
+    mobile: getAssetPath("/images/estruturas/mobile/funcional.webp"),
     destaque: false,
     video: "/videos/funcional.mp4",
     equipamentos: ["Suspensão", "Elásticos", "Steps", "Bosus"],
@@ -89,19 +96,19 @@ export const depoimentos = [
     nome: "Maria Silva",
     avaliacao: 5,
     comentario: "Melhor academia da região! Equipamentos novos e professores atenciosos. Já perdi 15kg em 6 meses!",
-    foto: getAssetPath("/images/depoimento1.webp")
-  },
-  {
-    nome: "João Santos",
-    avaliacao: 5,
-    comentario: "Ambiente motivador e limpo. O personal trainer me ajudou muito a alcançar meus objetivos.",
-    foto: getAssetPath("/images/depoimento2.webp")
+    foto: getAssetPath("/images/depoimentos/depoimento1.webp")
   },
   {
     nome: "Ana Costa",
     avaliacao: 5,
+    comentario: "Ambiente motivador e limpo. O personal trainer me ajudou muito a alcançar meus objetivos.",
+    foto: getAssetPath("/images/depoimentos/depoimento2.webp")
+  },
+  {
+    nome: "João Santos",
+    avaliacao: 5,
     comentario: "Adoro as aulas de cross training! A equipe é super qualificada e sempre dispostos a ajudar.",
-    foto: getAssetPath("/images/depoimento3.webp")
+    foto: getAssetPath("/images/depoimentos/depoimento3.webp")
   }
 ];
 
@@ -112,7 +119,8 @@ export const unidades = [
     cidade: "Crato - CE",
     telefone: "(88) 99333-3152",
     horarios: "Seg–Sex 05h–22h | Sáb 08h–14h | Dom 10h–12h",
-    imagem: getAssetPath("/images/unidades/unidade-sao-luiz.webp"),
+    desktop: getAssetPath("/images/unidades/unidade-sao-luiz.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-sao-luiz.webp"),
     destaque: true
   },
   {
@@ -121,7 +129,8 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 05h–22h | Sáb/Fer 06h–12h | Dom 09h–13h",
-    imagem: getAssetPath("/images/unidades/unidade-premium.webp"),
+    desktop: getAssetPath("/images/unidades/unidade-premium.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-premium.webp"),
     destaque: true
   },
   {
@@ -130,7 +139,8 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 05h–22h | Sáb 06h–12h | Dom 09h–13h",
-    imagem: getAssetPath("/images/unidades/unidade-tiradentes.webp"),
+    desktop: getAssetPath("/images/unidades/unidade-tiradentes.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-tiradentes.webp"),
     destaque: false
   },
   {
@@ -139,7 +149,8 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 05h–22h | Sáb 08h–16h | Dom 09h–13h",
-    imagem: getAssetPath("/images/unidades/unidade-lagoa-seca.webp"),
+    desktop: getAssetPath("/images/unidades/unidade-lagoa-seca.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-lagoa-seca.webp"),
     destaque: false
   },
   {
@@ -148,7 +159,8 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "—",
     horarios: "Seg–Sex 05h–22h | Sáb 08h–14h | Dom 09h–13h",
-    imagem: getAssetPath("/images/unidades/unidade-sao-jose.webp"),
+    desktop: getAssetPath("/images/unidades/unidade-sao-jose.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-sao-jose.webp"),
     destaque: false
   },
   {
@@ -157,7 +169,8 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "(89) 9906-6688",
     horarios: "Seg–Sex 05h–22h | Sáb 10h–18h | Dom 09h–13h",
-    imagem: getAssetPath("/images/unidades/unidade-salesianos.webp"),
+    desktop: getAssetPath("/images/unidades/unidade-salesianos.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-salesianos.webp"),
     destaque: false
   },
   {
@@ -166,7 +179,8 @@ export const unidades = [
     cidade: "Juazeiro do Norte - CE",
     telefone: "(88) 99333-3152",
     horarios: "Seg–Sex 05h–22h | Sáb 10h–16h | Dom 09h–13h",
-    imagem: getAssetPath("/images/unidades/unidade-parque-ecologico.webp"),
+    desktop: getAssetPath("/images/unidades/unidade-parque-ecologico.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-parque-ecologico.webp"),
     destaque: false
   },
   {
@@ -175,7 +189,8 @@ export const unidades = [
     cidade: "Araripina - PE",
     telefone: "(87) 99888-7766",
     horarios: "Seg–Sex 05h–22h | Sáb 06h–18h | Dom 08h–16h",
-    imagem: getAssetPath("/images/unidades/unidade-centro.webp"),
+    desktop: getAssetPath("/images/unidades/unidade-centro.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-centro.webp"),
     destaque: false
   },
   {
@@ -184,7 +199,8 @@ export const unidades = [
     cidade: "Araripina - PE",
     telefone: "(87) 99777-5544",
     horarios: "Seg–Sex 06h–22h | Sáb 07h–19h | Dom 08h–17h",
-    imagem: getAssetPath("/images/unidades/unidade-avenida.webp"),
+    desktop: getAssetPath("/images/unidades/unidade-avenida.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-avenida.webp"),
     destaque: false
   },
   {
@@ -193,7 +209,8 @@ export const unidades = [
     cidade: "Crato - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 06h–22h | Sáb 08h–20h | Dom 09h–18h",
-    imagem: getAssetPath("/images/unidades/unidade-aabb.webp"),
+    desktop: getAssetPath("/images/unidades/unidade-aabb.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-aabb.webp"),
     destaque: false
   }
 ];
