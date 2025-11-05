@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from "react";
+import { Clock, Target, Dumbbell, MapPin, User, FileText, Users, Apple } from "lucide-react";
 import { hapticFeedback } from "../../lib/mobileUtils";
 
 interface FAQItem {
   question: string;
   answer: string;
-  icon: string;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 export default function FAQMobile() {
@@ -15,42 +16,42 @@ export default function FAQMobile() {
     {
       question: "Horário de funcionamento?",
       answer: "Segunda a sexta: 5h-22h | Sábados: 6h-20h | Domingos: 8h-18h. Algumas unidades têm horários estendidos 24h.",
-      icon: "⏰"
+      icon: Clock
     },
     {
       question: "Aula experimental gratuita?",
       answer: "Sim! Oferecemos aula experimental gratuita para novos alunos. Agende pelo WhatsApp ou visite uma unidade.",
-      icon: "🎯"
+      icon: Target
     },
     {
       question: "Quais modalidades incluídas?",
       answer: "Musculação, cardio, aulas funcionais, cross training, yoga e pilates. Modalidades especiais podem ter custo adicional.",
-      icon: "💪"
+      icon: Dumbbell
     },
     {
       question: "Posso usar qualquer unidade?",
       answer: "Sim! Sua matrícula permite treinar em qualquer uma das 10 unidades, oferecendo total flexibilidade.",
-      icon: "📍"
+      icon: MapPin
     },
     {
       question: "Têm personal trainer?",
       answer: "Sim, temos personal trainers qualificados. O acompanhamento personalizado tem custo adicional.",
-      icon: "👨‍🏫"
+      icon: User
     },
     {
       question: "Como funciona o cancelamento?",
       answer: "Pode ser solicitado com 30 dias de antecedência na unidade com documento e comprovante de residência.",
-      icon: "📋"
+      icon: FileText
     },
     {
       question: "Posso levar acompanhantes?",
       answer: "Convidados podem treinar mediante taxa diária. Consulte nossa política de visitantes na recepção.",
-      icon: "👥"
+      icon: Users
     },
     {
       question: "Acompanhamento nutricional?",
       answer: "Sim, algumas unidades contam com nutricionistas parceiros. Consulte disponibilidade e valores na unidade.",
-      icon: "🥗"
+      icon: Apple
     }
   ];
 
@@ -93,8 +94,8 @@ export default function FAQMobile() {
                 className="w-full p-4 text-left flex items-center gap-3 touch-manipulation active:bg-gray-900/50"
               >
                 {/* Ícone */}
-                <div className="text-2xl flex-shrink-0">
-                  {item.icon}
+                <div className="text-[#EBA730] flex-shrink-0">
+                  <item.icon className="w-6 h-6" />
                 </div>
 
                 {/* Pergunta */}

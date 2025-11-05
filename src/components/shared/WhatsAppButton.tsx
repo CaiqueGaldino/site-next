@@ -25,7 +25,7 @@ export default function WhatsAppButton() {
     }
     
     const phoneNumber = "5587993595368"; // Número real da academia
-    const message = "Olá! 💪 Gostaria de saber mais sobre os planos da Fitness Exclusive e agendar uma visita!";
+    const message = "Olá! Gostaria de saber mais sobre os planos da Fitness Exclusive e agendar uma visita!";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
     
@@ -72,7 +72,7 @@ export default function WhatsAppButton() {
         {/* Desktop tooltip */}
         <div className="hidden md:block absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap shadow-lg">
-            💬 Fale conosco no WhatsApp
+            Fale conosco no WhatsApp
             <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
           </div>
         </div>

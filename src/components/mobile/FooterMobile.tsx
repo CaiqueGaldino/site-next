@@ -23,7 +23,7 @@ export default function FooterMobile() {
       <div className="px-4">
         {/* Logo e Descrição */}
         <div className="text-center mb-8">
-          <h3 className="text-2xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-3">
+          <h3 className="text-2xl font-black text-white mb-3">
             Fitness Exclusive
           </h3>
           <p className="text-gray-300 text-sm leading-relaxed mb-6">
@@ -185,11 +185,11 @@ export default function FooterMobile() {
           <button 
             onClick={() => {
               hapticFeedback('heavy');
-              window.open('https://wa.me/5587993595368?text=' + encodeURIComponent('Olá! Gostaria de me matricular na Fitness Exclusive! 💪'), '_blank');
+              window.open('https://wa.me/5587993595368?text=' + encodeURIComponent('Olá! Gostaria de me matricular na Fitness Exclusive!'), '_blank');
             }}
             className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold py-4 rounded-full shadow-lg active:scale-95 transition-transform touch-manipulation"
           >
-            💬 Fale Conosco no WhatsApp
+            Fale Conosco no WhatsApp
           </button>
         </div>
 

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { Star, MapPin, Users, BarChart3, Dumbbell, Target, Trophy } from "lucide-react";
 import { estruturas } from "../../lib/dadosAcademia";
 import ScrollReveal from "../shared/ScrollReveal";
 
@@ -25,14 +26,33 @@ export default function EstruturaModerna() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section id="estrutura" className="py-20 bg-black relative overflow-hidden">
+    <>
+      <style dangerouslySetInnerHTML={{__html: `
+        @property --border-angle-infra {
+          syntax: "<angle>";
+          inherits: true;
+          initial-value: 0deg;
+        }
+
+        @keyframes border-spin-infra {
+          100% {
+            --border-angle-infra: 360deg;
+          }
+        }
+
+        .animate-border-infra {
+          animation: border-spin-infra 6s linear infinite;
+        }
+      `}} />
+      
+      <section id="estrutura" className="py-20 bg-black relative overflow-hidden">
       {/* Background com gradiente animado */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/5 via-transparent to-[#FAC934]/5 animate-pulse"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <ScrollReveal direction="fade" delay={100}>
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-black mb-4 bg-gradient-to-r from-white via-[#EBA730] to-white bg-clip-text text-transparent">
+            <h2 className="text-5xl font-black mb-4 text-white">
               Nossa Estrutura
             </h2>
             <p className="text-xl text-gray-300 mb-8">
@@ -40,7 +60,7 @@ export default function EstruturaModerna() {
             </p>
             <div className="flex justify-center items-center gap-4">
               <div className="h-1 w-20 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-              <div className="text-[#EBA730]">⭐</div>
+              <Star className="w-5 h-5 text-[#EBA730]" />
               <div className="h-1 w-20 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
             </div>
           </div>
@@ -98,8 +118,8 @@ export default function EstruturaModerna() {
                       
                       {/* Info rápida */}
                       <div className="flex items-center gap-4 text-xs text-gray-400">
-                        <span>📍 {estrutura.especificacoes.area}</span>
-                        <span>👥 {estrutura.especificacoes.capacidade}</span>
+                        <MapPin className="w-4 h-4 inline mr-1" />{estrutura.especificacoes.area}
+                        <Users className="w-4 h-4 inline mr-1" />{estrutura.especificacoes.capacidade}
                       </div>
                     </div>
                   </div>
@@ -129,30 +149,39 @@ export default function EstruturaModerna() {
 
         {/* Estatísticas da infraestrutura */}
         <ScrollReveal direction="up" delay={600}>
-          <div className="bg-gradient-to-r from-zinc-900 via-black to-zinc-900 rounded-3xl p-8 border-2 border-[#EBA730] max-w-6xl mx-auto relative overflow-hidden">
-            {/* Background decorativo */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/10 via-transparent to-[#FAC934]/10"></div>
-            
-            <div className="relative">
-              <h3 className="text-3xl font-bold text-white mb-8 text-center">
-                🏆 Infraestrutura de Excelência
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-                <div className="group">
-                  <div className="text-4xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">200+</div>
-                  <p className="text-gray-300">Equipamentos Premium</p>
-                </div>
-                <div className="group">
-                  <div className="text-4xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">1200m²</div>
-                  <p className="text-gray-300">Área Total</p>
-                </div>
-                <div className="group">
-                  <div className="text-4xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">100%</div>
-                  <p className="text-gray-300">Climatizado</p>
-                </div>
-                <div className="group">
-                  <div className="text-4xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">24h</div>
-                  <p className="text-gray-300">Monitoramento</p>
+          <div 
+            className="max-w-6xl mx-auto animate-border-infra"
+            style={{
+              background: 'linear-gradient(45deg, #000, rgb(24 24 27) 50%, #000) padding-box, conic-gradient(from var(--border-angle-infra), rgba(255,255,255,0.2) 80%, rgb(250 204 21) 86%, #EBA730 90%, #FAC934 94%, rgba(255,255,255,0.2)) border-box',
+              borderRadius: '1.5rem',
+              border: '2px solid transparent'
+            }}
+          >
+            <div className="bg-gradient-to-r from-zinc-900 via-black to-zinc-900 rounded-3xl p-8 relative overflow-hidden">
+              {/* Background decorativo */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/10 via-transparent to-[#FAC934]/10"></div>
+              
+              <div className="relative">
+                <h3 className="text-3xl font-bold text-white mb-8 text-center">
+                  <Trophy className="w-6 h-6 mr-2 inline" /> Infraestrutura de Excelência
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                  <div className="group">
+                    <div className="text-4xl font-black text-white mb-2 group-hover:scale-110 transition-transform">200+</div>
+                    <p className="text-gray-300">Equipamentos Premium</p>
+                  </div>
+                  <div className="group">
+                    <div className="text-4xl font-black text-white mb-2 group-hover:scale-110 transition-transform">1200m²</div>
+                    <p className="text-gray-300">Área Total</p>
+                  </div>
+                  <div className="group">
+                    <div className="text-4xl font-black text-white mb-2 group-hover:scale-110 transition-transform">100%</div>
+                    <p className="text-gray-300">Climatizado</p>
+                  </div>
+                  <div className="group">
+                    <div className="text-4xl font-black text-white mb-2 group-hover:scale-110 transition-transform">24h</div>
+                    <p className="text-gray-300">Monitoramento</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -192,7 +221,9 @@ export default function EstruturaModerna() {
 
                     {/* Especificações */}
                     <div className="bg-black/50 rounded-2xl p-6 mb-6">
-                      <h3 className="text-[#EBA730] font-bold mb-4">📊 Especificações</h3>
+                      <h3 className="text-[#EBA730] font-bold mb-4 flex items-center gap-2">
+                        <BarChart3 className="w-5 h-5" /> Especificações
+                      </h3>
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div>
                           <span className="text-gray-400">Área:</span>
@@ -215,7 +246,9 @@ export default function EstruturaModerna() {
 
                     {/* Equipamentos */}
                     <div className="mb-6">
-                      <h3 className="text-[#EBA730] font-bold mb-3">🏋️ Equipamentos Disponíveis</h3>
+                      <h3 className="text-[#EBA730] font-bold mb-3 flex items-center gap-2">
+                        <Dumbbell className="w-5 h-5" /> Equipamentos Disponíveis
+                      </h3>
                       <div className="grid grid-cols-2 gap-2">
                         {selectedEstrutura.equipamentos.map((equipamento, i) => (
                           <div key={i} className="flex items-center text-gray-300 text-sm">
@@ -228,7 +261,9 @@ export default function EstruturaModerna() {
 
                     {/* Benefícios */}
                     <div className="mb-6">
-                      <h3 className="text-[#EBA730] font-bold mb-3">💪 Benefícios</h3>
+                      <h3 className="text-[#EBA730] font-bold mb-3 flex items-center gap-2">
+                        <Target className="w-5 h-5" /> Benefícios
+                      </h3>
                       <div className="space-y-2">
                         {selectedEstrutura.beneficios.map((beneficio, i) => (
                           <div key={i} className="flex items-center text-gray-300 text-sm">
@@ -240,7 +275,7 @@ export default function EstruturaModerna() {
                     </div>
 
                     <button className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 mt-auto mb-24">
-                      🎯 Conhecer Pessoalmente
+                      <Target className="w-5 h-5 mr-2 inline" /> Conhecer Pessoalmente
                     </button>
                   </div>
                 </div>
@@ -250,5 +285,6 @@ export default function EstruturaModerna() {
         )}
       </div>
     </section>
+    </>
   );
 }

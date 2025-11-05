@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
+import { Trophy } from "lucide-react";
 import ScrollReveal from "../shared/ScrollReveal";
 import { getAssetPath } from "../../lib/utils";
 
@@ -78,7 +79,26 @@ export default function ContadorAlunos() {
   ];
 
   return (
-    <section className="py-20 bg-black">
+    <>
+      <style dangerouslySetInnerHTML={{__html: `
+        @property --border-angle-contador {
+          syntax: "<angle>";
+          inherits: true;
+          initial-value: 0deg;
+        }
+
+        @keyframes border-spin-contador {
+          100% {
+            --border-angle-contador: 360deg;
+          }
+        }
+
+        .animate-border-contador {
+          animation: border-spin-contador 6s linear infinite;
+        }
+      `}} />
+      
+      <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal direction="fade" delay={100}>
           <div className="text-center mb-16">
@@ -98,22 +118,31 @@ export default function ContadorAlunos() {
               direction="up" 
               delay={150 + (index * 75)}
             >
-              <div className="text-center bg-zinc-900 rounded-3xl p-8 border-2 border-gray-700 hover:border-gradient-to-r hover:from-[#EBA730] hover:to-[#FAC934] transition-all duration-300 hover:-translate-y-2">
-                <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16">
-                    <Image
-                      src={stat.icone}
-                      alt={stat.label}
-                      width={64}
-                      height={64}
-                      className="w-full h-full object-contain"
-                    />
+              <div 
+                className="animate-border-contador"
+                style={{
+                  background: 'linear-gradient(45deg, #000, rgb(24 24 27) 50%, #000) padding-box, conic-gradient(from var(--border-angle-contador), rgba(255,255,255,0.2) 80%, rgb(250 204 21) 86%, #EBA730 90%, #FAC934 94%, rgba(255,255,255,0.2)) border-box',
+                  borderRadius: '1.5rem',
+                  border: '2px solid transparent'
+                }}
+              >
+                <div className="text-center bg-zinc-900 rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16">
+                      <Image
+                        src={stat.icone}
+                        alt={stat.label}
+                        width={64}
+                        height={64}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   </div>
+                  <div className={`text-4xl font-black mb-2 ${stat.cor}`}>
+                    {stat.numero}
+                  </div>
+                  <p className="text-gray-300 font-medium">{stat.label}</p>
                 </div>
-                <div className={`text-4xl font-black mb-2 ${stat.cor}`}>
-                  {stat.numero}
-                </div>
-                <p className="text-gray-300 font-medium">{stat.label}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -123,7 +152,7 @@ export default function ContadorAlunos() {
           <div className="text-center mt-16">
             <div className="bg-zinc-900 rounded-3xl p-8 border-2 border-gradient-to-r from-[#EBA730] to-[#FAC934] max-w-4xl mx-auto">
               <h3 className="text-2xl font-bold text-white mb-4">
-                🏆 Conquiste Seus Objetivos Conosco!
+                <Trophy className="w-6 h-6 mr-2 inline" /> Conquiste Seus Objetivos Conosco!
               </h3>
               <p className="text-gray-300 text-lg mb-6">
                 Faça parte da maior rede de academias da região e transforme sua vida!
@@ -136,5 +165,6 @@ export default function ContadorAlunos() {
         </ScrollReveal>
       </div>
     </section>
+    </>
   );
 }

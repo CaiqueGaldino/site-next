@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { BarChart3 } from "lucide-react";
 import { getAssetPath } from "../../lib/utils";
 
 export default function ContadorAlunosMobile() {
@@ -74,24 +75,49 @@ export default function ContadorAlunosMobile() {
   ];
 
   return (
-    <section className="py-8 px-4 bg-black">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-6 border-2 border-[#EBA730]/30 shadow-2xl"
-      >
-        {/* Título */}
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-2">
-            Números que Impressionam
-          </h2>
-          <div className="flex items-center justify-center gap-2">
-            <div className="h-0.5 w-12 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-            <div className="text-[#EBA730]">📊</div>
-            <div className="h-0.5 w-12 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
-          </div>
-        </div>
+    <>
+      <style dangerouslySetInnerHTML={{__html: `
+        @property --border-angle-stats {
+          syntax: "<angle>";
+          inherits: true;
+          initial-value: 0deg;
+        }
+
+        @keyframes border-spin-stats {
+          100% {
+            --border-angle-stats: 360deg;
+          }
+        }
+
+        .animate-border-stats {
+          animation: border-spin-stats 6s linear infinite;
+        }
+      `}} />
+      
+      <section className="py-8 px-4 bg-black">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="animate-border-stats"
+          style={{
+            background: 'linear-gradient(45deg, #000, rgb(24 24 27) 50%, #000) padding-box, conic-gradient(from var(--border-angle-stats), rgba(255,255,255,0.2) 80%, rgb(250 204 21) 86%, #EBA730 90%, #FAC934 94%, rgba(255,255,255,0.2)) border-box',
+            borderRadius: '1rem',
+            border: '2px solid transparent'
+          }}
+        >
+          <div className="bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-6 shadow-2xl">
+            {/* Título */}
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-black text-white mb-2">
+                Números que Impressionam
+              </h2>
+              <div className="flex items-center justify-center gap-2">
+                <div className="h-0.5 w-12 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
+                <BarChart3 className="w-5 h-5 text-[#EBA730]" />
+                <div className="h-0.5 w-12 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
+              </div>
+            </div>
 
         {/* Grid de Estatísticas */}
         <div className="grid grid-cols-2 gap-4">
@@ -123,7 +149,9 @@ export default function ContadorAlunosMobile() {
             </motion.div>
           ))}
         </div>
-      </motion.div>
-    </section>
+          </div>
+        </motion.div>
+      </section>
+    </>
   );
 }

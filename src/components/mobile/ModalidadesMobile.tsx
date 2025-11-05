@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { diferenciais } from "../../lib/dadosAcademia";
 import { hapticFeedback } from "../../lib/mobileUtils";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function ModalidadesMobile() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -27,21 +27,21 @@ export default function ModalidadesMobile() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-black py-8 px-4">
+    <div className="bg-gradient-to-br from-black via-zinc-900 to-black py-6 px-4">
       {/* Título da Seção */}
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-2">
+      <div className="text-center mb-6">
+        <h2 className="text-2xl font-black text-white mb-2">
           MODALIDADES
         </h2>
         <div className="flex items-center justify-center gap-2">
           <div className="h-1 w-16 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-          <div className="text-[#EBA730] text-lg">⭐</div>
+          <Star className="w-5 h-5 text-[#EBA730]" />
           <div className="h-1 w-16 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
         </div>
       </div>
 
       {/* Carrossel de Modalidades */}
-      <div className="relative h-[60vh] flex items-center justify-center">
+      <div className="relative h-[50vh] flex items-center justify-center">
         {/* Botões de Navegação */}
         <button
           onClick={prevSlide}
@@ -73,26 +73,26 @@ export default function ModalidadesMobile() {
             transition={{ duration: 0.3 }}
             className="w-full max-w-sm mx-auto"
           >
-            <div className="bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-8 border-2 border-[#EBA730]/30 shadow-2xl">
+            <div className="bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-6 border-2 border-[#EBA730]/30 shadow-2xl">
               {/* Ícone */}
-              <div className="text-7xl mb-6 text-center animate-pulse">
+              <div className="text-5xl mb-4 text-center animate-pulse">
                 {diferenciais[currentSlide].icone}
               </div>
 
               {/* Título */}
-              <h3 className="text-3xl font-black text-center mb-4 bg-gradient-to-r from-white via-[#EBA730] to-white bg-clip-text text-transparent">
+              <h3 className="text-2xl font-black text-center mb-3 text-white">
                 {diferenciais[currentSlide].titulo.toUpperCase()}
               </h3>
 
               {/* Separador */}
-              <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="flex items-center justify-center gap-2 mb-3">
                 <div className="h-0.5 w-12 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-                <div className="text-[#EBA730]">⭐</div>
+                <Star className="w-4 h-4 text-[#EBA730]" />
                 <div className="h-0.5 w-12 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
               </div>
 
               {/* Descrição */}
-              <p className="text-gray-300 text-center leading-relaxed">
+              <p className="text-gray-300 text-center leading-relaxed text-sm">
                 {diferenciais[currentSlide].descricao}
               </p>
             </div>

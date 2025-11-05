@@ -1,7 +1,13 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import { Dumbbell } from "lucide-react";
+import FormularioAgendamento from "../shared/FormularioAgendamento";
 
 export default function AulaExperimental() {
+  const [modalAberto, setModalAberto] = useState(false);
+
   return (
+    <>
     <section className="py-20 bg-black">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-[#EBA730]">
@@ -35,16 +41,26 @@ export default function AulaExperimental() {
           </div>
 
           <div className="mt-8">
-            <button className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-10 py-4 rounded-full shadow-xl transition-all transform hover:scale-105 text-lg">
+            <button 
+              onClick={() => setModalAberto(true)}
+              className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-10 py-4 rounded-full shadow-xl transition-all transform hover:scale-105 text-lg"
+            >
               Agende Agora
             </button>
           </div>
 
           <p className="text-white/80 text-sm mt-4">
-            💪 Mais de 500 alunos já experimentaram e aprovaram!
+            <Dumbbell className="w-6 h-6 mr-2 inline" /> Mais de 500 alunos já experimentaram e aprovaram!
           </p>
         </div>
       </div>
+
+      <FormularioAgendamento 
+        isOpen={modalAberto}
+        onClose={() => setModalAberto(false)}
+        tipo="aula-experimental"
+      />
     </section>
+    </>
   );
 }

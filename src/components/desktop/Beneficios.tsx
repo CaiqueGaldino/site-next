@@ -1,61 +1,65 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import { Smartphone, RefreshCw, Sparkles, Music, Clock, Users, Dumbbell, Calendar } from "lucide-react";
 import ScrollReveal from "../shared/ScrollReveal";
+import FormularioAgendamento from "../shared/FormularioAgendamento";
 
 const beneficios = [
   {
     titulo: "App Fitness Exclusive",
     descricao: "Gerencie seus treinos e pagamentos de forma fácil e rápida.",
-    icone: "📱",
+    icone: Smartphone,
     destaque: ["Treinos personalizados", "Pagamentos online", "Acompanhamento de progresso", "Notificações inteligentes"]
   },
   {
     titulo: "Campanha Portabilidade Ativa", 
     descricao: "Garanta o valor da sua academia anterior por 3 meses.",
-    icone: "🔄",
+    icone: RefreshCw,
     destaque: ["Migração sem custos", "Manutenção do valor anterior", "3 meses garantidos", "Processo simplificado"]
   },
   {
     titulo: "Massagem e Relaxamento",
     descricao: "Massagem do fisioterapeuta e cadeira de massagem disponíveis para recuperação e relaxamento.",
-    icone: "💆",
+    icone: Sparkles,
     destaque: ["Fisioterapeuta especializado", "Cadeira de massagem", "Recuperação muscular", "Relaxamento total"]
   },
   {
     titulo: "Aulas Coletivas",
     descricao: "Acesso às aulas coletivas e de dança para diversificar o treino.",
-    icone: "🎵",
+    icone: Music,
     destaque: ["Dança fitness", "Spinning", "Pilates", "Yoga e funcional"]
   },
   {
     titulo: "Horário Livre",
     descricao: "Acesso liberado em todos os horários de funcionamento da academia.",
-    icone: "⏰",
+    icone: Clock,
     destaque: ["24h nas unidades select", "Sem restrições", "Flexibilidade total", "Treinos madrugada"]
   },
   {
     titulo: "Leve 5 Amigos",
     descricao: "Traga até 5 amigos para treinar junto com você.",
-    icone: "👥",
+    icone: Users,
     destaque: ["Motivação em grupo", "Socialização", "Treinos divertidos", "Sem custos extras"]
   },
   {
     titulo: "Área Completa",
     descricao: "Acesso a todas as áreas: musculação, aeróbicos e funcionais.",
-    icone: "🏋️",
+    icone: Dumbbell,
     destaque: ["Musculação moderna", "Cardio avançado", "Treino funcional", "Cross training"]
   },
   {
     titulo: "Válido 7 Dias",
     descricao: "Seu plano funciona todos os dias da semana, inclusive finais de semana.",
-    icone: "📅",
+    icone: Calendar,
     destaque: ["Segunda a domingo", "Sem interrupções", "Feriados inclusos", "Máxima flexibilidade"]
   }
 ];
 
 export default function Beneficios() {
+  const [modalAgendamentoAberto, setModalAgendamentoAberto] = useState(false);
+
   return (
-    <section id="beneficios" className="py-20 bg-gradient-to-br from-zinc-900 via-black to-zinc-900 relative overflow-hidden">
+    <section id="beneficios" className="py-20 bg-black relative overflow-hidden">
       {/* Background decorativo */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/3 via-transparent to-[#FAC934]/3"></div>
       <div className="absolute top-20 left-10 w-72 h-72 bg-[#EBA730]/5 rounded-full blur-3xl"></div>
@@ -65,12 +69,12 @@ export default function Beneficios() {
         {/* Título */}
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-black mb-4 bg-gradient-to-r from-white via-[#EBA730] to-white bg-clip-text text-transparent">
+            <h2 className="text-5xl font-black mb-4 text-white">
               BENEFÍCIOS EXCLUSIVOS
             </h2>
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="h-1 w-20 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-              <div className="text-[#EBA730] text-2xl">✨</div>
+              <Sparkles className="w-6 h-6 text-[#EBA730]" />
               <div className="h-1 w-20 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
             </div>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto">
@@ -85,8 +89,8 @@ export default function Beneficios() {
             <ScrollReveal key={index} delay={index * 0.1}>
               <div className="group bg-gradient-to-br from-zinc-900 to-black rounded-3xl p-8 border-2 border-gray-700 hover:border-[#EBA730]/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#EBA730]/20 h-full">
                 {/* Ícone */}
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300 text-center">
-                  {beneficio.icone}
+                <div className="text-[#EBA730] mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                  <beneficio.icone className="w-12 h-12" />
                 </div>
                 
                 {/* Título */}
@@ -122,20 +126,29 @@ export default function Beneficios() {
             <div className="bg-gradient-to-r from-zinc-900 via-black to-zinc-900 rounded-3xl p-8 border-2 border-[#EBA730] max-w-4xl mx-auto relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/10 via-transparent to-[#FAC934]/10"></div>
               <div className="relative z-10">
-                <h3 className="text-3xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-4">
+                <h3 className="text-3xl font-black text-white mb-4">
                   Pronto para começar sua transformação?
                 </h3>
                 <p className="text-gray-300 mb-6 text-lg">
                   Aproveite todos esses benefícios exclusivos e muito mais na Fitness Exclusive
                 </p>
-                <button className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-8 py-4 rounded-full transition-all transform hover:scale-105 text-lg shadow-lg">
-                  Quero fazer parte! 🚀
+                <button 
+                  onClick={() => setModalAgendamentoAberto(true)}
+                  className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-8 py-4 rounded-full transition-all transform hover:scale-105 text-lg shadow-lg"
+                >
+                  Quero fazer parte!
                 </button>
               </div>
             </div>
           </div>
         </ScrollReveal>
       </div>
+
+      <FormularioAgendamento 
+        isOpen={modalAgendamentoAberto}
+        onClose={() => setModalAgendamentoAberto(false)}
+        tipo="quero-fazer-parte"
+      />
     </section>
   );
 }
