@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Lexend } from "next/font/google";
 import "./globals.css";
 import { getAssetPath } from "../lib/utils";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const lexend = Lexend({
+  variable: "--font-lexend",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${montserrat.variable} antialiased font-montserrat`}
+        className={`${lexend.variable} antialiased font-lexend`}
       >
         {children}
       </body>

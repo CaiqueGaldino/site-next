@@ -1,9 +1,17 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, Dumbbell, Building2, Target, Users } from "lucide-react";
 import { diferenciais } from "../../lib/dadosAcademia";
 import { hapticFeedback } from "../../lib/mobileUtils";
+
+// Mapeamento de ícones
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Dumbbell,
+  Building2,
+  Target,
+  Users
+};
 
 export default function ModalidadesMobile() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -75,8 +83,10 @@ export default function ModalidadesMobile() {
           >
             <div className="bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-6 border-2 border-[#EBA730]/30 shadow-2xl">
               {/* Ícone */}
-              <div className="text-5xl mb-4 text-center animate-pulse">
-                {diferenciais[currentSlide].icone}
+              <div className="mb-4 flex justify-center">
+                {React.createElement(iconMap[diferenciais[currentSlide].icone as keyof typeof iconMap], { 
+                  className: "w-16 h-16 text-[#EBA730]" 
+                })}
               </div>
 
               {/* Título */}

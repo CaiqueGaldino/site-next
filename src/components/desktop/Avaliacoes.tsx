@@ -60,7 +60,7 @@ export default function Avaliacoes() {
                 <blockquote className="text-lg md:text-xl text-white mb-4 italic">
                   &ldquo;{depoimentos[depoimentoAtual].comentario}&rdquo;
                 </blockquote>
-                <cite className="text-xl font-bold bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent">
+                <cite className="text-xl font-bold text-white">
                   {depoimentos[depoimentoAtual].nome}
                 </cite>
               </div>

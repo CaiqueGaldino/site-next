@@ -1,7 +1,16 @@
 "use client";
 import React, { useRef, useState } from "react";
+import { Star, Dumbbell, Building2, Target, Users } from "lucide-react";
 import { diferenciais, sobreNos } from "../../lib/dadosAcademia";
 import ScrollReveal from "../shared/ScrollReveal";
+
+// Mapeamento de ícones
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Dumbbell,
+  Building2,
+  Target,
+  Users
+};
 
 export default function Diferenciais() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -94,19 +103,21 @@ export default function Diferenciais() {
                   <ScrollReveal>
                     <div className="max-w-4xl mx-auto">
                       {/* Ícone */}
-                      <div className="text-8xl mb-8 animate-pulse">
-                        {diferencial.icone}
+                      <div className="mb-8 flex justify-center">
+                        {React.createElement(iconMap[diferencial.icone as keyof typeof iconMap], { 
+                          className: "w-24 h-24 text-[#EBA730]" 
+                        })}
                       </div>
                       
                       {/* Título */}
-                      <h2 className="text-6xl font-black mb-8 bg-gradient-to-r from-white via-[#EBA730] to-white bg-clip-text text-transparent">
+                      <h2 className="text-6xl font-black mb-8 text-white">
                         {diferencial.titulo.toUpperCase()}
                       </h2>
                       
                       {/* Separador */}
                       <div className="flex items-center justify-center gap-4 mb-8">
                         <div className="h-1 w-32 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-                        <div className="text-[#EBA730] text-2xl">⭐</div>
+                        <Star className="w-6 h-6 text-[#EBA730]" />
                         <div className="h-1 w-32 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
                       </div>
                       
@@ -153,7 +164,7 @@ export default function Diferenciais() {
             <div className="bg-gradient-to-r from-zinc-900 via-black to-zinc-900 rounded-3xl p-12 border-2 border-[#EBA730] max-w-5xl mx-auto relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/10 via-transparent to-[#FAC934]/10 rounded-3xl"></div>
               <div className="relative z-10 text-center">
-                <h2 className="text-4xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-6">
+                <h2 className="text-4xl font-black text-white mb-6">
                   {sobreNos.titulo}
                 </h2>
                 <div className="space-y-4 text-gray-300 leading-relaxed max-w-3xl mx-auto">

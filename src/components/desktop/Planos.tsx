@@ -101,7 +101,7 @@ export default function Planos() {
                     {plano.descricao}
                   </p>
                   <div className="flex items-baseline justify-center mb-3">
-                    <span className="text-3xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent">
+                    <span className="text-3xl font-black text-white">
                       {plano.preco}
                     </span>
                     <span className="text-sm text-gray-400 ml-1">
@@ -139,7 +139,7 @@ export default function Planos() {
                         navigator.vibrate(100);
                       }
                       // Aqui você pode adicionar lógica para abrir formulário ou WhatsApp
-                      window.open('https://wa.me/5587993595368?text=' + encodeURIComponent(`Olá! Gostaria de assinar o plano ${plano.nome} 💪`), '_blank');
+                      window.open('https://wa.me/5587993595368?text=' + encodeURIComponent(`Olá! Gostaria de assinar o plano ${plano.nome}`), '_blank');
                     }}
                     className={`w-full py-4 md:py-3 rounded-full font-bold text-base md:text-sm transition-all transform hover:scale-105 active:scale-95 touch-manipulation shadow-lg ${
                       plano.popular
@@ -147,7 +147,7 @@ export default function Planos() {
                         : "bg-white text-black hover:bg-gray-100"
                     }`}
                   >
-                    🚀 Assinar {plano.nome}
+                    Assinar {plano.nome}
                   </button>
                 </div>
               </div>
@@ -174,7 +174,7 @@ export default function Planos() {
 
               <div className="space-y-6">
                 <div className="text-center p-6 bg-black/50 rounded-2xl">
-                  <div className="text-3xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-2">
+                  <div className="text-3xl font-black text-white mb-2">
                     {selectedPlano.preco}{selectedPlano.periodo}
                   </div>
                   <p className="text-gray-300">{selectedPlano.descricao}</p>
@@ -211,7 +211,7 @@ export default function Planos() {
                   <ul className="space-y-2">
                     {selectedPlano.detalhes.extras.map((extra, i) => (
                       <li key={i} className="flex items-center text-gray-300">
-                        <span className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mr-2">+</span>
+                        <span className="text-[#EBA730] mr-2">+</span>
                         {extra}
                       </li>
                     ))}

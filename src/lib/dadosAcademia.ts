@@ -219,22 +219,22 @@ export const diferenciais = [
   {
     titulo: "Planos flexíveis",
     descricao: "Descubra a liberdade de escolher o plano que combina com o seu ritmo. Aqui, você dita o tempo!",
-    icone: "💪"
+    icone: "Dumbbell"
   },
   {
     titulo: "Ambiente moderno",
     descricao: "Energia renovada e estrutura acolhedora para cuidar do seu corpo com conforto.",
-    icone: "🏢"
+    icone: "Building2"
   },
   {
     titulo: "Aulas diversificadas",
     descricao: "A cada aula, uma nova aventura para manter o pique alto e o tédio longe.",
-    icone: "🎯"
+    icone: "Target"
   },
   {
     titulo: "Profissionais qualificados",
     descricao: "Especialistas dedicados para apoiar cada conquista na sua jornada fitness.",
-    icone: "👥"
+    icone: "Users"
   }
 ];
 

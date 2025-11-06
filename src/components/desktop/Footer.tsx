@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo e Descrição */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent mb-4">
+            <h3 className="text-2xl font-black text-white mb-4">
               Fitness Exclusive
             </h3>
             <p className="text-gray-300 mb-6 max-w-md">

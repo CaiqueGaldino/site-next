@@ -56,7 +56,7 @@ export default function ContadorAlunos() {
       numero: stats.alunos.toLocaleString(),
       label: "Alunos Ativos",
       icone: getAssetPath("/images/icones/alunos.png"),
-      cor: "bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent"
+      cor: "text-white"
     },
     {
       numero: stats.unidades,

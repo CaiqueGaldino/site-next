@@ -237,7 +237,7 @@ textarea {
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-lexend), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 }
 

@@ -161,8 +161,8 @@ export default function FormularioAgendamento({
   const hoje = new Date().toISOString().split("T")[0];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-      <div className="bg-gradient-to-br from-zinc-900 to-black border-2 border-[#EBA730]/30 rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+      <div className="bg-gradient-to-br from-zinc-900 to-black border-2 border-[#EBA730]/30 rounded-2xl w-full max-w-md max-h-[85vh] overflow-y-auto shadow-2xl animate-scale-in">
         {/* Header */}
         <div className="sticky top-0 bg-black/90 backdrop-blur-sm border-b border-[#EBA730]/30 p-4 flex items-center justify-between z-10">
           <h2 className="text-xl font-black bg-gradient-to-r from-[#EBA730] to-[#FAC934] bg-clip-text text-transparent">
@@ -307,7 +307,7 @@ export default function FormularioAgendamento({
           {/* Botão Submit */}
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold py-4 rounded-full transition-all transform hover:scale-105 active:scale-95 touch-manipulation shadow-lg mt-6"
+            className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold py-4 rounded-full transition-all transform hover:scale-105 active:scale-95 touch-manipulation shadow-lg mt-6 mb-20"
           >
             {tipo === "aula-experimental" ? (
               <>
