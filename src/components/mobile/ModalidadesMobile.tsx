@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, X, Dumbbell, Building2, Target, Users } from "lucide-react";
+import { X, Dumbbell, Building2, Target, Users } from "lucide-react";
 import { diferenciais } from "../../lib/dadosAcademia";
 import { hapticFeedback } from "../../lib/mobileUtils";
 import AvaliacoesMobile from "./AvaliacoesMobile";
@@ -51,23 +51,6 @@ export default function ModalidadesMobile() {
 
       {/* Carrossel de Diferenciais */}
       <div className="relative h-[50vh] flex items-center justify-center">
-        {/* Botões de Navegação */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-2 z-20 bg-black/50 hover:bg-[#EBA730]/80 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-gray-600 hover:border-[#EBA730] touch-manipulation"
-          aria-label="Diferencial anterior"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-
-        <button
-          onClick={nextSlide}
-          className="absolute right-2 z-20 bg-black/50 hover:bg-[#EBA730]/80 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-gray-600 hover:border-[#EBA730] touch-manipulation"
-          aria-label="Próximo diferencial"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-
         {/* Cards */}
         <AnimatePresence mode="wait" custom={currentSlide}>
           <motion.div

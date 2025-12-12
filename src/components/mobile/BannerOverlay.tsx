@@ -42,17 +42,17 @@ export default function BannerOverlay() {
 
   return (
     <div 
-      className="fixed inset-0 bg-black/90 backdrop-blur-md z-[100] flex items-center justify-center p-6 animate-fade-in"
+      className="fixed inset-0 bg-black z-[100] animate-fade-in"
       onClick={closeBanner}
     >
       <div 
-        className="relative w-full max-w-md animate-scale-in p-4"
+        className="relative w-full h-full"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Banner Image */}
+        {/* Banner Image - Tela Cheia */}
         <div 
-          className={`relative w-full aspect-[540/1080] rounded-lg overflow-hidden shadow-2xl border-2 border-[#EBA730]/50 ${
-            BANNER_CONFIG.isClickable ? 'cursor-pointer active:scale-95 transition-transform' : ''
+          className={`relative w-full h-full ${
+            BANNER_CONFIG.isClickable ? 'cursor-pointer active:scale-[0.98] transition-transform' : ''
           }`}
           onClick={handleBannerClick}
         >
@@ -62,10 +62,10 @@ export default function BannerOverlay() {
               e.stopPropagation();
               closeBanner();
             }}
-            className="absolute top-3 right-3 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-2 rounded-full transition-all active:scale-95 touch-manipulation z-20 border border-white/30 shadow-lg"
+            className="absolute top-4 right-4 bg-black/70 hover:bg-black/90 backdrop-blur-sm text-white p-3 rounded-full transition-all active:scale-95 touch-manipulation z-20 border border-white/30 shadow-lg"
             aria-label="Fechar banner"
           >
-            <X className="w-5 h-5" />
+            <X className="w-6 h-6" />
           </button>
 
           <Image
