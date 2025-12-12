@@ -40,7 +40,7 @@ export default function ModalidadesMobile() {
       {/* Título da Seção */}
       <div className="text-center mb-6">
         <h2 className="text-2xl font-black text-white mb-2">
-          MODALIDADES
+          DIFERENCIAIS
         </h2>
         <div className="flex items-center justify-center gap-2">
           <div className="h-1 w-16 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
@@ -49,13 +49,13 @@ export default function ModalidadesMobile() {
         </div>
       </div>
 
-      {/* Carrossel de Modalidades */}
+      {/* Carrossel de Diferenciais */}
       <div className="relative h-[50vh] flex items-center justify-center">
         {/* Botões de Navegação */}
         <button
           onClick={prevSlide}
           className="absolute left-2 z-20 bg-black/50 hover:bg-[#EBA730]/80 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-gray-600 hover:border-[#EBA730] touch-manipulation"
-          aria-label="Modalidade anterior"
+          aria-label="Diferencial anterior"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
@@ -63,7 +63,7 @@ export default function ModalidadesMobile() {
         <button
           onClick={nextSlide}
           className="absolute right-2 z-20 bg-black/50 hover:bg-[#EBA730]/80 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-gray-600 hover:border-[#EBA730] touch-manipulation"
-          aria-label="Próxima modalidade"
+          aria-label="Próximo diferencial"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
@@ -124,7 +124,7 @@ export default function ModalidadesMobile() {
                   ? 'w-8 h-3 bg-[#EBA730] rounded-full' 
                   : 'w-3 h-3 rounded-full bg-gray-600'
               }`}
-              aria-label={`Ir para modalidade ${index + 1}`}
+              aria-label={`Ir para diferencial ${index + 1}`}
             />
           ))}
         </div>
