@@ -16,8 +16,8 @@ export const banners = [
     subtitulo: "Conforto e bem-estar em cada treino"
   },
   {
-    desktop: getAssetPath("/images/banners/desktop/banner3.webp"),
-    mobile: getAssetPath("/images/banners/mobile/banner3.webp"),
+    desktop: getAssetPath("/images/banners/desktop/banner3.png"),
+    mobile: getAssetPath("/images/banners/mobile/banner3.png"),
     alt: "Profissionais qualificados para te ajudar",
     titulo: "Profissionais Qualificados",
     subtitulo: "Acompanhamento especializado para seus objetivos"
@@ -93,136 +93,176 @@ export const estruturas = [
 
 export const depoimentos = [
   {
-    nome: "Maria Silva",
+    nome: "Hellen Prado",
     avaliacao: 5,
-    comentario: "Melhor academia da região! Equipamentos novos e professores atenciosos. Já perdi 15kg em 6 meses!",
-    foto: getAssetPath("/images/depoimentos/depoimento1.webp")
+    comentario: "Ótima, perfeita, ambiente agradável, funcionários super atenciosos e educados!",
   },
   {
-    nome: "Ana Costa",
+    nome: "João Diego",
     avaliacao: 5,
-    comentario: "Ambiente motivador e limpo. O personal trainer me ajudou muito a alcançar meus objetivos.",
-    foto: getAssetPath("/images/depoimentos/depoimento2.webp")
+    comentario: "Academia evoluindo cada dia mais! Os professores da noite (Naiana e Yuri) são pacientes e ensinam com excelência. Na recepção, Iranildo atende a todos bem e com a devida atenção.",
   },
   {
-    nome: "João Santos",
+    nome: "Maria Clara",
     avaliacao: 5,
-    comentario: "Adoro as aulas de cross training! A equipe é super qualificada e sempre dispostos a ajudar.",
-    foto: getAssetPath("/images/depoimentos/depoimento3.webp")
+    comentario: "A academia é excelente! Fiz o teste no programa de convite e realizei a matrícula logo depois. Gostaria de agradecer e parabenizar os profissionais Mônica, Ítalo, Levi e George. Pessoas proativas e gentis.",
+  },
+  {
+    nome: "Monica Márcia",
+    avaliacao: 5,
+    comentario: "Melhor academia da cidade, referência em atendimento! Sem contar no ambiente que te deixa confortável e professores que te ajudam evoluir.👏👏👏 ",
+  },
+  {
+    nome: "Dayvisson Fernandes",
+    avaliacao: 5,
+    comentario: "Academia com ótima estrutura e qualidade dos equipamentos excelentes!! Administração e professores sempre a disposição para tirar qualquer dúvida. Enfim super recomendado!!!",
   }
 ];
 
 export const unidades = [
   {
     nome: "Crato",
-    endereco: "Av. Padre Cícero, 1349, São Miguel",
-    cidade: "Crato - CE",
+    endereco: "Av. Padre Cícero, 1349",
+    cidade: "São Miguel, Crato - CE",
     telefone: "(88) 99333-3152",
     horarios: "Seg–Sex 05h–22h | Sáb 08h–14h | Dom 10h–12h",
     desktop: getAssetPath("/images/unidades/unidade-sao-luiz.webp"),
     mobile: getAssetPath("/images/unidades/unidade-sao-luiz.webp"),
-    destaque: true
+    destaque: true,
+    placeId: "ChIJS6JefoSDoQcRTTEABWYS41g"
   },
   {
     nome: "Premium",
     endereco: "Av. Leão Sampaio, 1623",
-    cidade: "Juazeiro do Norte - CE",
+    cidade: "Lagoa Seca, Juazeiro do Norte - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 05h–22h | Sáb/Fer 06h–12h | Dom 09h–13h",
     desktop: getAssetPath("/images/unidades/unidade-premium.webp"),
     mobile: getAssetPath("/images/unidades/unidade-premium.webp"),
-    destaque: true
+    destaque: true,
+    placeId: "ChIJP6eYq5-DoQcRZl35_8eECbE"
   },
   {
     nome: "Tiradentes",
-    endereco: "Av. Radialista Coelho Alves, 181",
-    cidade: "Juazeiro do Norte - CE",
+    endereco: "Av. Rad. Coelho Alves, 181",
+    cidade: "Tiradentes, Juazeiro do Norte - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 05h–22h | Sáb 06h–12h | Dom 09h–13h",
     desktop: getAssetPath("/images/unidades/unidade-tiradentes.webp"),
     mobile: getAssetPath("/images/unidades/unidade-tiradentes.webp"),
-    destaque: false
+    destaque: false,
+    placeId: "ChIJnwXik0d5oQcRY_RCZ5EA5lc"
   },
   {
     nome: "Lagoa Seca",
-    endereco: "Av. Leão Sampaio, 1771A",
-    cidade: "Juazeiro do Norte - CE",
+    endereco: "Av. Leão Sampaio, 1771",
+    cidade: "Lagoa Seca, Juazeiro do Norte - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 05h–22h | Sáb 08h–16h | Dom 09h–13h",
     desktop: getAssetPath("/images/unidades/unidade-lagoa-seca.webp"),
     mobile: getAssetPath("/images/unidades/unidade-lagoa-seca.webp"),
-    destaque: false
+    destaque: false,
+    placeId: "ChIJ_91hy4KDoQcR1adqn7WkXAs"
   },
   {
     nome: "São José",
-    endereco: "Rua Zeca Esmeraldo, 100",
-    cidade: "Juazeiro do Norte - CE",
+    endereco: "R. Zeca Esmeraldo, 100",
+    cidade: "São José, Juazeiro do Norte - CE",
     telefone: "—",
     horarios: "Seg–Sex 05h–22h | Sáb 08h–14h | Dom 09h–13h",
     desktop: getAssetPath("/images/unidades/unidade-sao-jose.webp"),
     mobile: getAssetPath("/images/unidades/unidade-sao-jose.webp"),
-    destaque: false
+    destaque: false,
+    placeId: "ChIJs7Tm6oGDoQcRP-_ZkLc08kY"
   },
   {
     nome: "Salesianos",
-    endereco: "Rua Santa Cecília, 1162",
-    cidade: "Juazeiro do Norte - CE",
+    endereco: "R. Santa Cecília, 1111",
+    cidade: "Salesianos, Juazeiro do Norte - CE",
     telefone: "(89) 9906-6688",
     horarios: "Seg–Sex 05h–22h | Sáb 10h–18h | Dom 09h–13h",
     desktop: getAssetPath("/images/unidades/unidade-salesianos.webp"),
     mobile: getAssetPath("/images/unidades/unidade-salesianos.webp"),
-    destaque: false
+    destaque: false,
+    placeId: "ChIJA5B1kGKDoQcRj_Of-_o0HB4"
   },
   {
     nome: "Parque Ecológico",
-    endereco: "Rua Dr. Mário Malzoni, 899",
-    cidade: "Juazeiro do Norte - CE",
+    endereco: "Av. Ailton Gomes, 3140",
+    cidade: "Lagoa Seca, Juazeiro do Norte - CE",
     telefone: "(88) 99333-3152",
     horarios: "Seg–Sex 05h–22h | Sáb 10h–16h | Dom 09h–13h",
     desktop: getAssetPath("/images/unidades/unidade-parque-ecologico.webp"),
     mobile: getAssetPath("/images/unidades/unidade-parque-ecologico.webp"),
-    destaque: false
+    destaque: false,
+    placeId: "ChIJW3Vsl_95oQcR1fCoKi_gRNo"
   },
   {
-    nome: "Centro",
-    endereco: "Rua José Alves Batista, 222",
-    cidade: "Araripina - PE",
+    nome: "Matriz Araripina",
+    endereco: "Av. Antônio de Barros Muniz, 91",
+    cidade: "Centro, Araripina - PE",
     telefone: "(87) 99888-7766",
     horarios: "Seg–Sex 05h–22h | Sáb 06h–18h | Dom 08h–16h",
     desktop: getAssetPath("/images/unidades/unidade-centro.webp"),
     mobile: getAssetPath("/images/unidades/unidade-centro.webp"),
-    destaque: false
+    destaque: false,
+    placeId: "ChIJo2mJpfapnwcRUbw5jY6W6qk"
   },
   {
-    nome: "Avenida",
+    nome: "Avenida Araripina",
     endereco: "Av. Florentino Alves Batista, 91",
-    cidade: "Araripina - PE",
+    cidade: "Centro, Araripina - PE",
     telefone: "(87) 99777-5544",
     horarios: "Seg–Sex 06h–22h | Sáb 07h–19h | Dom 08h–17h",
     desktop: getAssetPath("/images/unidades/unidade-avenida.webp"),
     mobile: getAssetPath("/images/unidades/unidade-avenida.webp"),
-    destaque: false
+    destaque: false,
+    placeId: "ChIJ2_3yYhOonwcRisvH4QmeBV4"
   },
   {
-    nome: "AABB",
-    endereco: "Rua dos Atletas, 200",
-    cidade: "Crato - CE",
+    nome: "AABB Crato",
+    endereco: "Av. Perimetral Dom Francisco, 1200",
+    cidade: "São Miguel, Crato - CE",
     telefone: "(88) 99359-5368",
     horarios: "Seg–Sex 06h–22h | Sáb 08h–20h | Dom 09h–18h",
     desktop: getAssetPath("/images/unidades/unidade-aabb.webp"),
     mobile: getAssetPath("/images/unidades/unidade-aabb.webp"),
-    destaque: false
+    destaque: false,
+    placeId: "ChIJtd1GbIqDoQcR1fJpNZwpN0k"
   }
   ,
   {
     nome: "Aeroporto",
-    endereco: "Av. do Aeroporto, 1000",
-    cidade: "Juazeiro do Norte - CE",
+    endereco: "Av. Gov. Virgílio Távora, 1535",
+    cidade: "Aeroporto, Juazeiro do Norte - CE",
     telefone: "(88) 99298-4986",
     horarios: "Seg–Sex 05h–22h | Sáb 08h–16h | Dom 09h–13h",
     desktop: getAssetPath("/images/unidades/unidade-aeroporto.webp"),
     mobile: getAssetPath("/images/unidades/unidade-aeroporto.webp"),
-    destaque: false
+    destaque: false,
+    placeId: "ChIJEQpH7et5oQcRyDKVDJ9mfS4"
+  },
+  {
+    nome: "Tianguá",
+    endereco: "Av. Manoel de Lima, 2014",
+    cidade: "Rodoviaria, Tianguá - CE",
+    telefone: "(88) 99359-5368",
+    horarios: "Seg–Sex 05h–22h | Sáb 08h–16h | Dom 09h–13h",
+    desktop: getAssetPath("/images/unidades/unidade-tiangua.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-tiangua.webp"),
+    destaque: false,
+    placeId: "ChIJb1cCbQBJ6wcR2ixAeHTy4_U"
+  },
+  {
+    nome: "Barbalha",
+    endereco: "R. Gustavo Macedo Cruz, 88 - Primeiro Andar",
+    cidade: "Alto da Alegria, Barbalha - CE",
+    telefone: "(88) 99359-5368",
+    horarios: "Seg–Sex 05h–22h | Sáb 08h–16h | Dom 09h–13h",
+    desktop: getAssetPath("/images/unidades/unidade-barbalha.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-barbalha.webp"),
+    destaque: false,
+    placeId: "ChIJkcw4K753oQcRdK3mGjFxzPg"
   }
 ];
 
@@ -337,7 +377,7 @@ export const beneficiosExclusivos = [
 
 // Informações de contato
 export const contato = {
-  telefone: "+55 (88) 99298-4986",
+  telefone: "+55 (88) 99263-7523",
   email: "fitnessexclusive@fitnessexclusive.com.br",
   instagram: "@academiafitnessexclusive"
 };

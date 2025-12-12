@@ -99,17 +99,6 @@ export default function Unidades() {
             </ScrollReveal>
           ))}
         </div>
-
-        <ScrollReveal direction="up" delay={400}>
-          <div className="text-center mt-12">
-            <p className="text-gray-400 mb-6">
-              Está planejando uma nova unidade em sua região? Entre em contato!
-            </p>
-            <button className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-8 py-3 rounded-full shadow-lg transition-all transform hover:scale-105">
-              Solicitar Nova Unidade
-            </button>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );

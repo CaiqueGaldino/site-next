@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star, Dumbbell, Building2, Target, Users } from "lucide-react";
 import { diferenciais } from "../../lib/dadosAcademia";
 import { hapticFeedback } from "../../lib/mobileUtils";
+import AvaliacoesMobile from "./AvaliacoesMobile";
 
 // Mapeamento de ícones
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -128,6 +129,8 @@ export default function ModalidadesMobile() {
           ))}
         </div>
       </div>
+      
+      <AvaliacoesMobile />
     </div>
   );
 }

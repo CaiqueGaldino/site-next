@@ -1,7 +1,6 @@
 import HeaderDesktop from "../components/desktop/HeaderDesktop";
 import HeroCarrossel from "../components/shared/Carrossel";
 import Planos from "../components/desktop/Planos";
-import EstruturaModerna from "../components/desktop/EstruturaModerna";
 import ContadorAlunos from "../components/desktop/ContadorAlunos";
 import DiferenciaisStack from "../components/desktop/DiferenciaisStack";
 import Beneficios from "../components/desktop/Beneficios";
@@ -20,7 +19,6 @@ export default function HomeDesktop() {
       <main className="pt-20">
         <HeroCarrossel />
         <Planos />
-        <EstruturaModerna />
         <ContadorAlunos />
         <DiferenciaisStack />
         <Beneficios />

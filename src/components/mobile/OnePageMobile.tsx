@@ -13,12 +13,12 @@ import EstruturaModerna from "../desktop/EstruturaModerna";
 import Unidades from "../desktop/Unidades";
 import AulaExperimental from "../desktop/AulaExperimental";
 
-type Section = "home" | "estrutura" | "unidades" | "planos" | "faq";
+type Section = "unidades" | "modalidades" | "planos" | "faq";
 
-const sections: Section[] = ["home", "estrutura", "unidades", "planos", "faq"];
+const sections: Section[] = ["unidades", "modalidades", "planos", "faq"];
 
 export default function OnePageMobile() {
-  const [activeSection, setActiveSection] = useState<Section>("home");
+  const [activeSection, setActiveSection] = useState<Section>("unidades");
   const [direction, setDirection] = useState(0);
 
   const handleNavigate = (sectionId: string) => {
@@ -62,25 +62,18 @@ export default function OnePageMobile() {
 
   const renderSection = () => {
     switch (activeSection) {
-      case "home":
-        return (
-          <div className="h-full overflow-y-auto scrollbar-hide">
-            <ModalidadesMobile />
-          </div>
-        );
-
-      case "estrutura":
-        return (
-          <div className="h-full overflow-y-auto scrollbar-hide">
-            <EstruturaModerna />
-            <div className="h-24"></div>
-          </div>
-        );
-
       case "unidades":
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
             <Unidades />
+            <div className="h-24"></div>
+          </div>
+        );
+
+      case "modalidades":
+        return (
+          <div className="h-full overflow-y-auto scrollbar-hide">
+            <ModalidadesMobile />
             <div className="h-24"></div>
           </div>
         );

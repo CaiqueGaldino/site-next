@@ -7,7 +7,7 @@ import { X } from "lucide-react";
 
 // Configurações do Banner
 const BANNER_CONFIG = {
-  imagePath: "/images/banners/mobile/banner2.jpg",
+  imagePath: "/images/banners/mobile/banner2.png",
   isClickable: true, // true = clicável | false = apenas visual
   redirectUrl: "https://wa.me/5588992984986?text=" + encodeURIComponent('Olá! Vi o banner e quero saber mais! 💪'),
   alt: "Banner promocional"
@@ -46,25 +46,28 @@ export default function BannerOverlay() {
       onClick={closeBanner}
     >
       <div 
-        className="relative w-full max-w-md animate-scale-in"
+        className="relative w-full max-w-md animate-scale-in p-4"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Botão Fechar */}
-        <button
-          onClick={closeBanner}
-          className="absolute -top-10 right-0 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 rounded-full transition-all active:scale-95 touch-manipulation z-10 border border-white/20"
-          aria-label="Fechar banner"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
         {/* Banner Image */}
         <div 
-          className={`relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#EBA730]/50 ${
+          className={`relative w-full aspect-[540/1080] rounded-lg overflow-hidden shadow-2xl border-2 border-[#EBA730]/50 ${
             BANNER_CONFIG.isClickable ? 'cursor-pointer active:scale-95 transition-transform' : ''
           }`}
           onClick={handleBannerClick}
         >
+          {/* Botão Fechar - Sobre a imagem */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              closeBanner();
+            }}
+            className="absolute top-3 right-3 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-2 rounded-full transition-all active:scale-95 touch-manipulation z-20 border border-white/30 shadow-lg"
+            aria-label="Fechar banner"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
           <Image
             src={getAssetPath(BANNER_CONFIG.imagePath)}
             alt={BANNER_CONFIG.alt}

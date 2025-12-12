@@ -3,7 +3,7 @@ import React from "react";
 import { Dock, DockIcon, DockItem, DockLabel } from "../ui/shadcn-io/dock";
 import { hapticFeedback } from "../../lib/mobileUtils";
 import { 
-  Home, 
+  Building2, 
   CreditCard, 
   Dumbbell, 
   MapPin, 
@@ -18,9 +18,8 @@ interface DockNavigationProps {
 
 export default function DockNavigation({ activeSection, onNavigate }: DockNavigationProps) {
   const navigationItems = [
-    { id: "home", label: "Home", icon: Home },
-    { id: "estrutura", label: "Estrutura", icon: Dumbbell },
-    { id: "unidades", label: "Unidades", icon: MapPin },
+    { id: "unidades", label: "Unidades", icon: Building2 },
+    { id: "modalidades", label: "Modalidades", icon: Dumbbell },
     { id: "planos", label: "Planos", icon: CreditCard },
     { id: "faq", label: "FAQ", icon: Phone },
   ];
