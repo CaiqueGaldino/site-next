@@ -113,7 +113,7 @@ export default function FooterMobile() {
             {activeSection === 'contato' && (
               <div className="px-4 pb-4 space-y-3">
                 <a 
-                  href="tel:+5588992984986"
+                  href="tel:+5588992637523"
                   className="flex items-center gap-3 py-2 active:scale-95 transition-transform"
                   onClick={() => hapticFeedback('light')}
                 >
@@ -185,7 +185,7 @@ export default function FooterMobile() {
           <button 
             onClick={() => {
               hapticFeedback('heavy');
-              window.open('https://wa.me/5588992984986?text=' + encodeURIComponent('Olá! Gostaria de me matricular na Fitness Exclusive!'), '_blank');
+              window.open('https://wa.me/5588992637523?text=' + encodeURIComponent('Olá! Gostaria de me matricular na Fitness Exclusive!'), '_blank');
             }}
             className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold py-4 rounded-full shadow-lg active:scale-95 transition-transform touch-manipulation"
           >

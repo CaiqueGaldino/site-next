@@ -15,15 +15,11 @@ export default function FAQ() {
   const faqItems: FAQItem[] = [
     {
       question: "Qual é o horário de funcionamento?",
-      answer: "Nossas unidades funcionam de segunda a sexta das 5h às 22h, sábados das 6h às 20h e domingos das 8h às 18h. Algumas unidades têm horários estendidos."
+      answer: "Nossas unidades funcionam de segunda a sexta das 5h às 23h, sábados das 8h às 16h e domingos das 9h às 13h com exceção da unidade São Luis. Algumas unidades têm horários estendidos ou reduzidos, consulte a aba de unidades para mais detalhes."
     },
     {
       question: "Posso fazer uma aula experimental gratuita?",
       answer: "Sim! Oferecemos uma aula experimental gratuita para novos alunos. Agende através do nosso WhatsApp ou visite uma de nossas unidades."
-    },
-    {
-      question: "Quais modalidades estão incluídas nos planos?",
-      answer: "Todos os planos incluem musculação, cardio, aulas funcionais, cross training, yoga e pilates. Modalidades especiais podem ter custo adicional."
     },
     {
       question: "Posso usar qualquer unidade com minha matrícula?",
@@ -39,12 +35,8 @@ export default function FAQ() {
     },
     {
       question: "Posso levar acompanhantes?",
-      answer: "Convidados podem treinar mediante taxa diária. Consulte nossa política de visitantes na recepção da unidade."
+      answer: "Acompanhantes são até cinco por mês. Consulte nossa política de acompanhantes na recepção da unidade."
     },
-    {
-      question: "Vocês oferecem acompanhamento nutricional?",
-      answer: "Sim, algumas unidades contam com nutricionistas parceiros. Consulte disponibilidade e valores na unidade de sua preferência."
-    }
   ];
 
   const toggleFAQ = (index: number) => {
@@ -124,7 +116,7 @@ export default function FAQ() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
-                  onClick={() => window.open('https://wa.me/5588992984986?text=' + encodeURIComponent('Olá! Gostaria de mais informações 😊'), '_blank')}
+                  onClick={() => window.open('https://wa.me/5588992637523?text=' + encodeURIComponent('Olá! Gostaria de mais informações 😊'), '_blank')}
                   className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-6 py-3 rounded-full transition-all transform hover:scale-105"
                 >
                   Falar no WhatsApp

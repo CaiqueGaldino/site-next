@@ -156,7 +156,7 @@ export default function FAQMobile() {
               <button 
                 onClick={() => {
                   hapticFeedback('heavy');
-                  window.open('https://wa.me/5588992984986?text=' + encodeURIComponent('Olá! Tenho algumas dúvidas sobre a Fitness Exclusive 🤔'), '_blank');
+                  window.open('https://wa.me/5588992637523?text=' + encodeURIComponent('Olá! Tenho algumas dúvidas sobre a Fitness Exclusive 🤔'), '_blank');
                 }}
                 className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold px-6 py-4 rounded-full transition-all active:scale-95 touch-manipulation shadow-lg"
               >

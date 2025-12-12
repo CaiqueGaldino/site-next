@@ -25,6 +25,11 @@ export default function FormularioAgendamento({
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // URL do Google Apps Script
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzP_-q5HjNcv_DvLA9zZmkTAO1mjgIjWSUqcdDUSIn4HEinebVJ4Vi4O1MQyn89rAbMxQ/exec";
 
   const horariosDisponiveis = [
     "05:00 - 06:00",
@@ -106,7 +111,7 @@ export default function FormularioAgendamento({
     return Object.keys(novosErros).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validarFormulario()) {
@@ -114,45 +119,61 @@ export default function FormularioAgendamento({
       return;
     }
 
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
     hapticFeedback("heavy");
 
-    const unidadeSelecionada = unidades.find(u => u.nome === formData.unidade);
-    const dataFormatada = new Date(formData.data + "T00:00:00").toLocaleDateString("pt-BR");
-    
-    const mensagem = tipo === "aula-experimental"
-      ? `*Agendamento - Aula Experimental*\n\n` +
-        `*Nome:* ${formData.nome}\n` +
-        `*Telefone:* ${formData.telefone}\n` +
-        `*Email:* ${formData.email}\n` +
-        `*Unidade:* ${formData.unidade}\n` +
-        `*Data:* ${dataFormatada}\n` +
-        `*Horário:* ${formData.horario}\n\n` +
-        `Gostaria de agendar uma aula experimental!`
-      : `*Quero Fazer Parte da Stack Fight*\n\n` +
-        `*Nome:* ${formData.nome}\n` +
-        `*Telefone:* ${formData.telefone}\n` +
-        `*Email:* ${formData.email}\n` +
-        `*Unidade:* ${formData.unidade}\n` +
-        `*Data para visita:* ${dataFormatada}\n` +
-        `*Horário:* ${formData.horario}\n\n` +
-        `Gostaria de conhecer a academia e fazer parte do time!`;
+    try {
+      // Enviar dados para Google Sheets
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        redirect: 'follow',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify({
+          nome: formData.nome,
+          telefone: formData.telefone,
+          email: formData.email,
+          unidade: formData.unidade,
+          data: formData.data,
+          horario: formData.horario,
+          tipo: tipo === "aula-experimental" ? "Aula Experimental" : "Quero Fazer Parte"
+        })
+      });
 
-    const telefoneUnidade = unidadeSelecionada?.telefone?.replace(/\D/g, "") || "5588992984986";
-    const whatsappUrl = `https://wa.me/${telefoneUnidade}?text=${encodeURIComponent(mensagem)}`;
+      const result = await response.json();
 
-    window.open(whatsappUrl, "_blank");
-    
-    // Resetar formulário e fechar modal
-    setFormData({
-      nome: "",
-      telefone: "",
-      email: "",
-      unidade: "",
-      data: "",
-      horario: ""
-    });
-    setErrors({});
-    onClose();
+      if (result.success) {
+        setSubmitStatus('success');
+        hapticFeedback('medium');
+
+        // Aguardar 2 segundos para mostrar mensagem de sucesso antes de fechar
+        setTimeout(() => {
+          // Resetar formulário e fechar modal
+          setFormData({
+            nome: "",
+            telefone: "",
+            email: "",
+            unidade: "",
+            data: "",
+            horario: ""
+          });
+          setErrors({});
+          setSubmitStatus('idle');
+          onClose();
+        }, 2000);
+      } else {
+        throw new Error('Falha ao salvar dados');
+      }
+
+    } catch (error) {
+      console.error('Erro ao enviar dados:', error);
+      setSubmitStatus('error');
+      hapticFeedback('heavy');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -304,12 +325,32 @@ export default function FormularioAgendamento({
             {errors.horario && <p className="text-red-500 text-xs mt-1">{errors.horario}</p>}
           </div>
 
+          {/* Mensagem de Status */}
+          {submitStatus === 'success' && (
+            <div className="bg-green-500/20 border border-green-500 text-green-500 px-4 py-3 rounded-lg text-center">
+              ✓ Agendamento enviado com sucesso! Em breve entraremos em contato.
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div className="bg-red-500/20 border border-red-500 text-red-500 px-4 py-3 rounded-lg text-center">
+              ✗ Erro ao enviar dados. Tente novamente.
+            </div>
+          )}
+
           {/* Botão Submit */}
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold py-4 rounded-full transition-all transform hover:scale-105 active:scale-95 touch-manipulation shadow-lg mt-6 mb-20"
+            disabled={isSubmitting}
+            className={`w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold py-4 rounded-full transition-all transform hover:scale-105 active:scale-95 touch-manipulation shadow-lg mt-6 mb-20 ${
+              isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           >
-            {tipo === "aula-experimental" ? (
+            {isSubmitting ? (
+              <>
+                <span className="inline-block animate-spin mr-2">⏳</span> Enviando...
+              </>
+            ) : tipo === "aula-experimental" ? (
               <>
                 <Dumbbell className="w-5 h-5 mr-2 inline" /> Agendar Aula
               </>
