@@ -137,7 +137,7 @@ export default function FormularioAgendamento({
         `*Horário:* ${formData.horario}\n\n` +
         `Gostaria de conhecer a academia e fazer parte do time!`;
 
-    const telefoneUnidade = unidadeSelecionada?.telefone?.replace(/\D/g, "") || "5587993595368";
+    const telefoneUnidade = unidadeSelecionada?.telefone?.replace(/\D/g, "") || "5588992984986";
     const whatsappUrl = `https://wa.me/${telefoneUnidade}?text=${encodeURIComponent(mensagem)}`;
 
     window.open(whatsappUrl, "_blank");

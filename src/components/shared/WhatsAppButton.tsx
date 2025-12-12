@@ -24,7 +24,7 @@ export default function WhatsAppButton() {
       navigator.vibrate(50);
     }
     
-    const phoneNumber = "5587993595368"; // Número real da academia
+    const phoneNumber = "5588992984986"; // Número real da academia (atualizado)
     const message = "Olá! Gostaria de saber mais sobre os planos da Fitness Exclusive e agendar uma visita!";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { planos } from "../../lib/dadosAcademia";
 import ScrollReveal from "../shared/ScrollReveal";
+import FormularioAgendamento from "../shared/FormularioAgendamento";
 
 interface PlanoDetalhes {
   nome: string;
@@ -20,6 +21,7 @@ interface PlanoDetalhes {
 
 export default function Planos() {
   const [selectedPlano, setSelectedPlano] = useState<PlanoDetalhes | null>(null);
+  const [agendamentoAberto, setAgendamentoAberto] = useState(false);
 
   const planosDetalhados: PlanoDetalhes[] = planos.map((plano, index) => ({
     ...plano,
@@ -139,7 +141,7 @@ export default function Planos() {
                         navigator.vibrate(100);
                       }
                       // Aqui você pode adicionar lógica para abrir formulário ou WhatsApp
-                      window.open('https://wa.me/5587993595368?text=' + encodeURIComponent(`Olá! Gostaria de assinar o plano ${plano.nome}`), '_blank');
+                      window.open('https://wa.me/5588992984986?text=' + encodeURIComponent(`Olá! Gostaria de assinar o plano ${plano.nome}`), '_blank');
                     }}
                     className={`w-full py-4 md:py-3 rounded-full font-bold text-base md:text-sm transition-all transform hover:scale-105 active:scale-95 touch-manipulation shadow-lg ${
                       plano.popular
@@ -155,6 +157,18 @@ export default function Planos() {
             </ScrollReveal>
           ))}
         </div>
+
+        {/* CTA Contratar Agora - aparece após os planos */}
+        <ScrollReveal direction="up" delay={600}>
+          <div className="text-center mt-12">
+            <button
+              onClick={() => setAgendamentoAberto(true)}
+              className="inline-block bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold px-8 py-4 rounded-full shadow-xl hover:scale-105 transition-transform"
+            >
+              Contratar agora
+            </button>
+          </div>
+        </ScrollReveal>
 
         {/* Modal de Detalhes */}
         {selectedPlano && (
@@ -236,6 +250,12 @@ export default function Planos() {
             </div>
           </div>
         )}
+
+        <FormularioAgendamento
+          isOpen={agendamentoAberto}
+          onClose={() => setAgendamentoAberto(false)}
+          tipo="quero-fazer-parte"
+        />
       </div>
     </section>
   );

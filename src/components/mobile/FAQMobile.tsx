@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Clock, Target, Dumbbell, MapPin, User, FileText, Users, Apple } from "lucide-react";
 import { hapticFeedback } from "../../lib/mobileUtils";
+import FormularioAgendamento from "../shared/FormularioAgendamento";
 
 interface FAQItem {
   question: string;
@@ -11,6 +12,7 @@ interface FAQItem {
 
 export default function FAQMobile() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [modalAgendamentoAberto, setModalAgendamentoAberto] = useState(false);
 
   const faqItems: FAQItem[] = [
     {
@@ -154,7 +156,7 @@ export default function FAQMobile() {
               <button 
                 onClick={() => {
                   hapticFeedback('heavy');
-                  window.open('https://wa.me/5587993595368?text=' + encodeURIComponent('Olá! Tenho algumas dúvidas sobre a Fitness Exclusive 🤔'), '_blank');
+                  window.open('https://wa.me/5588992984986?text=' + encodeURIComponent('Olá! Tenho algumas dúvidas sobre a Fitness Exclusive 🤔'), '_blank');
                 }}
                 className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold px-6 py-4 rounded-full transition-all active:scale-95 touch-manipulation shadow-lg"
               >
@@ -163,7 +165,7 @@ export default function FAQMobile() {
               <button 
                 onClick={() => {
                   hapticFeedback('medium');
-                  window.open('https://wa.me/5587993595368?text=' + encodeURIComponent('Olá! Gostaria de agendar uma visita na Fitness Exclusive 🏋️'), '_blank');
+                  setModalAgendamentoAberto(true);
                 }}
                 className="w-full bg-transparent border-2 border-[#EBA730] text-[#EBA730] font-bold px-6 py-3 rounded-full transition-all active:scale-95 touch-manipulation"
               >
@@ -173,6 +175,12 @@ export default function FAQMobile() {
           </div>
         </div>
       </div>
+
+      <FormularioAgendamento
+        isOpen={modalAgendamentoAberto}
+        onClose={() => setModalAgendamentoAberto(false)}
+        tipo="quero-fazer-parte"
+      />
     </section>
   );
 }

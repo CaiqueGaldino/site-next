@@ -213,6 +213,17 @@ export const unidades = [
     mobile: getAssetPath("/images/unidades/unidade-aabb.webp"),
     destaque: false
   }
+  ,
+  {
+    nome: "Aeroporto",
+    endereco: "Av. do Aeroporto, 1000",
+    cidade: "Juazeiro do Norte - CE",
+    telefone: "(88) 99298-4986",
+    horarios: "Seg–Sex 05h–22h | Sáb 08h–16h | Dom 09h–13h",
+    desktop: getAssetPath("/images/unidades/unidade-aeroporto.webp"),
+    mobile: getAssetPath("/images/unidades/unidade-aeroporto.webp"),
+    destaque: false
+  }
 ];
 
 export const diferenciais = [
@@ -252,14 +263,12 @@ export const planos = [
     periodo: "/mês",
     descricao: "Plano com renovação automática",
     beneficios: [
-      "APP do treino",
+      "App de treino",
       "Horário livre",
       "Área de musculação e aeróbicos",
-      "Leve 5 amigos",
-      "Massagem do fisioterapeuta",
-      "Aulas coletivas e de dança",
-      "Cadeira de massagem",
-      "Válido por 7 dias"
+      "Avaliação física",
+      "Treino personalizado",
+      "Acompanhamento profissional"
     ],
     popular: false,
     adesao: "Zero",
@@ -271,38 +280,34 @@ export const planos = [
     periodo: "/mês",
     descricao: "Plano anual pago à vista",
     beneficios: [
-      "APP do treino",
+      "App de treino",
       "Horário livre",
+      "Leve até 5 amigos",
       "Área de musculação e aeróbicos",
-      "Leve 5 amigos",
-      "Massagem do fisioterapeuta",
-      "Aulas coletivas e de dança",
-      "Cadeira de massagem",
-      "Válido por 7 dias"
+      "Avaliação física",
+      "Treino personalizado",
+      "Acompanhamento profissional"
     ],
     popular: true,
     adesao: "Zero",
     anuidade: "Zero"
   },
   {
-    nome: "Plano Benefício",
-    preco: "R$ 9,90",
+    nome: "Plano Mensal",
+    preco: "R$ 195,90",
     periodo: "/mês",
-    descricao: "Complemento dos planos anuais (não vendido separadamente)",
+    descricao: "Plano mensal com todos os benefícios",
     beneficios: [
-      "APP do treino",
+      "App de treino",
       "Horário livre",
       "Área de musculação e aeróbicos",
-      "Leve 5 amigos",
-      "Massagem do fisioterapeuta",
-      "Aulas coletivas e de dança",
-      "Cadeira de massagem",
-      "Válido por 7 dias"
+      "Avaliação física",
+      "Treino personalizado",
+      "Acompanhamento profissional"
     ],
     popular: false,
     adesao: "Zero",
-    anuidade: "Zero",
-    observacao: "Plano Benefício é um complemento dos planos Anual Recorrente e Anual Crédito. Não é vendido separadamente!"
+    anuidade: "Zero"
   }
 ];
 
@@ -332,7 +337,7 @@ export const beneficiosExclusivos = [
 
 // Informações de contato
 export const contato = {
-  telefone: "+55 (87) 99359-5368",
+  telefone: "+55 (88) 99298-4986",
   email: "fitnessexclusive@fitnessexclusive.com.br",
   instagram: "@academiafitnessexclusive"
 };

@@ -137,7 +137,7 @@ export default function HeaderMobile() {
                     onClick={() => {
                       hapticFeedback('medium');
                       setIsMenuOpen(false);
-                      window.open('https://wa.me/5587993595368?text=' + encodeURIComponent('Olá! Gostaria de me matricular na Fitness Exclusive!'), '_blank');
+                      window.open('https://wa.me/5588992984986?text=' + encodeURIComponent('Olá! Gostaria de me matricular na Fitness Exclusive!'), '_blank');
                     }}
                     className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-4 rounded-xl text-base transition-all transform active:scale-95"
                   >

@@ -9,7 +9,7 @@ import { X } from "lucide-react";
 const BANNER_CONFIG = {
   imagePath: "/images/banners/mobile/banner2.jpg",
   isClickable: true, // true = clicável | false = apenas visual
-  redirectUrl: "https://wa.me/5587993595368?text=" + encodeURIComponent('Olá! Vi o banner e quero saber mais! 💪'),
+  redirectUrl: "https://wa.me/5588992984986?text=" + encodeURIComponent('Olá! Vi o banner e quero saber mais! 💪'),
   alt: "Banner promocional"
 };
 

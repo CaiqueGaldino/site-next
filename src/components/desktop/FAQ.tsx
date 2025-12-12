@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import ScrollReveal from "../shared/ScrollReveal";
+import FormularioAgendamento from "../shared/FormularioAgendamento";
 
 interface FAQItem {
   question: string;
@@ -9,6 +10,7 @@ interface FAQItem {
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [modalAgendamentoAberto, setModalAgendamentoAberto] = useState(false);
 
   const faqItems: FAQItem[] = [
     {
@@ -121,10 +123,16 @@ export default function FAQ() {
                 Nossa equipe está pronta para ajudar você!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-6 py-3 rounded-full transition-all transform hover:scale-105">
+                <button
+                  onClick={() => window.open('https://wa.me/5588992984986?text=' + encodeURIComponent('Olá! Gostaria de mais informações 😊'), '_blank')}
+                  className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-6 py-3 rounded-full transition-all transform hover:scale-105"
+                >
                   Falar no WhatsApp
                 </button>
-                <button className="bg-transparent border-2 border-[#EBA730] text-[#EBA730] hover:bg-gradient-to-r hover:from-[#EBA730] hover:to-[#FAC934] hover:text-black font-bold px-6 py-3 rounded-full transition-all">
+                <button
+                  onClick={() => setModalAgendamentoAberto(true)}
+                  className="bg-transparent border-2 border-[#EBA730] text-[#EBA730] hover:bg-gradient-to-r hover:from-[#EBA730] hover:to-[#FAC934] hover:text-black font-bold px-6 py-3 rounded-full transition-all"
+                >
                   Agendar Visita
                 </button>
               </div>
@@ -132,6 +140,12 @@ export default function FAQ() {
           </div>
         </ScrollReveal>
       </div>
+
+      <FormularioAgendamento
+        isOpen={modalAgendamentoAberto}
+        onClose={() => setModalAgendamentoAberto(false)}
+        tipo="quero-fazer-parte"
+      />
     </section>
   );
 }

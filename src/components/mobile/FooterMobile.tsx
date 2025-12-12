@@ -113,14 +113,14 @@ export default function FooterMobile() {
             {activeSection === 'contato' && (
               <div className="px-4 pb-4 space-y-3">
                 <a 
-                  href="tel:+5587993595368"
+                  href="tel:+5588992984986"
                   className="flex items-center gap-3 py-2 active:scale-95 transition-transform"
                   onClick={() => hapticFeedback('light')}
                 >
                   <svg className="w-5 h-5 text-[#EBA730] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  <span className="text-gray-300 text-sm">(87) 99359-5368</span>
+                  <span className="text-gray-300 text-sm">(88) 99298-4986</span>
                 </a>
                 <a 
                   href="mailto:fitnessexclusive@fitnessexclusive.com.br"
@@ -185,7 +185,7 @@ export default function FooterMobile() {
           <button 
             onClick={() => {
               hapticFeedback('heavy');
-              window.open('https://wa.me/5587993595368?text=' + encodeURIComponent('Olá! Gostaria de me matricular na Fitness Exclusive!'), '_blank');
+              window.open('https://wa.me/5588992984986?text=' + encodeURIComponent('Olá! Gostaria de me matricular na Fitness Exclusive!'), '_blank');
             }}
             className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold py-4 rounded-full shadow-lg active:scale-95 transition-transform touch-manipulation"
           >

@@ -66,8 +66,6 @@ export default function OnePageMobile() {
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
             <ModalidadesMobile />
-            <ContadorAlunosMobile />
-            <div className="h-24"></div>
           </div>
         );
 
