@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Star, Dumbbell, Building2, Target, Users } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Dumbbell, Building2, Target, Users } from "lucide-react";
 import { diferenciais } from "../../lib/dadosAcademia";
 import { hapticFeedback } from "../../lib/mobileUtils";
 import AvaliacoesMobile from "./AvaliacoesMobile";
@@ -44,7 +44,7 @@ export default function ModalidadesMobile() {
         </h2>
         <div className="flex items-center justify-center gap-2">
           <div className="h-1 w-16 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-          <Star className="w-5 h-5 text-[#EBA730]" />
+          <X className="w-5 h-5 text-[#EBA730]" />
           <div className="h-1 w-16 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
         </div>
       </div>
@@ -98,7 +98,7 @@ export default function ModalidadesMobile() {
               {/* Separador */}
               <div className="flex items-center justify-center gap-2 mb-3">
                 <div className="h-0.5 w-12 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-                <Star className="w-4 h-4 text-[#EBA730]" />
+                <X className="w-4 h-4 text-[#EBA730]" />
                 <div className="h-0.5 w-12 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
               </div>
 

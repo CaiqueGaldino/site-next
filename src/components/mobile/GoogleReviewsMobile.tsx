@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Star, X } from "lucide-react";
+import { X } from "lucide-react";
 import { hapticFeedback } from "../../lib/mobileUtils";
 import { unidades } from "../../lib/dadosAcademia";
 
@@ -32,7 +32,7 @@ export default function GoogleReviewsMobile() {
         </h2>
         <div className="flex items-center justify-center gap-2 mb-4">
           <div className="h-1 w-16 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-          <Star className="w-5 h-5 text-[#EBA730] fill-[#EBA730]" />
+          <X className="w-5 h-5 text-[#EBA730]" />
           <div className="h-1 w-16 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
         </div>
       </div>
