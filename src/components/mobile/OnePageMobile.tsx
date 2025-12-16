@@ -120,10 +120,6 @@ export default function OnePageMobile() {
               x: { type: "spring", stiffness: 300, damping: 30 },
               opacity: { duration: 0.2 }
             }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragEnd={(e, { offset }) => handleSwipe(offset.x)}
             className="absolute inset-0"
           >
             {renderSection()}
