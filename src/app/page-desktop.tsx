@@ -1,4 +1,5 @@
 import HeaderDesktop from "../components/desktop/HeaderDesktop";
+import HeroSection from "../components/desktop/HeroSection";
 import HeroCarrossel from "../components/shared/Carrossel";
 import Planos from "../components/desktop/Planos";
 import ContadorAlunos from "../components/desktop/ContadorAlunos";
@@ -16,8 +17,8 @@ export default function HomeDesktop() {
   return (
     <div className="font-sans min-h-screen bg-black">
       <HeaderDesktop />
-      <main className="pt-20">
-        <HeroCarrossel />
+      <main>
+        <HeroSection />
         <Planos />
         <ContadorAlunos />
         <DiferenciaisStack />

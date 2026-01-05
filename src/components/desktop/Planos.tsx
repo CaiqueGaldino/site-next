@@ -29,17 +29,15 @@ export default function Planos() {
   const [agendamentoAberto, setAgendamentoAberto] = useState(false);
 
   return (
-    <section id="planos" className="py-20 bg-zinc-900">
+    <section id="planos" className="py-20 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal direction="fade" delay={100}>
           <div className="text-center mb-16">
-            <div className="flex justify-center mb-4">
-              <Tag text="MAIS DE 5.000 ALUNOS" />
-            </div>
+            
             <h2 className="text-4xl font-black text-white mb-4">
-              Planos para{' '}
+              PLANOS PARA{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EBA730] to-[#FAC934]">
-                todos os objetivos
+                TODOS OS OBJETIVOS
               </span>
             </h2>
             <p className="text-xl text-gray-400">

@@ -8,8 +8,6 @@ import PlanosMobile from "./PlanosMobile";
 import BeneficiosMobile from "./BeneficiosMobile";
 import FAQMobile from "./FAQMobile";
 import ModalidadesMobile from "./ModalidadesMobile";
-import ContadorAlunosMobile from "./ContadorAlunosMobile";
-import EstruturaModerna from "../desktop/EstruturaModerna";
 import Unidades from "../desktop/Unidades";
 import AulaExperimental from "../desktop/AulaExperimental";
 
