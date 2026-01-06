@@ -74,7 +74,6 @@
 
 /* Touch-friendly styles */
 .touch-manipulation {
-  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -252,18 +251,42 @@ html {
   scroll-padding-top: 80px;
 }
 
-/* Prevent scroll only on mobile one-page */
+/* Mobile one-page layout - página fixa sem scroll */
 .mobile-one-page {
-  overflow: hidden;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
+  height: 100dvh; /* iOS viewport dinâmico */
+  overflow: auto; /* Permite scroll nativo das seções internas */
+  -webkit-overflow-scrolling: touch; /* Momentum scrolling on iOS */
 }
 
-.mobile-one-page body {
-  overflow: hidden;
+/* Momentum scrolling for scrollable containers */
+.scrollable,
+.modal-scrollable,
+[data-scrollable="true"] {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Hide default scrollbar on mobile dock */
 .dock-container::-webkit-scrollbar {
   display: none;
+}
+
+/* Adicione no seu arquivo global.css ou no componente */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+
+/* Melhorar scroll no iOS */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevenir zoom em inputs no iOS */
+input, select, textarea {
+  font-size: 16px;
 }
