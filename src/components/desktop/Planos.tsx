@@ -93,17 +93,18 @@ export default function Planos() {
                 </p>
 
                 <div className="mb-6">
-                  <button
-                    type="button"
-                    onClick={() => setAgendamentoAberto(true)}
-                    className={`w-full text-center py-4 rounded-full font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-lg ${
+                  <a
+                    href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full text-center py-4 rounded-full font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-lg block ${
                       plano.popular
                         ? 'bg-white text-black hover:bg-gray-100'
                         : 'bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black hover:from-[#FAC934] hover:to-[#EBA730]'
                     }`}
                   >
                     Assinar Agora
-                  </button>
+                  </a>
                 </div>
 
                 <ul className="space-y-3">

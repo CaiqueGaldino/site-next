@@ -99,7 +99,9 @@ export default function HeroSection() {
             <div className={`flex flex-col sm:flex-row gap-3 pt-2 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
               {/* Botão Primário */}
               <a
-                href="#contato"
+                href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative px-6 py-3 bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold text-sm rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#EBA730]/50 text-center"
               >
                 <span className="relative z-10">QUERO COMEÇAR AGORA</span>
@@ -119,9 +121,9 @@ export default function HeroSection() {
           {/* Lado Direito - Imagem do Homem */}
           <div className="relative h-[650px] lg:h-[750px] hidden lg:block">
             <div
-              className={`relative w-full h-full transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}
+              className={`relative w-full h-full transition-opacity duration-1000 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
               style={{
-                transform: `translateY(${-parallaxOffset * 0.15}px)`,
+                transform: `translate3d(${isLoaded ? '0' : '80px'}, ${-parallaxOffset * 0.15}px, 0)`,
                 maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
                 WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
               }}

@@ -58,18 +58,20 @@ interface GetStartedButtonProps {
 }
 
 const GetStartedButton = ({ isFeatured, label = 'Assinar Agora', onClick }: GetStartedButtonProps) => (
-  <button
-    type="button"
+  <a
+    href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+    target="_blank"
+    rel="noopener noreferrer"
     onClick={onClick}
     aria-label={label}
-    className={`w-full text-center py-3.5 rounded-full font-bold text-sm transition-all duration-300 ease-in-out transform active:scale-95 touch-manipulation shadow-lg ${
+    className={`w-full text-center py-3.5 rounded-full font-bold text-sm transition-all duration-300 ease-in-out transform active:scale-95 touch-manipulation shadow-lg block ${
       isFeatured
         ? 'bg-white text-black hover:bg-gray-100'
         : 'bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black hover:from-[#FAC934] hover:to-[#EBA730]'
     }`}
   >
     {label}
-  </button>
+  </a>
 );
 
 interface FeatureListItemProps {
