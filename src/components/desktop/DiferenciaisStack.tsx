@@ -16,23 +16,19 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 // Imagens da estrutura para o slide "Ambiente Moderno"
 const estruturaImages = [
-  getAssetPath("/images/Slide-Estrutura/1 (1).jpg"),
-  getAssetPath("/images/Slide-Estrutura/1 (2).jpg"),
-  getAssetPath("/images/Slide-Estrutura/1 (3).jpg"),
-  getAssetPath("/images/Slide-Estrutura/1 (4).jpg"),
-  getAssetPath("/images/Slide-Estrutura/1 (5).jpg"),
-  getAssetPath("/images/Slide-Estrutura/1 (6).jpg"),
-  getAssetPath("/images/Slide-Estrutura/1 (7).jpg"),
-  getAssetPath("/images/Slide-Estrutura/1 (8).jpg"),
-  getAssetPath("/images/Slide-Estrutura/1 (9).jpg"),
-  getAssetPath("/images/Slide-Estrutura/1 (10).jpg")
+  getAssetPath("/images/Slide-Estrutura/1 (1).webp"),
+  getAssetPath("/images/Slide-Estrutura/1 (2).webp"),
+  getAssetPath("/images/Slide-Estrutura/1 (3).webp"),
+  getAssetPath("/images/Slide-Estrutura/1 (8).webp"),
+  getAssetPath("/images/Slide-Estrutura/1 (9).webp"),
+  getAssetPath("/images/Slide-Estrutura/1 (10).webp")
 ];
 
 // Imagens das aulas para o slide "Aulas diversificadas"
 const aulasImages = [
-  getAssetPath("/images/Slide-Aulas/1 (1).jpg"),
-  getAssetPath("/images/Slide-Aulas/1 (2).jpg"),
-  getAssetPath("/images/Slide-Aulas/1 (3).jpg")
+  getAssetPath("/images/Slide-Aulas/1 (1).webp"),
+  getAssetPath("/images/Slide-Aulas/1 (2).webp"),
+  getAssetPath("/images/Slide-Aulas/1 (3).webp")
 ];
 
 export default function Diferenciais() {

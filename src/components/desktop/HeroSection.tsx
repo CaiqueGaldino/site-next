@@ -51,7 +51,7 @@ export default function HeroSection() {
         }}
       >
         <Image
-          src={getAssetPath("/images/hero section/hs-fundo.JPG")}
+          src={getAssetPath("/images/hero section/hs-fundo.webp")}
           alt="Background Academia"
           fill
           className="object-cover"
@@ -129,7 +129,7 @@ export default function HeroSection() {
               }}
             >
               <Image
-                src={getAssetPath("/images/hero section/hs-leandro.png")}
+                src={getAssetPath("/images/hero section/hs-leandro.webp")}
                 alt="Personal Trainer"
                 fill
                 className="object-contain object-right"
