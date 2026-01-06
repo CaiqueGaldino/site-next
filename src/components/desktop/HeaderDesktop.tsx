@@ -79,14 +79,14 @@ export default function HeaderDesktop() {
           </nav>
 
           {/* Botão CTA Desktop */}
-          <button 
-            onClick={() => {
-              window.open('https://wa.me/5588992637523?text=' + encodeURIComponent('Olá! Gostaria de me matricular na Fitness Exclusive!'), '_blank');
-            }}
+          <a
+            href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-sm"
           >
             Matricule-se
-          </button>
+          </a>
         </div>
       </div>
     </header>

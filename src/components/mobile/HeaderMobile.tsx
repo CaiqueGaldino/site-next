@@ -133,16 +133,18 @@ export default function HeaderMobile() {
                 
                 {/* CTA Button Mobile */}
                 <div className="px-4 pb-3">
-                  <button 
+                  <a
+                    href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => {
                       hapticFeedback('medium');
                       setIsMenuOpen(false);
-                      window.open('https://wa.me/5588992637523?text=' + encodeURIComponent('Olá! Gostaria de me matricular na Fitness Exclusive!'), '_blank');
                     }}
-                    className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-4 rounded-xl text-base transition-all transform active:scale-95"
+                    className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-4 rounded-xl text-base transition-all transform active:scale-95 block text-center"
                   >
                     Matricule-se
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
