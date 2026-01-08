@@ -334,7 +334,7 @@ export const planos = [
   },
   {
     nome: "Plano Mensal",
-    preco: "R$ 205,90",
+    preco: "R$ 204,90",
     periodo: "/mês",
     descricao: "Plano mensal com todos os benefícios",
     beneficios: [

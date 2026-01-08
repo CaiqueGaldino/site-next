@@ -41,7 +41,7 @@ export default function Planos() {
               </span>
             </h2>
             <p className="text-xl text-gray-400">
-              Escolha o plano ideal e alcance seus objetivos com a Stack Fight
+              Escolha o plano ideal e alcance seus objetivos com a Fitness Exclusive.
             </p>
           </div>
         </ScrollReveal>
