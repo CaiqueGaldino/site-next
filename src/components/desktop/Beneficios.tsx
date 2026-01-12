@@ -132,12 +132,14 @@ export default function Beneficios() {
                 <p className="text-gray-300 mb-6 text-lg">
                   Aproveite todos esses benefícios exclusivos e muito mais na Fitness Exclusive
                 </p>
-                <button 
-                  onClick={() => setModalAgendamentoAberto(true)}
-                  className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-8 py-4 rounded-full transition-all transform hover:scale-105 text-lg shadow-lg"
+                <a 
+                  href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-8 py-4 rounded-full transition-all transform hover:scale-105 text-lg shadow-lg"
                 >
                   Quero fazer parte!
-                </button>
+                </a>
               </div>
             </div>
           </div>

@@ -19,10 +19,10 @@ export default function Unidades() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal direction="fade" delay={100}>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-4">
-              Nossas Unidades
+            <h2 className="text-5xl font-black text-white mb-4">
+              NOSSAS UNIDADES
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-2xl text-gray-300">
               Encontre a unidade mais próxima de você
             </p>
           </div>

@@ -162,15 +162,15 @@ export default function FAQMobile() {
               >
                 💬 Falar no WhatsApp
               </button>
-              <button 
-                onClick={() => {
-                  hapticFeedback('medium');
-                  setModalAgendamentoAberto(true);
-                }}
-                className="w-full bg-transparent border-2 border-[#EBA730] text-[#EBA730] font-bold px-6 py-3 rounded-full transition-all active:scale-95 touch-manipulation"
+              <a 
+                href="https://wa.me/5588992637523?text=Olá!%20Gostaria%20de%20agendar%20uma%20visita"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => hapticFeedback('medium')}
+                className="w-full bg-transparent border-2 border-[#EBA730] text-[#EBA730] font-bold px-6 py-3 rounded-full transition-all active:scale-95 touch-manipulation block text-center"
               >
                 📅 Agendar Visita
-              </button>
+              </a>
             </div>
           </div>
         </div>

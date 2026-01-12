@@ -12,6 +12,7 @@ import AulaExperimental from "../components/desktop/AulaExperimental";
 import Footer from "../components/desktop/Footer";
 import WhatsAppButton from "../components/shared/WhatsAppButton";
 import ScrollToTop from "../components/shared/ScrollToTop";
+import SobreNos from "@/components/desktop/SobreNos";
 
 export default function HomeDesktop() {
   return (
@@ -25,6 +26,7 @@ export default function HomeDesktop() {
         <Beneficios />
         <Avaliacoes />
         <Unidades />
+        <SobreNos />
         <FAQ />
         <AulaExperimental />
       </main>

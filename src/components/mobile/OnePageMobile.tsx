@@ -10,6 +10,8 @@ import FAQMobile from "./FAQMobile";
 import ModalidadesMobile from "./ModalidadesMobile";
 import Unidades from "../desktop/Unidades";
 import AulaExperimental from "../desktop/AulaExperimental";
+import HeroSectionMobile from "./HeroSectionMobile";
+import AvaliacoesMobile from "./AvaliacoesMobile";
 
 type Section = "unidades" | "modalidades" | "planos" | "faq";
 
@@ -63,6 +65,7 @@ export default function OnePageMobile() {
       case "unidades":
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
+            <HeroSectionMobile />
             <Unidades />
             <div className="h-24"></div>
           </div>
@@ -72,7 +75,8 @@ export default function OnePageMobile() {
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
             <ModalidadesMobile />
-            <div className="h-24"></div>
+            <AvaliacoesMobile />
+            <div className="h-30"></div>
           </div>
         );
 

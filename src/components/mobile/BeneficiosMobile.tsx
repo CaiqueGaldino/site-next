@@ -195,15 +195,15 @@ export default function BeneficiosMobile() {
             <p className="text-gray-300 mb-4 text-sm">
               Aproveite todos esses benefícios exclusivos
             </p>
-            <button 
-              onClick={() => {
-                hapticFeedback('heavy');
-                setModalAgendamentoAberto(true);
-              }}
-              className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold px-6 py-4 rounded-full transition-all active:scale-95 touch-manipulation shadow-lg"
+            <a 
+              href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => hapticFeedback('heavy')}
+              className="block w-full text-center bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold px-6 py-4 rounded-full transition-all active:scale-95 touch-manipulation shadow-lg"
             >
               Quero fazer parte!
-            </button>
+            </a>
           </div>
         </div>
       </div>

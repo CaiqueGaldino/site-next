@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Star, Dumbbell, Building2, Target, Users } from "lucide-react";
-import { diferenciais, sobreNos } from "../../lib/dadosAcademia";
+import { diferenciais } from "../../lib/dadosAcademia";
 import ScrollReveal from "../shared/ScrollReveal";
 import { getAssetPath } from "../../lib/utils";
 
@@ -94,7 +94,7 @@ export default function Diferenciais() {
     <>
       <div 
         ref={containerRef}
-        id="diferenciais"
+        id="modalidades"
         className="relative"
         style={{ height: `${diferenciais.length * 50}vh` }}
       >
@@ -298,29 +298,6 @@ export default function Diferenciais() {
           </div>
         </div>
       </div>
-
-      {/* Sobre Nós */}
-      <section className="py-20 bg-gradient-to-br from-zinc-900 via-black to-zinc-900 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/3 via-transparent to-[#FAC934]/3"></div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <ScrollReveal>
-            <div className="bg-gradient-to-r from-zinc-900 via-black to-zinc-900 rounded-3xl p-12 border-2 border-[#EBA730] max-w-5xl mx-auto relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/10 via-transparent to-[#FAC934]/10 rounded-3xl"></div>
-              <div className="relative z-10 text-center">
-                <h2 className="text-4xl font-black text-white mb-6">
-                  {sobreNos.titulo}
-                </h2>
-                <div className="space-y-4 text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                  <p className="text-lg">{sobreNos.descricao}</p>
-                  <p>{sobreNos.missao}</p>
-                  <p>{sobreNos.equipe}</p>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
     </>
   );
 }

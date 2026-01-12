@@ -121,12 +121,14 @@ export default function FAQ() {
                 >
                   Falar no WhatsApp
                 </button>
-                <button
-                  onClick={() => setModalAgendamentoAberto(true)}
-                  className="bg-transparent border-2 border-[#EBA730] text-[#EBA730] hover:bg-gradient-to-r hover:from-[#EBA730] hover:to-[#FAC934] hover:text-black font-bold px-6 py-3 rounded-full transition-all"
+                <a
+                  href="https://wa.me/5588992637523?text=Olá!%20Gostaria%20de%20agendar%20uma%20visita"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-transparent border-2 border-[#EBA730] text-[#EBA730] hover:bg-gradient-to-r hover:from-[#EBA730] hover:to-[#FAC934] hover:text-black font-bold px-6 py-3 rounded-full transition-all inline-block"
                 >
                   Agendar Visita
-                </button>
+                </a>
               </div>
             </div>
           </div>

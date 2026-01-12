@@ -98,10 +98,10 @@ export default function HeaderMobile() {
                   Planos
                 </button>
                 <button 
-                  onClick={() => handleNavigation('estrutura')} 
+                  onClick={() => handleNavigation('modalidades')} 
                   className="w-full text-left px-6 py-4 text-white hover:text-[#EBA730] hover:bg-white/5 text-base font-medium bg-transparent border-0 cursor-pointer transition-all active:bg-white/10"
                 >
-                  Estrutura
+                  Diferenciais
                 </button>
                 <button 
                   onClick={() => handleNavigation('beneficios')} 

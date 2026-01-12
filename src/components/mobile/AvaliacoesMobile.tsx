@@ -27,10 +27,10 @@ export default function AvaliacoesMobile() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-zinc-900 via-black to-zinc-900 py-8 px-4">
+    <div className="bg-black py-8 px-4">
       {/* Título da Seção */}
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-black text-white mb-2">
+        <h2 className="text-4xl font-black text-white mb-2">
           O QUE DIZEM NOSSOS ALUNOS
         </h2>
         <div className="flex items-center justify-center gap-2 mb-4">

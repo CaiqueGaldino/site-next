@@ -84,7 +84,7 @@ export default function FooterMobile() {
               <div className="px-4 pb-4 space-y-2">
                 <button onClick={() => handleNavigation('inicio')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Início</button>
                 <button onClick={() => handleNavigation('planos')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Planos</button>
-                <button onClick={() => handleNavigation('estrutura')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Estrutura</button>
+                <button onClick={() => handleNavigation('modalidades')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Diferenciais</button>
                 <button onClick={() => handleNavigation('beneficios')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Benefícios</button>
                 <button onClick={() => handleNavigation('avaliacoes')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Avaliações</button>
               </div>

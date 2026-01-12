@@ -1,30 +1,27 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Dumbbell, Building2, Target, Users } from "lucide-react";
-import { diferenciais } from "../../lib/dadosAcademia";
+import { ChevronDown } from "lucide-react";
 import { hapticFeedback } from "../../lib/mobileUtils";
 import AvaliacoesMobile from "./AvaliacoesMobile";
+import Image from "next/image";
 
-// Mapeamento de ícones
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Dumbbell,
-  Building2,
-  Target,
-  Users
-};
+const slides = [
+  "/images/slide-mobile/avaliacao-mobile-app.webp",
+  "/images/slide-mobile/slide-app-mobile.webp"
+];
 
 export default function ModalidadesMobile() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
     hapticFeedback('light');
-    setCurrentSlide((prev) => (prev + 1) % diferenciais.length);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
   const prevSlide = () => {
     hapticFeedback('light');
-    setCurrentSlide((prev) => (prev - 1 + diferenciais.length) % diferenciais.length);
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   const handleSwipe = (offset: number) => {
@@ -36,22 +33,10 @@ export default function ModalidadesMobile() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-black via-zinc-900 to-black py-6 px-4">
-      {/* Título da Seção */}
-      <div className="text-center mb-6">
-        <h2 className="text-2xl font-black text-white mb-2">
-          DIFERENCIAIS
-        </h2>
-        <div className="flex items-center justify-center gap-2">
-          <div className="h-1 w-16 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-          <X className="w-5 h-5 text-[#EBA730]" />
-          <div className="h-1 w-16 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
-        </div>
-      </div>
-
-      {/* Carrossel de Diferenciais */}
-      <div className="relative h-[50vh] flex items-center justify-center">
-        {/* Cards */}
+    <div className="relative bg-gradient-to-br from-black via-zinc-900 to-black">
+      {/* Carrossel em Tela Cheia */}
+      <div className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Slides com Imagens */}
         <AnimatePresence mode="wait" custom={currentSlide}>
           <motion.div
             key={currentSlide}
@@ -59,43 +44,27 @@ export default function ModalidadesMobile() {
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.2}
             onDragEnd={(e, { offset }) => handleSwipe(offset.x)}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.3 }}
-            className="w-full max-w-sm mx-auto"
+            className="absolute inset-0"
           >
-            <div className="bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-6 border-2 border-[#EBA730]/30 shadow-2xl">
-              {/* Ícone */}
-              <div className="mb-4 flex justify-center">
-                {React.createElement(iconMap[diferenciais[currentSlide].icone as keyof typeof iconMap], { 
-                  className: "w-16 h-16 text-[#EBA730]" 
-                })}
-              </div>
-
-              {/* Título */}
-              <h3 className="text-2xl font-black text-center mb-3 text-white">
-                {diferenciais[currentSlide].titulo.toUpperCase()}
-              </h3>
-
-              {/* Separador */}
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <div className="h-0.5 w-12 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-                <X className="w-4 h-4 text-[#EBA730]" />
-                <div className="h-0.5 w-12 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
-              </div>
-
-              {/* Descrição */}
-              <p className="text-gray-300 text-center leading-relaxed text-sm">
-                {diferenciais[currentSlide].descricao}
-              </p>
+            <div className="relative w-full h-full">
+              <Image
+                src={slides[currentSlide]}
+                alt={`Slide ${currentSlide + 1}`}
+                fill
+                className="object-fill"
+                priority
+              />
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Indicadores - Movido para cima */}
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2">
-          {diferenciais.map((_, index) => (
+        {/* Indicadores */}
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => {
@@ -107,13 +76,29 @@ export default function ModalidadesMobile() {
                   ? 'w-8 h-3 bg-[#EBA730] rounded-full' 
                   : 'w-3 h-3 rounded-full bg-gray-600'
               }`}
-              aria-label={`Ir para diferencial ${index + 1}`}
+              aria-label={`Ir para slide ${index + 1}`}
             />
           ))}
+          {/* Setinha Piscando */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+          animate={{
+            y: [0, 10, 0],
+            opacity: [0.5, 1, 0.5]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <ChevronDown className="w-12 h-12 text-[#EBA730]" />
+        </motion.div>
         </div>
+
+        
       </div>
       
-      <AvaliacoesMobile />
     </div>
   );
 }

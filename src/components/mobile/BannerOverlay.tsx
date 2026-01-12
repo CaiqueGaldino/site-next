@@ -7,9 +7,9 @@ import { X } from "lucide-react";
 
 // Configurações do Banner
 const BANNER_CONFIG = {
-  imagePath: "/images/banners/mobile/banner2.png",
+  imagePath: "/images/banners/mobile/banner2.webp",
   isClickable: true, // true = clicável | false = apenas visual
-  redirectUrl: "https://wa.me/5588992637523?text=" + encodeURIComponent('Olá! Vi o banner e quero saber mais! 💪'),
+  redirectUrl: "https://fitnessexclusive.com.br/campanha/todasunidades.html",
   alt: "Banner promocional"
 };
 
@@ -72,7 +72,7 @@ export default function BannerOverlay() {
             src={getAssetPath(BANNER_CONFIG.imagePath)}
             alt={BANNER_CONFIG.alt}
             fill
-            className="object-cover"
+            className="object-fill"
             priority
             quality={100}
           />

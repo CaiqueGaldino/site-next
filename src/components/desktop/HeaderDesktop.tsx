@@ -47,10 +47,10 @@ export default function HeaderDesktop() {
               Planos
             </button>
             <button 
-              onClick={() => handleNavigation('estrutura')} 
+              onClick={() => handleNavigation('modalidades')} 
               className="text-white hover:text-[#EBA730] transition-colors duration-200 font-medium text-sm bg-transparent border-0 cursor-pointer px-2 py-1 hover:scale-105 transform"
             >
-              Estrutura
+              Diferenciais
             </button>
             <button 
               onClick={() => handleNavigation('beneficios')} 

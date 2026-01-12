@@ -41,12 +41,14 @@ export default function AulaExperimental() {
           </div>
 
           <div className="mt-8">
-            <button 
-              onClick={() => setModalAberto(true)}
-              className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-10 py-4 rounded-full shadow-xl transition-all transform hover:scale-105 text-lg"
+            <a 
+              href="https://wa.me/5588992637523?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-10 py-4 rounded-full shadow-xl transition-all transform hover:scale-105 text-lg"
             >
               Agende Agora
-            </button>
+            </a>
           </div>
 
           <p className="text-white/80 text-sm mt-4">
