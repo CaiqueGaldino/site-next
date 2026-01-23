@@ -356,22 +356,50 @@ export const beneficiosExclusivos = [
   {
     titulo: "App Fitness Exclusive",
     descricao: "Gerencie seus treinos e pagamentos de forma fácil e rápida.",
-    icone: "📱"
+    icone: "Smartphone",
+    destaque: ["Treinos personalizados", "Pagamentos online", "Acompanhamento de progresso", "Notificações inteligentes"]
   },
   {
-    titulo: "Campanha Portabilidade Ativa",
+    titulo: "Campanha Portabilidade Ativa", 
     descricao: "Garanta o valor da sua academia anterior por 3 meses.",
-    icone: "🔄"
+    icone: "RefreshCw",
+    destaque: ["Migração sem custos", "Manutenção do valor anterior", "3 meses garantidos", "Processo simplificado"]
   },
   {
-    titulo: "Massagem e relaxamento",
+    titulo: "Massagem e Relaxamento",
     descricao: "Massagem do fisioterapeuta e cadeira de massagem disponíveis para recuperação e relaxamento.",
-    icone: "💆"
+    icone: "Sparkles",
+    destaque: ["Fisioterapeuta especializado", "Cadeira de massagem", "Recuperação muscular", "Relaxamento total"]
   },
   {
-    titulo: "Aulas coletivas",
+    titulo: "Aulas Coletivas",
     descricao: "Acesso às aulas coletivas e de dança para diversificar o treino.",
-    icone: "🎵"
+    icone: "Music",
+    destaque: ["Dança fitness", "Spinning", "Funcional"]
+  },
+  {
+    titulo: "Horário Livre",
+    descricao: "Acesso liberado em todos os horários de funcionamento da academia.",
+    icone: "Clock",
+    destaque: ["Até 18h de funcionamento em dias úteis", "Sem restrições", "Flexibilidade total"]
+  },
+  {
+    titulo: "Leve 5 Amigos",
+    descricao: "Com o plano anual, traga até 5 amigos para treinar junto com você.",
+    icone: "Users",
+    destaque: ["Motivação em grupo", "Socialização", "Treinos divertidos", "Sem custos extras"]
+  },
+  {
+    titulo: "Área Completa",
+    descricao: "Treinos de acordo com seus objetivos.",
+    icone: "Dumbbell",
+    destaque: ["Musculação moderna", "Cardio avançado", "Equipamentos de ponta", "Ambiente motivador"]
+  },
+  {
+    titulo: "Válido 7 Dias",
+    descricao: "Seu plano funciona todos os dias da semana, inclusive finais de semana.",
+    icone: "Calendar",
+    destaque: ["Segunda a domingo", "Sem interrupções", "Feriados inclusos", "Máxima flexibilidade"]
   }
 ];
 

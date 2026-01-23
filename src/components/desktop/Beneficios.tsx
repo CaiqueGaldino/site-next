@@ -1,59 +1,33 @@
 "use client";
 import React, { useState } from "react";
 import { Smartphone, RefreshCw, Sparkles, Music, Clock, Users, Dumbbell, Calendar } from "lucide-react";
+import { beneficiosExclusivos } from "../../lib/dadosAcademia";
 import ScrollReveal from "../shared/ScrollReveal";
 import FormularioAgendamento from "../shared/FormularioAgendamento";
 
-const beneficios = [
-  {
-    titulo: "App Fitness Exclusive",
-    descricao: "Gerencie seus treinos e pagamentos de forma fácil e rápida.",
-    icone: Smartphone,
-    destaque: ["Treinos personalizados", "Pagamentos online", "Acompanhamento de progresso", "Notificações inteligentes"]
-  },
-  {
-    titulo: "Campanha Portabilidade Ativa", 
-    descricao: "Garanta o valor da sua academia anterior por 3 meses.",
-    icone: RefreshCw,
-    destaque: ["Migração sem custos", "Manutenção do valor anterior", "3 meses garantidos", "Processo simplificado"]
-  },
-  {
-    titulo: "Massagem e Relaxamento",
-    descricao: "Massagem do fisioterapeuta e cadeira de massagem disponíveis para recuperação e relaxamento.",
-    icone: Sparkles,
-    destaque: ["Fisioterapeuta especializado", "Cadeira de massagem", "Recuperação muscular", "Relaxamento total"]
-  },
-  {
-    titulo: "Aulas Coletivas",
-    descricao: "Acesso às aulas coletivas e de dança para diversificar o treino.",
-    icone: Music,
-    destaque: ["Dança fitness", "Spinning", "Pilates", "Yoga e funcional"]
-  },
-  {
-    titulo: "Horário Livre",
-    descricao: "Acesso liberado em todos os horários de funcionamento da academia.",
-    icone: Clock,
-    destaque: ["24h nas unidades select", "Sem restrições", "Flexibilidade total", "Treinos madrugada"]
-  },
-  {
-    titulo: "Leve 5 Amigos",
-    descricao: "Traga até 5 amigos para treinar junto com você.",
-    icone: Users,
-    destaque: ["Motivação em grupo", "Socialização", "Treinos divertidos", "Sem custos extras"]
-  },
-  {
-    titulo: "Área Completa",
-    descricao: "Acesso a todas as áreas: musculação, aeróbicos e funcionais.",
-    icone: Dumbbell,
-    destaque: ["Musculação moderna", "Cardio avançado", "Treino funcional", "Cross training"]
-  },
-  {
-    titulo: "Válido 7 Dias",
-    descricao: "Seu plano funciona todos os dias da semana, inclusive finais de semana.",
-    icone: Calendar,
-    destaque: ["Segunda a domingo", "Sem interrupções", "Feriados inclusos", "Máxima flexibilidade"]
-  }
-];
+const iconNames = [
+  "Smartphone",
+  "RefreshCw",
+  "Sparkles",
+  "Music",
+  "Clock",
+  "Users",
+  "Dumbbell",
+  "Calendar",
+] as const;
+
+type IconName = typeof iconNames[number];
+
+const iconMap: Record<IconName, React.FC<any>> = {
+  Smartphone,
+  RefreshCw,
+  Sparkles,
+  Music,
+  Clock,
+  Users,
+  Dumbbell,
+  Calendar,
+};
 
 export default function Beneficios() {
   const [modalAgendamentoAberto, setModalAgendamentoAberto] = useState(false);
@@ -85,39 +59,42 @@ export default function Beneficios() {
 
         {/* Grid de benefícios */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {beneficios.map((beneficio, index) => (
-            <ScrollReveal key={index} delay={index * 0.1}>
-              <div className="group bg-gradient-to-br from-zinc-900 to-black rounded-3xl p-8 border-2 border-gray-700 hover:border-[#EBA730]/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#EBA730]/20 h-full">
-                {/* Ícone */}
-                <div className="text-[#EBA730] mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center">
-                  <beneficio.icone className="w-12 h-12" />
-                </div>
-                
-                {/* Título */}
-                <h3 className="text-xl font-bold text-white mb-4 text-center group-hover:text-[#EBA730] transition-colors">
-                  {beneficio.titulo}
-                </h3>
-                
-                {/* Descrição */}
-                <p className="text-gray-400 text-sm mb-6 text-center leading-relaxed">
-                  {beneficio.descricao}
-                </p>
-                
-                {/* Destaques */}
-                <div className="space-y-2">
-                  {beneficio.destaque.map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500" style={{transitionDelay: `${i * 100}ms`}}>
-                      <div className="w-2 h-2 bg-gradient-to-r from-[#EBA730] to-[#FAC934] rounded-full flex-shrink-0"></div>
-                      <span className="text-xs text-gray-300">{item}</span>
-                    </div>
-                  ))}
-                </div>
+          {beneficiosExclusivos.map((beneficio, index) => {
+            const IconComponent = iconMap[beneficio.icone as IconName];
+            return (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <div className="group bg-gradient-to-br from-zinc-900 to-black rounded-3xl p-8 border-2 border-gray-700 hover:border-[#EBA730]/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#EBA730]/20 h-full">
+                  {/* Ícone */}
+                  <div className="text-[#EBA730] mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                    <IconComponent className="w-12 h-12" />
+                  </div>
+                  
+                  {/* Título */}
+                  <h3 className="text-xl font-bold text-white mb-4 text-center group-hover:text-[#EBA730] transition-colors">
+                    {beneficio.titulo}
+                  </h3>
+                  
+                  {/* Descrição */}
+                  <p className="text-gray-400 text-sm mb-6 text-center leading-relaxed">
+                    {beneficio.descricao}
+                  </p>
+                  
+                  {/* Destaques */}
+                  <div className="space-y-2">
+                    {beneficio.destaque.map((item, i) => (
+                      <div key={i} className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500" style={{transitionDelay: `${i * 100}ms`}}>
+                        <div className="w-2 h-2 bg-gradient-to-r from-[#EBA730] to-[#FAC934] rounded-full flex-shrink-0"></div>
+                        <span className="text-xs text-gray-300">{item}</span>
+                      </div>
+                    ))}
+                  </div>
 
-                {/* Efeito de hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#EBA730]/5 via-transparent to-[#FAC934]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </div>
-            </ScrollReveal>
-          ))}
+                  {/* Efeito de hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#EBA730]/5 via-transparent to-[#FAC934]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              </ScrollReveal>
+            );
+          })}
         </div>
 
         {/* Call to action */}

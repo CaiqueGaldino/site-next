@@ -123,16 +123,16 @@ export default function HeroSection() {
             <div
               className={`relative w-full h-full transition-opacity duration-1000 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
               style={{
-                transform: `translate3d(${isLoaded ? '0' : '80px'}, ${-parallaxOffset * 0.15}px, 0)`,
+                transform: `translate3d(${isLoaded ? '0' : '80px'}, ${-parallaxOffset * 0.15 + 60}px, 0)`,
                 maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
                 WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
               }}
             >
               <Image
-                src={getAssetPath("/images/hero section/hs-leandro.webp")}
+                src={getAssetPath("/images/hero section/pessoas.webp")}
                 alt="Personal Trainer"
                 fill
-                className="object-contain object-right"
+                className="object-cover object-right"
                 priority
                 quality={100}
               />

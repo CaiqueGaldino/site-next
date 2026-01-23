@@ -1,59 +1,21 @@
 "use client";
 import React, { useState } from "react";
-import { Smartphone, RefreshCw, Sparkles, Music, Clock, Users, Dumbbell, Calendar } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import { beneficiosExclusivos } from "../../lib/dadosAcademia";
 import { hapticFeedback } from "../../lib/mobileUtils";
 import FormularioAgendamento from "../shared/FormularioAgendamento";
 
-const beneficios = [
-  {
-    titulo: "App Fitness",
-    descricao: "Gerencie treinos e pagamentos facilmente",
-    icone: Smartphone,
-    destaque: ["Treinos personalizados", "Pagamentos online", "Progresso em tempo real"]
-  },
-  {
-    titulo: "Portabilidade", 
-    descricao: "Valor da sua academia por 3 meses",
-    icone: RefreshCw,
-    destaque: ["Sem custos", "Valor anterior garantido", "Processo rápido"]
-  },
-  {
-    titulo: "Massagem",
-    descricao: "Relaxamento e recuperação muscular",
-    icone: Sparkles,
-    destaque: ["Fisioterapeuta", "Cadeira de massagem", "Recuperação total"]
-  },
-  {
-    titulo: "Aulas Coletivas",
-    descricao: "Diversifique seu treino com várias opções",
-    icone: Music,
-    destaque: ["Dança fitness", "Spinning", "Pilates", "Yoga"]
-  },
-  {
-    titulo: "Horário Livre",
-    descricao: "Acesso em todos os horários",
-    icone: Clock,
-    destaque: ["24h em unidades select", "Flexibilidade total", "Sem restrições"]
-  },
-  {
-    titulo: "Leve 5 Amigos",
-    descricao: "Treine com seus amigos",
-    icone: Users,
-    destaque: ["Motivação em grupo", "Socialização", "Sem custos extras"]
-  },
-  {
-    titulo: "Área Completa",
-    descricao: "Acesso a todas as áreas da academia",
-    icone: Dumbbell,
-    destaque: ["Musculação", "Cardio", "Funcional", "Cross training"]
-  },
-  {
-    titulo: "Válido 7 Dias",
-    descricao: "Todos os dias da semana",
-    icone: Calendar,
-    destaque: ["Segunda a domingo", "Feriados inclusos", "Sem interrupções"]
-  }
-];
+// Map dos ícones
+const iconMap: { [key: string]: any } = {
+  "Smartphone": require("lucide-react").Smartphone,
+  "RefreshCw": require("lucide-react").RefreshCw,
+  "Sparkles": Sparkles,
+  "Music": require("lucide-react").Music,
+  "Clock": require("lucide-react").Clock,
+  "Users": require("lucide-react").Users,
+  "Dumbbell": require("lucide-react").Dumbbell,
+  "Calendar": require("lucide-react").Calendar,
+};
 
 export default function BeneficiosMobile() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -87,35 +49,38 @@ export default function BeneficiosMobile() {
 
         {/* Grid de benefícios - 2 colunas */}
         <div className="grid grid-cols-2 gap-3 mb-8">
-          {beneficios.map((beneficio, index) => (
-            <button
-              key={index}
-              onClick={() => toggleExpand(index)}
-              className="bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-4 border-2 border-gray-700 active:border-[#EBA730]/50 transition-all active:scale-95 touch-manipulation text-left h-full"
-            >
-              {/* Ícone */}
-              <div className="text-[#EBA730] mb-3 flex justify-center">
-                <beneficio.icone className="w-8 h-8" />
-              </div>
-              
-              {/* Título */}
-              <h3 className="text-sm font-bold text-white mb-2 text-center leading-tight">
-                {beneficio.titulo}
-              </h3>
-              
-              {/* Descrição */}
-              <p className="text-gray-400 text-xs text-center leading-snug line-clamp-2">
-                {beneficio.descricao}
-              </p>
+          {beneficiosExclusivos.map((beneficio, index) => {
+            const IconComponent = iconMap[beneficio.icone] || Sparkles;
+            return (
+              <button
+                key={index}
+                onClick={() => toggleExpand(index)}
+                className="bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-4 border-2 border-gray-700 active:border-[#EBA730]/50 transition-all active:scale-95 touch-manipulation text-left h-full"
+              >
+                {/* Ícone */}
+                <div className="text-[#EBA730] mb-3 flex justify-center">
+                  <IconComponent className="w-8 h-8" />
+                </div>
+                
+                {/* Título */}
+                <h3 className="text-sm font-bold text-white mb-2 text-center leading-tight">
+                  {beneficio.titulo}
+                </h3>
+                
+                {/* Descrição */}
+                <p className="text-gray-400 text-xs text-center leading-snug line-clamp-2">
+                  {beneficio.descricao}
+                </p>
 
-              {/* Badge "Ver mais" */}
-              <div className="mt-3 text-center">
-                <span className="text-[#EBA730] text-xs font-semibold">
-                  {expandedIndex === index ? '↑ Ver menos' : '↓ Ver mais'}
-                </span>
-              </div>
-            </button>
-          ))}
+                {/* Badge "Ver mais" */}
+                <div className="mt-3 text-center">
+                  <span className="text-[#EBA730] text-xs font-semibold">
+                    {expandedIndex === index ? '↑ Ver menos' : '↓ Ver mais'}
+                  </span>
+                </div>
+              </button>
+            );
+          })}
         </div>
 
         {/* Detalhes Expandidos - Dialog Centralizado Overlay */}
@@ -145,27 +110,21 @@ export default function BeneficiosMobile() {
                 </button>
                 <div className="text-center">
                   <div className="text-[#EBA730] mb-3 flex justify-center">
-                    {React.createElement(beneficios[expandedIndex].icone, { className: "w-12 h-12" })}
+                    {React.createElement(iconMap[beneficiosExclusivos[expandedIndex].icone] || Sparkles, { className: "w-12 h-12" })}
                   </div>
                   <h3 className="text-xl font-black text-white mb-1">
-                    {beneficios[expandedIndex].titulo}
+                    {beneficiosExclusivos[expandedIndex].titulo}
                   </h3>
                   <p className="text-gray-400 text-sm">
-                    {beneficios[expandedIndex].descricao}
+                    {beneficiosExclusivos[expandedIndex].descricao}
                   </p>
                 </div>
               </div>
 
               {/* Conteúdo do Modal - Scrollable */}
               <div className="overflow-y-auto max-h-[calc(70vh-240px)] p-5">
-                {/* Destaques */}
-                <div className="space-y-3 mb-4">
-                  {beneficios[expandedIndex].destaque.map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 bg-black/50 p-3 rounded-xl">
-                      <div className="w-2 h-2 bg-gradient-to-r from-[#EBA730] to-[#FAC934] rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-sm text-gray-200 leading-relaxed">{item}</span>
-                    </div>
-                  ))}
+                <div className="text-gray-200 text-sm leading-relaxed">
+                  Todos os benefícios desta funcionalidade incluídos no seu plano.
                 </div>
               </div>
 
@@ -185,7 +144,7 @@ export default function BeneficiosMobile() {
           </div>
         )}
 
-        {/* Call to action - Movido para cima */}
+        {/* Call to action */}
         <div className="bg-gradient-to-r from-zinc-900 via-black to-zinc-900 rounded-3xl p-6 border-2 border-[#EBA730] relative overflow-hidden mb-20">
           <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/10 via-transparent to-[#FAC934]/10"></div>
           <div className="relative z-10 text-center">

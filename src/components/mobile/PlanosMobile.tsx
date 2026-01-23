@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Flame } from "lucide-react";
 import { planos } from "../../lib/dadosAcademia";
 import { hapticFeedback } from "../../lib/mobileUtils";
@@ -108,7 +108,7 @@ const Header = () => (
     </h2>
 
     <p className="text-gray-400 text-sm max-w-md mx-auto animate-fade-in-down" style={{animationDelay: '0.4s'}}>
-      Escolha o plano ideal e alcance seus objetivos com a Stack Fight
+      Escolha o plano ideal e alcance seus objetivos com a Fitness Exclusive.
     </p>
   </header>
 );
@@ -179,6 +179,29 @@ const PricingCard = ({ nome, preco, periodo, descricao, beneficios, popular, onA
 
 export default function PlanosMobile() {
   const [modalAgendamentoAberto, setModalAgendamentoAberto] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Centraliza o plano popular ao carregar
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const popularIndex = planos.findIndex(p => p.popular);
+    if (popularIndex === -1) return;
+
+    // Aguarda a renderização completa
+    setTimeout(() => {
+      const cardWidth = 280; // largura do card
+      const gap = 16; // gap-4 = 16px
+      const containerWidth = container.offsetWidth;
+      const scrollPosition = (cardWidth + gap) * popularIndex - (containerWidth - cardWidth) / 2;
+      
+      container.scrollTo({
+        left: Math.max(0, scrollPosition),
+        behavior: 'smooth'
+      });
+    }, 100);
+  }, []);
 
   const handleAssinar = () => {
     hapticFeedback('heavy');
@@ -208,6 +231,7 @@ export default function PlanosMobile() {
           <Header />
           
           <div 
+            ref={scrollContainerRef}
             className="flex gap-4 overflow-x-auto pb-6 pt-6 snap-x snap-mandatory scrollbar-hide"
             style={{ 
               scrollbarWidth: 'none',
