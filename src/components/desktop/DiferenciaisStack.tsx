@@ -135,7 +135,7 @@ export default function Diferenciais() {
                 index < currentSlide ? '-translate-x-full' : 'translate-x-full'
               }`}
             >
-              <section className="h-full bg-gradient-to-br from-black via-zinc-900 to-black relative flex items-center justify-center">
+              <section className="h-full bg-black relative flex items-center justify-center">
                 {/* Background para o slide "Planos Flexíveis" (index 0) */}
                 {index === 0 && (
                   <>

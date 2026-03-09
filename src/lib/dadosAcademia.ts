@@ -315,6 +315,23 @@ export const planos = [
     anuidade: "Zero"
   },
   {
+    nome: "Pelo Site",
+    preco: "R$ 97,00",
+    periodo: "1º mês",
+    descricao: "Plano com todos os benefícios",
+    beneficios: [
+      "App de treino",
+      "Horário livre",
+      "Área de musculação e aeróbicos",
+      "Avaliação física",
+      "Treino personalizado",
+      "Acompanhamento profissional"
+    ],
+    popular: true,
+    adesao: "Zero",
+    anuidade: "Zero"
+  },
+  {
     nome: "Anual Crédito",
     preco: "R$ 129,90",
     periodo: "/mês",
@@ -328,27 +345,10 @@ export const planos = [
       "Treino personalizado",
       "Acompanhamento profissional"
     ],
-    popular: true,
-    adesao: "Zero",
-    anuidade: "Zero"
-  },
-  {
-    nome: "Plano Mensal",
-    preco: "R$ 204,90",
-    periodo: "/mês",
-    descricao: "Plano mensal com todos os benefícios",
-    beneficios: [
-      "App de treino",
-      "Horário livre",
-      "Área de musculação e aeróbicos",
-      "Avaliação física",
-      "Treino personalizado",
-      "Acompanhamento profissional"
-    ],
     popular: false,
     adesao: "Zero",
     anuidade: "Zero"
-  }
+  },
 ];
 
 // Benefícios exclusivos
@@ -364,18 +364,6 @@ export const beneficiosExclusivos = [
     descricao: "Garanta o valor da sua academia anterior por 3 meses.",
     icone: "RefreshCw",
     destaque: ["Migração sem custos", "Manutenção do valor anterior", "3 meses garantidos", "Processo simplificado"]
-  },
-  {
-    titulo: "Massagem e Relaxamento",
-    descricao: "Massagem do fisioterapeuta e cadeira de massagem disponíveis para recuperação e relaxamento.",
-    icone: "Sparkles",
-    destaque: ["Fisioterapeuta especializado", "Cadeira de massagem", "Recuperação muscular", "Relaxamento total"]
-  },
-  {
-    titulo: "Aulas Coletivas",
-    descricao: "Acesso às aulas coletivas e de dança para diversificar o treino.",
-    icone: "Music",
-    destaque: ["Dança fitness", "Spinning", "Funcional"]
   },
   {
     titulo: "Horário Livre",
@@ -402,6 +390,39 @@ export const beneficiosExclusivos = [
     destaque: ["Segunda a domingo", "Sem interrupções", "Feriados inclusos", "Máxima flexibilidade"]
   }
 ];
+
+export const faqItems = [
+    {
+      question: "Qual é o horário de funcionamento?",
+      answer: "Nossas unidades funcionam de segunda a sexta das 5h às 23h, sábados das 8h às 16h e domingos das 9h às 13h com exceção da unidade São Luis. Algumas unidades têm horários estendidos ou reduzidos, consulte a aba de unidades para mais detalhes.",
+      icon: "Clock"
+    },
+    {
+      question: "Posso fazer uma aula experimental gratuita?",
+      answer: "Sim! Oferecemos uma aula experimental gratuita para novos alunos. Agende através do nosso WhatsApp ou visite uma de nossas unidades.",
+      icon: "Target"
+    },
+    {
+      question: "Posso usar qualquer unidade com minha matrícula?",
+      answer: "Sim! Com sua matrícula você pode treinar em qualquer uma das nossas 10 unidades, oferecendo total flexibilidade para sua rotina.",
+      icon: "MapPin"
+    },
+    {
+      question: "Têm personal trainer disponível?",
+      answer: "Sim, temos uma equipe de personal trainers qualificados. O acompanhamento personalizado tem custo adicional. Consulte valores na recepção.",
+      icon: "Users"
+    },
+    {
+      question: "Como funciona o cancelamento?",
+      answer: "O cancelamento pode ser solicitado com 30 dias de antecedência. Basta comparecer à unidade com documento e comprovante de residência.",
+      icon: "FileText"
+    },
+    {
+      question: "Posso levar acompanhantes?",
+      answer: "Acompanhantes são até cinco por mês. Consulte nossa política de acompanhantes na recepção da unidade.",
+      icon: "Users"
+    },
+  ];
 
 // Informações de contato
 export const contato = {

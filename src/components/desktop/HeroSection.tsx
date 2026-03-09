@@ -84,7 +84,7 @@ export default function HeroSection() {
                 <span className="relative inline-block">
                   <span className="absolute inset-0 bg-[#EBA730] rounded-lg transform -skew-x-[18deg]"></span>
                   <span className="relative text-black px-4 py-1 font-black">
-                    R$ 129,90
+                    R$ 97,00
                   </span>
                 </span>
               </p>

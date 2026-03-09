@@ -13,6 +13,7 @@ import Footer from "../components/desktop/Footer";
 import WhatsAppButton from "../components/shared/WhatsAppButton";
 import ScrollToTop from "../components/shared/ScrollToTop";
 import SobreNos from "@/components/desktop/SobreNos";
+import Marquee from "@/components/shared/Marquee";
 
 export default function HomeDesktop() {
   return (
@@ -25,6 +26,7 @@ export default function HomeDesktop() {
         <DiferenciaisStack />
         <Beneficios />
         <Avaliacoes />
+        <Marquee />
         <Unidades />
         <SobreNos />
         <FAQ />

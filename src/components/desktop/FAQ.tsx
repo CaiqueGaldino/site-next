@@ -1,43 +1,21 @@
 "use client";
 import React, { useState } from "react";
+import { Clock, Target, MapPin, Users, FileText } from "lucide-react";
 import ScrollReveal from "../shared/ScrollReveal";
 import FormularioAgendamento from "../shared/FormularioAgendamento";
+import { faqItems } from "../../lib/dadosAcademia";
 
-interface FAQItem {
-  question: string;
-  answer: string;
-}
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Clock,
+  Target,
+  MapPin,
+  Users,
+  FileText,
+};
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [modalAgendamentoAberto, setModalAgendamentoAberto] = useState(false);
-
-  const faqItems: FAQItem[] = [
-    {
-      question: "Qual é o horário de funcionamento?",
-      answer: "Nossas unidades funcionam de segunda a sexta das 5h às 23h, sábados das 8h às 16h e domingos das 9h às 13h com exceção da unidade São Luis. Algumas unidades têm horários estendidos ou reduzidos, consulte a aba de unidades para mais detalhes."
-    },
-    {
-      question: "Posso fazer uma aula experimental gratuita?",
-      answer: "Sim! Oferecemos uma aula experimental gratuita para novos alunos. Agende através do nosso WhatsApp ou visite uma de nossas unidades."
-    },
-    {
-      question: "Posso usar qualquer unidade com minha matrícula?",
-      answer: "Sim! Com sua matrícula você pode treinar em qualquer uma das nossas 10 unidades, oferecendo total flexibilidade para sua rotina."
-    },
-    {
-      question: "Têm personal trainer disponível?",
-      answer: "Sim, temos uma equipe de personal trainers qualificados. O acompanhamento personalizado tem custo adicional. Consulte valores na recepção."
-    },
-    {
-      question: "Como funciona o cancelamento?",
-      answer: "O cancelamento pode ser solicitado com 30 dias de antecedência. Basta comparecer à unidade com documento e comprovante de residência."
-    },
-    {
-      question: "Posso levar acompanhantes?",
-      answer: "Acompanhantes são até cinco por mês. Consulte nossa política de acompanhantes na recepção da unidade."
-    },
-  ];
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -58,16 +36,21 @@ export default function FAQ() {
         </ScrollReveal>
 
         <div className="max-w-4xl mx-auto space-y-4">
-          {faqItems.map((item, index) => (
+          {faqItems.map((item, index) => {
+            const IconComponent = iconMap[item.icon] || Clock;
+            return (
             <ScrollReveal 
               key={index} 
               direction="up" 
               delay={150 + (index * 50)}
             >
-              <div className="bg-black rounded-2xl border-2 border-gray-700 hover:border-[#EBA730] transition-all duration-300">
+              <div className="bg-black rounded-2xl border-2 border-gray-700 hover:border-[#EBA730] transition-all duration-300 flex items-center">
+                <div className="flex-shrink-0 p-6 text-[#EBA730]">
+                  <IconComponent className="w-6 h-6" />
+                </div>
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full p-6 text-left flex items-center justify-between focus:outline-none"
+                  className="flex-1 p-6 text-left flex items-center justify-between focus:outline-none"
                 >
                   <h3 className="text-lg font-semibold text-white pr-4">
                     {item.question}
@@ -102,7 +85,8 @@ export default function FAQ() {
                 )}
               </div>
             </ScrollReveal>
-          ))}
+            );
+          })}
         </div>
 
         <ScrollReveal direction="up" delay={400}>

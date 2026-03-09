@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { hapticFeedback } from "../../lib/mobileUtils";
 
 export default function FooterMobile() {
@@ -87,6 +88,8 @@ export default function FooterMobile() {
                 <button onClick={() => handleNavigation('modalidades')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Diferenciais</button>
                 <button onClick={() => handleNavigation('beneficios')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Benefícios</button>
                 <button onClick={() => handleNavigation('avaliacoes')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Avaliações</button>
+                <Link href="/investidor" onClick={() => hapticFeedback('light')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Seja um Investidor</Link>
+                <Link href="/franqueado" onClick={() => hapticFeedback('light')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Seja um Franqueado</Link>
               </div>
             )}
           </div>

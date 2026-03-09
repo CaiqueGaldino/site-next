@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function HeroSectionMobile() {
   return (
-    <main className="relative w-full min-h-screen bg-neutral-900 overflow-hidden">
+    <main className="relative w-full min-h-screen bg-black overflow-hidden">
       
       {/* 1. Imagem de Fundo */}
       <div className="absolute inset-0 z-0">
@@ -53,8 +53,8 @@ export default function HeroSectionMobile() {
         {/* Bloco Amarelo: Preço */}
         <div className="bg-[#FFD700] text-black py-2 pl-6 pr-4 rounded-l-3xl shadow-2xl flex items-start leading-none z-10">
           <span className="text-lg font-bold mt-1 mr-1">R$</span>
-          <span className="text-6xl font-black tracking-tighter">129</span>
-          <span className="text-3xl font-bold mt-1">,90</span>
+          <span className="text-6xl font-black tracking-tighter">97</span>
+          <span className="text-3xl font-bold mt-1">,00</span>
         </div>
       </div>
 

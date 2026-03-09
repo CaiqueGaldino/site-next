@@ -27,7 +27,7 @@ export default function BeneficiosMobile() {
   };
 
   return (
-    <section id="beneficios" className="py-12 bg-gradient-to-br from-zinc-900 via-black to-zinc-900 relative overflow-hidden">
+    <section id="beneficios" className="py-12 bg-black relative overflow-hidden">
       {/* Background decorativo */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/5 via-transparent to-[#FAC934]/5"></div>
       

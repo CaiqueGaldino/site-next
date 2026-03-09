@@ -1,61 +1,21 @@
 "use client";
 import React, { useState } from "react";
-import { Clock, Target, Dumbbell, MapPin, User, FileText, Users, Apple } from "lucide-react";
+import { Clock, Target, MapPin, Users, FileText } from "lucide-react";
 import { hapticFeedback } from "../../lib/mobileUtils";
 import FormularioAgendamento from "../shared/FormularioAgendamento";
+import { faqItems } from "../../lib/dadosAcademia";
 
-interface FAQItem {
-  question: string;
-  answer: string;
-  icon: React.ComponentType<{ className?: string }>;
-}
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Clock,
+  Target,
+  MapPin,
+  Users,
+  FileText,
+};
 
 export default function FAQMobile() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [modalAgendamentoAberto, setModalAgendamentoAberto] = useState(false);
-
-  const faqItems: FAQItem[] = [
-    {
-      question: "Horário de funcionamento?",
-      answer: "Segunda a sexta: 5h-22h | Sábados: 6h-20h | Domingos: 8h-18h. Algumas unidades têm horários estendidos 24h.",
-      icon: Clock
-    },
-    {
-      question: "Aula experimental gratuita?",
-      answer: "Sim! Oferecemos aula experimental gratuita para novos alunos. Agende pelo WhatsApp ou visite uma unidade.",
-      icon: Target
-    },
-    {
-      question: "Quais modalidades incluídas?",
-      answer: "Musculação, cardio, aulas funcionais, cross training, yoga e pilates. Modalidades especiais podem ter custo adicional.",
-      icon: Dumbbell
-    },
-    {
-      question: "Posso usar qualquer unidade?",
-      answer: "Sim! Sua matrícula permite treinar em qualquer uma das 10 unidades, oferecendo total flexibilidade.",
-      icon: MapPin
-    },
-    {
-      question: "Têm personal trainer?",
-      answer: "Sim, temos personal trainers qualificados. O acompanhamento personalizado tem custo adicional.",
-      icon: User
-    },
-    {
-      question: "Como funciona o cancelamento?",
-      answer: "Pode ser solicitado com 30 dias de antecedência na unidade com documento e comprovante de residência.",
-      icon: FileText
-    },
-    {
-      question: "Posso levar acompanhantes?",
-      answer: "Convidados podem treinar mediante taxa diária. Consulte nossa política de visitantes na recepção.",
-      icon: Users
-    },
-    {
-      question: "Acompanhamento nutricional?",
-      answer: "Sim, algumas unidades contam com nutricionistas parceiros. Consulte disponibilidade e valores na unidade.",
-      icon: Apple
-    }
-  ];
 
   const toggleFAQ = (index: number) => {
     if (openIndex === index) {
@@ -82,7 +42,9 @@ export default function FAQMobile() {
 
         {/* Lista de FAQs */}
         <div className="space-y-3 mb-8">
-          {faqItems.map((item, index) => (
+          {faqItems.map((item, index) => {
+            const IconComponent = iconMap[item.icon] || Clock;
+            return (
             <div 
               key={index}
               className={`bg-black rounded-2xl border-2 transition-all ${
@@ -97,7 +59,7 @@ export default function FAQMobile() {
               >
                 {/* Ícone */}
                 <div className="text-[#EBA730] flex-shrink-0">
-                  <item.icon className="w-6 h-6" />
+                  <IconComponent className="w-5 h-5" />
                 </div>
 
                 {/* Pergunta */}
@@ -140,7 +102,8 @@ export default function FAQMobile() {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Call to Action */}

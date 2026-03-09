@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { Smartphone, RefreshCw, Sparkles, Music, Clock, Users, Dumbbell, Calendar } from "lucide-react";
+import { Smartphone, RefreshCw, Sparkles, Music, Clock, Users, Dumbbell, Calendar, X } from "lucide-react";
 import { beneficiosExclusivos } from "../../lib/dadosAcademia";
 import ScrollReveal from "../shared/ScrollReveal";
 import FormularioAgendamento from "../shared/FormularioAgendamento";
+import { motion, AnimatePresence } from "framer-motion";
 
 const iconNames = [
   "Smartphone",
@@ -31,6 +32,7 @@ const iconMap: Record<IconName, React.FC<any>> = {
 
 export default function Beneficios() {
   const [modalAgendamentoAberto, setModalAgendamentoAberto] = useState(false);
+  const [selectedBenefit, setSelectedBenefit] = useState<number | null>(null);
 
   return (
     <section id="beneficios" className="py-20 bg-black relative overflow-hidden">
@@ -63,7 +65,10 @@ export default function Beneficios() {
             const IconComponent = iconMap[beneficio.icone as IconName];
             return (
               <ScrollReveal key={index} delay={index * 0.1}>
-                <div className="group bg-gradient-to-br from-zinc-900 to-black rounded-3xl p-8 border-2 border-gray-700 hover:border-[#EBA730]/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#EBA730]/20 h-full">
+                <button
+                  onClick={() => setSelectedBenefit(index)}
+                  className="group bg-gradient-to-br from-zinc-900 to-black rounded-3xl p-8 border-2 border-gray-700 hover:border-[#EBA730]/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#EBA730]/20 h-full w-full text-left cursor-pointer"
+                >
                   {/* Ícone */}
                   <div className="text-[#EBA730] mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center">
                     <IconComponent className="w-12 h-12" />
@@ -79,23 +84,101 @@ export default function Beneficios() {
                     {beneficio.descricao}
                   </p>
                   
-                  {/* Destaques */}
-                  <div className="space-y-2">
-                    {beneficio.destaque.map((item, i) => (
-                      <div key={i} className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500" style={{transitionDelay: `${i * 100}ms`}}>
-                        <div className="w-2 h-2 bg-gradient-to-r from-[#EBA730] to-[#FAC934] rounded-full flex-shrink-0"></div>
-                        <span className="text-xs text-gray-300">{item}</span>
-                      </div>
-                    ))}
+                  {/* Badge "Ver mais" */}
+                  <div className="text-center mt-4">
+                    <span className="inline-block bg-[#EBA730] text-black text-xs font-bold px-4 py-2 rounded-full group-hover:bg-[#FAC934] transition-colors">
+                      Ver mais
+                    </span>
                   </div>
 
                   {/* Efeito de hover */}
                   <div className="absolute inset-0 bg-gradient-to-r from-[#EBA730]/5 via-transparent to-[#FAC934]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
+                </button>
               </ScrollReveal>
             );
           })}
         </div>
+
+        {/* Modal de detalhes */}
+        <AnimatePresence>
+          {selectedBenefit !== null && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              onClick={() => setSelectedBenefit(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: "spring", damping: 20 }}
+                className="bg-gradient-to-br from-zinc-900 to-black rounded-3xl p-8 max-w-2xl w-full border-2 border-[#EBA730] relative max-h-[90vh] overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Close button */}
+                <button
+                  onClick={() => setSelectedBenefit(null)}
+                  className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+
+                {/* Modal content */}
+                {(() => {
+                  const beneficio = beneficiosExclusivos[selectedBenefit];
+                  const IconComponent = iconMap[beneficio.icone as IconName];
+                  return (
+                    <>
+                      {/* Header */}
+                      <div className="text-center mb-8">
+                        <div className="text-[#EBA730] mb-4 flex justify-center">
+                          <IconComponent className="w-16 h-16" />
+                        </div>
+                        <h3 className="text-3xl font-bold text-white mb-2">
+                          {beneficio.titulo}
+                        </h3>
+                        <p className="text-gray-300 text-lg">
+                          {beneficio.descricao}
+                        </p>
+                      </div>
+
+                      {/* Destaques */}
+                      <div className="space-y-4 mb-8">
+                        <h4 className="text-xl font-bold text-[#EBA730]">Benefícios:</h4>
+                        {beneficio.destaque.map((item, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="flex items-start gap-3"
+                          >
+                            <div className="w-2 h-2 bg-gradient-to-r from-[#EBA730] to-[#FAC934] rounded-full flex-shrink-0 mt-2"></div>
+                            <span className="text-gray-300 text-base">{item}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      {/* CTA */}
+                      <div className="text-center pt-6 border-t border-gray-700">
+                        <a
+                          href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-8 py-4 rounded-full transition-all transform hover:scale-105 text-lg shadow-lg"
+                        >
+                          Quero aproveitar!
+                        </a>
+                      </div>
+                    </>
+                  );
+                })()}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Call to action */}
         <ScrollReveal>

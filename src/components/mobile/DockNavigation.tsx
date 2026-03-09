@@ -18,9 +18,9 @@ interface DockNavigationProps {
 
 export default function DockNavigation({ activeSection, onNavigate }: DockNavigationProps) {
   const navigationItems = [
+    { id: "planos", label: "Planos", icon: CreditCard },
     { id: "unidades", label: "Unidades", icon: Building2 },
     { id: "modalidades", label: "Modalidades", icon: Dumbbell },
-    { id: "planos", label: "Planos", icon: CreditCard },
     { id: "faq", label: "FAQ", icon: Phone },
   ];
 

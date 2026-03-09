@@ -29,7 +29,7 @@ export default function Planos() {
   const [agendamentoAberto, setAgendamentoAberto] = useState(false);
 
   return (
-    <section id="planos" className="py-20 bg-[#0a0a0a]">
+    <section id="planos" className="py-20 bg-zinc-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal direction="fade" delay={100}>
           <div className="text-center mb-16">

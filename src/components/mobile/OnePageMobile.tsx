@@ -8,17 +8,18 @@ import PlanosMobile from "./PlanosMobile";
 import BeneficiosMobile from "./BeneficiosMobile";
 import FAQMobile from "./FAQMobile";
 import ModalidadesMobile from "./ModalidadesMobile";
-import Unidades from "../desktop/Unidades";
+import UnidadesMobile from "./UnidadesMobile";
 import AulaExperimental from "../desktop/AulaExperimental";
 import HeroSectionMobile from "./HeroSectionMobile";
 import AvaliacoesMobile from "./AvaliacoesMobile";
+import Marquee from "../shared/Marquee";
 
-type Section = "unidades" | "modalidades" | "planos" | "faq";
+type Section = "planos" | "modalidades" | "unidades" | "faq";
 
-const sections: Section[] = ["unidades", "modalidades", "planos", "faq"];
+const sections: Section[] = ["planos", "modalidades", "unidades", "faq"];
 
 export default function OnePageMobile() {
-  const [activeSection, setActiveSection] = useState<Section>("unidades");
+  const [activeSection, setActiveSection] = useState<Section>("planos");
   const [direction, setDirection] = useState(0);
 
   const handleNavigate = (sectionId: string) => {
@@ -65,8 +66,7 @@ export default function OnePageMobile() {
       case "unidades":
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
-            <HeroSectionMobile />
-            <Unidades />
+            <UnidadesMobile />
             <div className="h-24"></div>
           </div>
         );
@@ -74,6 +74,7 @@ export default function OnePageMobile() {
       case "modalidades":
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
+
             <ModalidadesMobile />
             <AvaliacoesMobile />
             <div className="h-30"></div>
@@ -83,6 +84,7 @@ export default function OnePageMobile() {
       case "planos":
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
+            <HeroSectionMobile />
             <PlanosMobile />
             <BeneficiosMobile />
             <div className="h-24"></div>
@@ -93,6 +95,7 @@ export default function OnePageMobile() {
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
             <FAQMobile />
+            <Marquee />
             <AulaExperimental />
             <div className="h-24"></div>
           </div>
