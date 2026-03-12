@@ -119,11 +119,11 @@ export default function FAQMobile() {
               <button 
                 onClick={() => {
                   hapticFeedback('heavy');
-                  window.open('https://wa.me/5588992637523?text=' + encodeURIComponent('Olá! Tenho algumas dúvidas sobre a Fitness Exclusive 🤔'), '_blank');
+                  window.open('https://wa.me/5588992637523?text=' + encodeURIComponent('Olá! Tenho algumas dúvidas sobre a Fitness Exclusive'), '_blank');
                 }}
                 className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold px-6 py-4 rounded-full transition-all active:scale-95 touch-manipulation shadow-lg"
               >
-                💬 Falar no WhatsApp
+                Falar no WhatsApp
               </button>
               <a 
                 href="https://wa.me/5588992637523?text=Olá!%20Gostaria%20de%20agendar%20uma%20visita"
@@ -132,7 +132,7 @@ export default function FAQMobile() {
                 onClick={() => hapticFeedback('medium')}
                 className="w-full bg-transparent border-2 border-[#EBA730] text-[#EBA730] font-bold px-6 py-3 rounded-full transition-all active:scale-95 touch-manipulation block text-center"
               >
-                📅 Agendar Visita
+                Agendar Visita
               </a>
             </div>
           </div>

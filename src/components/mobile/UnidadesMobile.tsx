@@ -125,7 +125,7 @@ export default function UnidadesMobile() {
                   }}
                   className="text-gray-500 hover:text-gray-300 ml-2"
                 >
-                  ✕
+                  ×
                 </button>
               )}
             </div>
@@ -160,7 +160,7 @@ export default function UnidadesMobile() {
                 onClick={() => setSelectedFilter(null)}
                 className="text-[#EBA730] hover:text-[#FAC934]"
               >
-                ✕
+                ×
               </button>
             </div>
           )}
@@ -229,7 +229,7 @@ export default function UnidadesMobile() {
                       }}
                       className="flex-1 bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-2 rounded-full text-xs transition-colors active:scale-95"
                     >
-                      📍 Mapa
+                      Mapa
                     </button>
                     <button 
                       onClick={(e) => {
@@ -239,7 +239,7 @@ export default function UnidadesMobile() {
                       }}
                       className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 rounded-full text-xs transition-colors active:scale-95"
                     >
-                      📞 Ligar
+                      Ligar
                     </button>
                   </div>
                 </div>

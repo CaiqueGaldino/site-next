@@ -4,11 +4,19 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const HomeDesktop = dynamic(() => import("../../app/page-desktop"), {
-  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center min-h-screen bg-black">
+      <div className="text-white text-xl">Carregando...</div>
+    </div>
+  ),
 });
 
 const HomeMobile = dynamic(() => import("../../app/page-mobile"), {
-  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center min-h-screen bg-black">
+      <div className="text-white text-xl">Carregando...</div>
+    </div>
+  ),
 });
 
 export default function DeviceDetector() {

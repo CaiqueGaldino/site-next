@@ -43,7 +43,11 @@ export default function GoogleReviewsMobile() {
           <div className="bg-gradient-to-br from-[#EBA730] to-[#FAC934] rounded-2xl p-8 text-center shadow-2xl">
             <div className="flex flex-col items-center gap-4">
               {/* Estrelas */}
-              <div className="text-5xl">⭐⭐⭐⭐⭐</div>
+              <div className="text-5xl flex gap-1 justify-center">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i}>★</span>
+                ))}
+              </div>
               
               {/* Texto */}
               <div className="text-black">

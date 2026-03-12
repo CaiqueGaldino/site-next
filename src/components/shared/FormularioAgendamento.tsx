@@ -328,13 +328,13 @@ export default function FormularioAgendamento({
           {/* Mensagem de Status */}
           {submitStatus === 'success' && (
             <div className="bg-green-500/20 border border-green-500 text-green-500 px-4 py-3 rounded-lg text-center">
-              ✓ Agendamento enviado com sucesso! Em breve entraremos em contato.
+              Agendamento enviado com sucesso! Em breve entraremos em contato.
             </div>
           )}
           
           {submitStatus === 'error' && (
             <div className="bg-red-500/20 border border-red-500 text-red-500 px-4 py-3 rounded-lg text-center">
-              ✗ Erro ao enviar dados. Tente novamente.
+              Erro ao enviar dados. Tente novamente.
             </div>
           )}
 
@@ -348,7 +348,7 @@ export default function FormularioAgendamento({
           >
             {isSubmitting ? (
               <>
-                <span className="inline-block animate-spin mr-2">⏳</span> Enviando...
+                Enviando...
               </>
             ) : tipo === "aula-experimental" ? (
               <>

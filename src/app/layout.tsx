@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
-import { getAssetPath } from "../lib/utils";
 
 const lexend = Lexend({
   variable: "--font-lexend",
@@ -13,10 +12,7 @@ export const metadata: Metadata = {
   title: "FITNESS EXCLUSIVE",
   description: "A melhor academia da região com equipamentos modernos, professores qualificados e planos flexíveis. Transforme seu corpo na Fitness Exclusive!",
   icons: {
-    icon: [
-      { url: getAssetPath('/images/icones/icone3.svg'), type: 'image/svg+xml' },
-      { url: getAssetPath('/images/icones/icone3.ico'), sizes: '32x32', type: 'image/x-icon' },
-    ],
+    icon: '/images/icones/icone3.ico',
   },
 };
 

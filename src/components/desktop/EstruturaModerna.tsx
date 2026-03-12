@@ -110,7 +110,6 @@ export default function EstruturaModerna() {
                         <h3 className="text-xl font-bold text-white">
                           {estrutura.titulo}
                         </h3>
-                        <span className="text-[#EBA730]">→</span>
                       </div>
                       <p className="text-gray-300 text-sm mb-3">
                         {estrutura.descricao}
@@ -197,7 +196,7 @@ export default function EstruturaModerna() {
                 onClick={() => setSelectedEstrutura(null)}
                 className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl bg-black/50 rounded-full w-10 h-10 flex items-center justify-center z-10"
               >
-                ✕
+                ×
               </button>
 
               {/* Conteúdo com scroll customizado */}

@@ -14,6 +14,7 @@ import WhatsAppButton from "../components/shared/WhatsAppButton";
 import ScrollToTop from "../components/shared/ScrollToTop";
 import SobreNos from "@/components/desktop/SobreNos";
 import Marquee from "@/components/shared/Marquee";
+import RecentBlogSection from "@/components/desktop/RecentBlogSection";
 
 export default function HomeDesktop() {
   return (
@@ -26,9 +27,10 @@ export default function HomeDesktop() {
         <DiferenciaisStack />
         <Beneficios />
         <Avaliacoes />
-        <Marquee />
+        {/*<Marquee />} */}
         <Unidades />
         <SobreNos />
+        {/*<RecentBlogSection />} */}
         <FAQ />
         <AulaExperimental />
       </main>

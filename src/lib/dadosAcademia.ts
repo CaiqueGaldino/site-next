@@ -110,7 +110,7 @@ export const depoimentos = [
   {
     nome: "Monica Márcia",
     avaliacao: 5,
-    comentario: "Melhor academia da cidade, referência em atendimento! Sem contar no ambiente que te deixa confortável e professores que te ajudam evoluir.👏👏👏 ",
+    comentario: "Melhor academia da cidade, referência em atendimento! Sem contar no ambiente que te deixa confortável e professores que te ajudam evoluir.",
   },
   {
     nome: "Dayvisson Fernandes",
@@ -396,16 +396,6 @@ export const faqItems = [
       question: "Qual é o horário de funcionamento?",
       answer: "Nossas unidades funcionam de segunda a sexta das 5h às 23h, sábados das 8h às 16h e domingos das 9h às 13h com exceção da unidade São Luis. Algumas unidades têm horários estendidos ou reduzidos, consulte a aba de unidades para mais detalhes.",
       icon: "Clock"
-    },
-    {
-      question: "Posso fazer uma aula experimental gratuita?",
-      answer: "Sim! Oferecemos uma aula experimental gratuita para novos alunos. Agende através do nosso WhatsApp ou visite uma de nossas unidades.",
-      icon: "Target"
-    },
-    {
-      question: "Posso usar qualquer unidade com minha matrícula?",
-      answer: "Sim! Com sua matrícula você pode treinar em qualquer uma das nossas 10 unidades, oferecendo total flexibilidade para sua rotina.",
-      icon: "MapPin"
     },
     {
       question: "Têm personal trainer disponível?",

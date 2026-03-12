@@ -100,7 +100,7 @@ export default function FAQ() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
-                  onClick={() => window.open('https://wa.me/5588992637523?text=' + encodeURIComponent('Olá! Gostaria de mais informações 😊'), '_blank')}
+                  onClick={() => window.open('https://wa.me/5588992637523?text=' + encodeURIComponent('Olá! Gostaria de mais informações'), '_blank')}
                   className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-6 py-3 rounded-full transition-all transform hover:scale-105"
                 >
                   Falar no WhatsApp
