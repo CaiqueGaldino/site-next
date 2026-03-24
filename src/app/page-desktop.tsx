@@ -30,7 +30,7 @@ export default function HomeDesktop() {
         {/*<Marquee />} */}
         <Unidades />
         <SobreNos />
-        {/*<RecentBlogSection />} */}
+        <RecentBlogSection />
         <FAQ />
         <AulaExperimental />
       </main>

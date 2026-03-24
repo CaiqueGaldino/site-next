@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { getAssetPath } from "../../lib/utils";
 
 export default function HeaderDesktop() {
@@ -76,6 +77,12 @@ export default function HeaderDesktop() {
             >
               Contato
             </button>
+            <Link
+              href="/blog"
+              className="text-white hover:text-[#EBA730] transition-colors duration-200 font-medium text-sm px-2 py-1 hover:scale-105 transform inline-block"
+            >
+              Blog
+            </Link>
           </nav>
 
           {/* Botão CTA Desktop */}
