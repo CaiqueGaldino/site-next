@@ -81,10 +81,6 @@ export function FeaturedPostBanner({ post }: FeaturedPostBannerProps) {
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div className="flex items-center gap-4">
                 <span className="text-sm text-gray-400">{post.unidade.nome}</span>
-                <span className="text-sm text-gray-400">•</span>
-                <span className="text-sm text-gray-400">{formattedDate}</span>
-                <span className="text-sm text-gray-400">•</span>
-                <span className="text-sm text-gray-400">{post.viewCount || 0} visualizações</span>
               </div>
               
               {/* CTA Button */}

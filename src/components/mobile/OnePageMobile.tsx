@@ -13,6 +13,7 @@ import AulaExperimental from "../desktop/AulaExperimental";
 import HeroSectionMobile from "./HeroSectionMobile";
 import AvaliacoesMobile from "./AvaliacoesMobile";
 import Marquee from "../shared/Marquee";
+import RecentBlogSectionMobile from "./RecentBlogSectionMobile";
 
 type Section = "planos" | "modalidades" | "unidades" | "faq";
 
@@ -76,6 +77,7 @@ export default function OnePageMobile() {
           <div className="h-full overflow-y-auto scrollbar-hide">
 
             <ModalidadesMobile />
+            <RecentBlogSectionMobile />
             <AvaliacoesMobile />
             <div className="h-30"></div>
           </div>

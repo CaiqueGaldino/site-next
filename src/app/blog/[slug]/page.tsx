@@ -22,18 +22,43 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await fetchPostBySlug(slug);
   if (!post) return { title: "Post não encontrado | Blog Fitness Exclusive" };
 
+  const imageUrl =
+    post.type === "blog" && post.media?.images
+      ? post.media.images.desktop.url
+      : undefined;
+
   return {
-    title: `${post.title} | Blog Fitness Exclusive`,
+    title: post.title,
     description:
       post.seo?.metaDescription || post.excerpt || "Leia no blog da Fitness Exclusive.",
     keywords: post.seo?.metaKeywords?.join(", "),
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
-      description: post.excerpt,
-      images:
-        post.type === "blog" && post.media?.images
-          ? [{ url: post.media.images.desktop.url }]
-          : [],
+      description: post.excerpt || post.seo?.metaDescription || "",
+      url: `https://fitnessexclusive.com.br/blog/${post.slug}`,
+      type: "article",
+      publishedTime: post.publishedAt,
+      authors: [post.author?.username || "Fitness Exclusive"],
+      locale: "pt_BR",
+      images: imageUrl
+        ? [
+            {
+              url: imageUrl,
+              width: 1200,
+              height: 600,
+              alt: post.media?.images?.desktop.alt || post.title,
+            },
+          ]
+        : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt || post.seo?.metaDescription || "",
+      images: imageUrl ? [imageUrl] : [],
     },
   };
 }
@@ -63,9 +88,6 @@ function RelatedPostCard({ post }: { post: Post }) {
           <h3 className="text-white font-bold text-sm line-clamp-2 group-hover:text-[#EBA730] transition-colors">
             {post.title}
           </h3>
-          <p className="text-zinc-500 text-xs mt-2">
-            {formatPostDate(post.publishedAt)}
-          </p>
         </div>
       </div>
     </Link>
@@ -99,7 +121,7 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-zinc-800/50">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             <Link
               href="/blog"
               className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors text-sm"
@@ -148,14 +170,6 @@ export default async function BlogPostPage({ params }: Props) {
             <span className="bg-[#EBA730] text-black text-xs font-bold px-3 py-1 rounded-full">
               {getPostTypeLabel(post.type)}
             </span>
-            <span className="flex items-center gap-1.5 text-zinc-500 text-sm">
-              <Calendar className="w-4 h-4" />
-              {formatPostDate(post.publishedAt)}
-            </span>
-            <span className="flex items-center gap-1.5 text-zinc-500 text-sm">
-              <Eye className="w-4 h-4" />
-              {post.viewCount || 0} visualizações
-            </span>
           </div>
 
           {/* Title */}
@@ -171,12 +185,12 @@ export default async function BlogPostPage({ params }: Props) {
           )}
 
           {/* Author & Unit Info */}
-          <div className="flex items-center gap-6 py-5 border-t border-b border-zinc-800 mb-10">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 py-5 border-t border-b border-zinc-800 mb-10">
             <div className="flex items-center gap-2 text-sm text-zinc-400">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#EBA730] to-[#FAC934] flex items-center justify-center flex-shrink-0">
                 <User className="w-4 h-4 text-black" />
               </div>
-              <span>@{post.author.username}</span>
+              <span>@academiafitnessexclusive</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-zinc-400">
               <MapPin className="w-4 h-4 text-[#EBA730]" />
@@ -292,7 +306,59 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </footer>
 
-      {/* Prose Styles */}
+      {/* JSON-LD — Article + Breadcrumb (SEO structured data) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: post.title,
+              description: post.seo?.metaDescription || post.excerpt,
+              datePublished: post.publishedAt,
+              dateModified: post.updatedAt || post.publishedAt,
+              author: {
+                "@type": "Person",
+                name: post.author?.username || "Fitness Exclusive",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Fitness Exclusive",
+                url: "https://fitnessexclusive.com.br",
+              },
+              url: `https://fitnessexclusive.com.br/blog/${post.slug}`,
+              ...(post.type === "blog" && post.media?.images
+                ? { image: post.media.images.desktop.url }
+                : {}),
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://fitnessexclusive.com.br",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Blog",
+                  item: "https://fitnessexclusive.com.br/blog",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: post.title,
+                  item: `https://fitnessexclusive.com.br/blog/${post.slug}`,
+                },
+              ],
+            },
+          ]),
+        }}
+      />
       <style
         dangerouslySetInnerHTML={{
           __html: `

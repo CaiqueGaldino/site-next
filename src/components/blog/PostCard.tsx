@@ -93,12 +93,11 @@ export function PostCard({ post, featured = false }: PostCardProps) {
           
           {/* Content Section */}
           <div className="p-6 flex flex-col flex-grow">
-            {/* Meta - Type and Date */}
-            <div className="flex items-center justify-between mb-3">
+            {/* Meta - Type */}
+            <div className="flex items-center justify-start mb-3">
               <span className="text-xs font-semibold text-[#EBA730] uppercase">
                 {postTypeLabel}
               </span>
-              <span className="text-xs text-gray-500">{formattedDate}</span>
             </div>
             
             {/* Title */}
@@ -112,9 +111,8 @@ export function PostCard({ post, featured = false }: PostCardProps) {
             </p>
             
             {/* Unit info */}
-            <div className="pt-4 border-t border-gray-800 flex items-center justify-between">
+            <div className="pt-4 border-t border-gray-800 flex items-center justify-start">
               <span className="text-xs text-gray-500">{post.unidade.nome}</span>
-              <span className="text-xs text-gray-500">{post.viewCount || 0} visualizações</span>
             </div>
           </div>
         </div>

@@ -1,25 +1,50 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Post } from "@/lib/types";
 import { PostCard } from "@/components/blog";
 import { fetchPosts } from "@/lib/strapi";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-export default async function RecentBlogSection() {
-  try {
-    const response = await fetchPosts({ limit: 3 });
-    const posts: Post[] = response.data || [];
+export default function RecentBlogSection() {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
 
-    if (!posts || posts.length === 0) {
-      return null;
+  useEffect(() => {
+    async function loadPosts() {
+      try {
+        const response = await fetchPosts({ limit: 3 });
+        setPosts(response.data || []);
+      } catch (error) {
+        console.error("Erro ao carregar posts:", error);
+      } finally {
+        setLoading(false);
+      }
     }
+    loadPosts();
+  }, []);
 
+  if (loading) {
     return (
+      <section className="py-20 bg-zinc-900">
+        <div className="container mx-auto px-6 text-center text-zinc-500">
+          Carregando blog...
+        </div>
+      </section>
+    );
+  }
+
+  if (!posts || posts.length === 0) {
+    return null;
+  }
+
+  return (
       <section className="py-20 bg-zinc-900">
         <div className="container mx-auto px-6">
           {/* Header */}
           <div className="mb-16">
-            <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight text-white">
               Blog
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#EBA730] to-[#FAC934]">
                 Fitness Exclusive
@@ -53,8 +78,4 @@ export default async function RecentBlogSection() {
         </div>
       </section>
     );
-  } catch (error) {
-    console.error("Erro ao carregar posts do blog:", error);
-    return null;
-  }
 }

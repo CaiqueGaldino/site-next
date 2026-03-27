@@ -9,8 +9,40 @@ const lexend = Lexend({
 });
 
 export const metadata: Metadata = {
-  title: "FITNESS EXCLUSIVE",
-  description: "A melhor academia da região com equipamentos modernos, professores qualificados e planos flexíveis. Transforme seu corpo na Fitness Exclusive!",
+  title: {
+    default: "Fitness Exclusive | A maior academia do interior do Nordeste",
+    template: "%s | Fitness Exclusive",
+  },
+  description:
+    "A maior rede de franquias de academias do interior do Nordeste. Estrutura completa, equipamentos modernos, professores qualificados e planos flexíveis. Matricule-se já!",
+  metadataBase: new URL("https://fitnessexclusive.com.br"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "https://fitnessexclusive.com.br",
+    siteName: "Fitness Exclusive",
+    title: "Fitness Exclusive | A maior academia do interior do Nordeste",
+    description:
+      "A maior rede de franquias de academias do interior do Nordeste. Estrutura completa e planos flexíveis. Matricule-se já!",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Fitness Exclusive — Academia completa",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fitness Exclusive | A maior academia do Nordeste",
+    description:
+      "A maior rede de franquias de academias do interior do Nordeste. Estrutura completa e tecnologia.",
+    images: ["/images/og-image.jpg"],
+  },
   icons: {
     icon: '/images/icones/icone3.ico',
   },

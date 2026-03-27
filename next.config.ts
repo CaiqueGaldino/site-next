@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: 'export',
   trailingSlash: true,
   basePath: '',
   assetPrefix: '',
@@ -21,7 +22,7 @@ const nextConfig: NextConfig = {
       },
     ],
     qualities: [75, 90, 100],
-    unoptimized: false
+    unoptimized: true
   },
   eslint: {
     ignoreDuringBuilds: true,

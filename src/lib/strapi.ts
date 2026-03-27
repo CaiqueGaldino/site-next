@@ -5,7 +5,7 @@
  */
 
 import { Post, PostListResponse, PostFilters, PostUnidade } from './types';
-import { getMockPostsResponse, getMockPostBySlug } from './mock-data';
+import { getMockPostsResponse, getMockPostBySlug } from './blog-posts';
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 const API_TOKEN = process.env.STRAPI_API_TOKEN;

@@ -2,15 +2,26 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { fetchPosts } from "@/lib/strapi";
+import { getFeaturedPost } from "@/lib/blog-posts";
 import { Post } from "@/lib/types";
 import { formatPostDate, getPostTypeLabel } from "@/lib/blog-service";
 import { getAssetPath } from "@/lib/utils";
 import { ArrowLeft, Calendar, Eye, Tag } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog | Fitness Exclusive",
+  title: "Blog — Dicas de Fitness, Saúde e Bem-estar",
   description:
     "Conteúdo exclusivo sobre fitness, saúde e bem-estar. Dicas, tutoriais e novidades da comunidade Fitness Exclusive.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Blog Fitness Exclusive — Dicas de Fitness, Saúde e Bem-estar",
+    description:
+      "Artigos exclusivos dos coaches e especialistas da Fitness Exclusive sobre treino, nutrição e estilo de vida.",
+    url: "https://fitnessexclusive.com.br/blog",
+    type: "website",
+  },
 };
 
 function BlogPostCard({ post }: { post: Post }) {
@@ -49,17 +60,6 @@ function BlogPostCard({ post }: { post: Post }) {
 
         {/* Content */}
         <div className="p-5 flex flex-col flex-grow">
-          <div className="flex items-center gap-3 mb-3 text-xs text-zinc-500">
-            <span className="flex items-center gap-1">
-              <Calendar className="w-3 h-3" />
-              {formattedDate}
-            </span>
-            <span className="flex items-center gap-1">
-              <Eye className="w-3 h-3" />
-              {post.viewCount || 0} views
-            </span>
-          </div>
-
           <h2 className="text-white font-bold text-lg leading-snug mb-3 group-hover:text-[#EBA730] transition-colors line-clamp-2">
             {post.title}
           </h2>
@@ -89,8 +89,8 @@ export default async function BlogPage() {
     posts = [];
   }
 
-  // Group posts by type
-  const featuredPost = posts.find((p) => p.featured?.isFeatured);
+  // Get featured post from centralized config (blog-posts.ts)
+  const featuredPost = getFeaturedPost();
   const regularPosts = featuredPost
     ? posts.filter((p) => p.documentId !== featuredPost.documentId)
     : posts;
@@ -192,16 +192,6 @@ export default async function BlogPage() {
                       <p className="text-zinc-400 mb-6 line-clamp-3">
                         {featuredPost.excerpt}
                       </p>
-                      <div className="flex items-center gap-4 text-sm text-zinc-500 mb-6">
-                        <span className="flex items-center gap-1.5">
-                          <Calendar className="w-4 h-4" />
-                          {formatPostDate(featuredPost.publishedAt)}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <Eye className="w-4 h-4" />
-                          {featuredPost.viewCount || 0} visualizações
-                        </span>
-                      </div>
                       <span className="text-[#EBA730] font-bold group-hover:underline">
                         Ler artigo completo →
                       </span>

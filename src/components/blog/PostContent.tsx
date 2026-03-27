@@ -58,18 +58,8 @@ export function PostContent({ post }: PostContentProps) {
           </div>
           
           <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4" />
-            <span className="text-sm">{formattedDate}</span>
-          </div>
-          
-          <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4" />
             <span className="text-sm">{post.unidade.nome}</span>
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <Eye className="w-4 h-4" />
-            <span className="text-sm">{post.viewCount || 0} visualizações</span>
           </div>
         </div>
       </header>
@@ -158,13 +148,6 @@ export function PostContent({ post }: PostContentProps) {
             <p className="text-sm text-gray-400 mb-2">Publicado por</p>
             <p className="text-white font-bold">{post.author.username}</p>
             <p className="text-sm text-gray-400">{post.unidade.nome}</p>
-          </div>
-          
-          <div className="text-right text-sm text-gray-400">
-            <p>Atualizado em</p>
-            <p className="text-white font-bold">
-              {new Date(post.updatedAt).toLocaleDateString("pt-BR")}
-            </p>
           </div>
         </div>
       </motion.footer>
