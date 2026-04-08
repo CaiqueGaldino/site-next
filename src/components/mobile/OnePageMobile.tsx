@@ -14,6 +14,7 @@ import HeroSectionMobile from "./HeroSectionMobile";
 import AvaliacoesMobile from "./AvaliacoesMobile";
 import Marquee from "../shared/Marquee";
 import RecentBlogSectionMobile from "./RecentBlogSectionMobile";
+import InstagramSectionMobile from "./InstagramSectionMobile";
 
 type Section = "planos" | "modalidades" | "unidades" | "faq";
 
@@ -79,6 +80,7 @@ export default function OnePageMobile() {
             <ModalidadesMobile />
             <RecentBlogSectionMobile />
             <AvaliacoesMobile />
+            <InstagramSectionMobile />
             <div className="h-30"></div>
           </div>
         );

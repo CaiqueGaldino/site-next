@@ -447,6 +447,174 @@ export const blogPosts: Post[] = [
   },
 
   // ----------------------------------------------------------
+  // POST 12
+  // ----------------------------------------------------------
+  {
+    id: 12,
+    documentId: "post-12",
+    title: "Hidratação: O Combustível Invisível do seu Treino",
+    slug: "hidratacao-combustivel-invisivel-treino",
+    content: `
+      <h2>A Água e Sua Performance</h2>
+      <p>A hidratação é frequentemente subestimada, mas é um dos pilares mais cruciais para um bom desempenho físico e recuperação muscular. Quando você sente sede, seu corpo já está desidratado.</p>
+      <h3>Por que a água é tão importante?</h3>
+      <p>Nossos músculos são compostos por cerca de 75% de água. A desidratação de apenas 2% do peso corporal já pode reduzir significativamente a força e a resistência durante o exercício.</p>
+      <h3>Regulando a temperatura do corpo</h3>
+      <p>Durante o treino, a transpiração é o mecanismo natural do corpo para manter a temperatura estável. Repor esses líquidos perdidos é essencial para evitar fadiga precoce e cãibras.</p>
+      <h3>Quanto e quando beber?</h3>
+      <p>A recomendação geral é beber entre 35ml a 50ml por quilo corporal ao dia. Durante o treino, o ideal é consumir cerca de 500ml de água para cada hora de exercício, em pequenos goles frequentes.</p>
+    `,
+    excerpt: "Descubra como a hidratação adequada pode melhorar sua performance no treino e acelerar a recuperação muscular.",
+    type: "blog",
+    status: "published",
+    unidade: {
+      id: 1,
+      documentId: "unidade-1",
+      nome: "Fitness Exclusive - Crato",
+      localizacao: "São Miguel, Crato - CE",
+    },
+    author: {
+      id: 1,
+      documentId: "author-1",
+      username: "Fitness Exclusive",
+      email: "@academiafitnessexclusive",
+    },
+    media: {
+      images: {
+        mobile: {
+          url: "/images/blog/hidratacao.png",
+          alt: "Pessoa bebendo água durante o treino",
+        },
+        desktop: {
+          url: "/images/blog/hidratacao.png",
+          alt: "Pessoa bebendo água durante o treino",
+        },
+      },
+    },
+    featured: { isFeatured: false },
+    seo: {
+      metaDescription: "Saiba por que beber água é essencial para o treino, construção muscular e perda de peso.",
+      metaKeywords: ["hidratação", "água", "performance", "recuperação", "treino"],
+    },
+    viewCount: 421,
+    publishedAt: new Date(2026, 2, 20).toISOString(),
+    createdAt: new Date(2026, 2, 20).toISOString(),
+    updatedAt: new Date(2026, 2, 20).toISOString(),
+  },
+
+  // ----------------------------------------------------------
+  // POST 13
+  // ----------------------------------------------------------
+  {
+    id: 13,
+    documentId: "post-13",
+    title: "Fortalecimento do Core: Muito Além de um Abdômen Definido",
+    slug: "fortalecimento-core-muito-alem-abdomen",
+    content: `
+      <h2>O Centro de Força do Seu Corpo</h2>
+      <p>Quando falamos de core, muitos pensam apenas no "tanquinho". Porém, o core abrange os músculos abdominais, lombares, pélvicos e do quadril, formando um verdadeiro cinturão de sustentação para o seu corpo.</p>
+      <h3>A base de todos os movimentos</h3>
+      <p>Ter um core forte é fundamental para a estabilidade do tronco e da coluna vertebral. Ele age transferindo a força entre os membros inferiores e superiores de forma eficiente.</p>
+      <h3>Prevenção de Lesões</h3>
+      <p>Muitas dores na região lombar ou mesmo nos joelhos podem ser causadas por fraqueza no core. Uma musculatura estabilizadora forte protege a coluna de sobrecargas excessivas em exercícios agachamentos e levantamentos.</p>
+      <h3>Melhores exercícios para o Core</h3>
+      <p>Pranchas (frontal e lateral), elevação de pernas, dead bug, exercícios com rodinha abdominal e variações de abdominais oblíquos são excelentes opções para fortalecer a região como um todo.</p>
+    `,
+    excerpt: "Entenda a importância de um core forte para a sua saúde, postura e performance, além da estética.",
+    type: "blog",
+    status: "published",
+    unidade: {
+      id: 2,
+      documentId: "unidade-2",
+      nome: "Fitness Exclusive - Premium",
+      localizacao: "Lagoa Seca, Juazeiro do Norte - CE",
+    },
+    author: {
+      id: 1,
+      documentId: "author-1",
+      username: "Fitness Exclusive",
+      email: "@academiafitnessexclusive",
+    },
+    media: {
+      images: {
+        mobile: {
+          url: "/images/blog/core.png",
+          alt: "Pessoa fazendo prancha para fortalecer o core",
+        },
+        desktop: {
+          url: "/images/blog/core.png",
+          alt: "Pessoa fazendo prancha para fortalecer o core",
+        },
+      },
+    },
+    featured: { isFeatured: false },
+    seo: {
+      metaDescription: "Descubra como o fortalecimento do core melhora sua postura, previne lesões e potencializa os treinos.",
+      metaKeywords: ["core", "abdômen", "prancha", "lombar", "estabilidade"],
+    },
+    viewCount: 512,
+    publishedAt: new Date(2026, 2, 22).toISOString(),
+    createdAt: new Date(2026, 2, 22).toISOString(),
+    updatedAt: new Date(2026, 2, 22).toISOString(),
+  },
+
+  // ----------------------------------------------------------
+  // POST 14
+  // ----------------------------------------------------------
+  {
+    id: 14,
+    documentId: "post-14",
+    title: "Mente e Músculo: O Segredo da Conexão para Hipertrofia",
+    slug: "mente-musculo-segredo-conexao-hipertrofia",
+    content: `
+      <h2>Foco total em cada repetição</h2>
+      <p>Levantar peso do ponto A para o ponto B não é o suficiente para gerar os melhores resultados de hipertrofia. É preciso que exista uma forte conexão mente-músculo durante a execução.</p>
+      <h3>O que é a Conexão Mente-Músculo?</h3>
+      <p>É a capacidade de direcionar o seu foco consciente para o músculo específico que você está treinando, maximizando o recrutamento de fibras musculares durante a contração.</p>
+      <h3>A Ciência por trás</h3>
+      <p>Estudos indicam que indivíduos que se concentram mentalmente no músculo ativado podem ter um recrutamento de fibras de até 20% maior do que aqueles que apenas movem a carga de maneira automática e desatenta.</p>
+      <h3>Como desenvolver essa conexão?</h3>
+      <p>Comece com cargas mais leves. Feche os olhos, sinta o músculo alongando na fase excêntrica e se contraindo ao máximo na fase concêntrica. Esqueça o peso por um instante e foque inteiramente no controle do movimento.</p>
+    `,
+    excerpt: "Saiba por que o foco mental durante o exercício pode mudar drasticamente seus resultados de hipertrofia.",
+    type: "blog",
+    status: "published",
+    unidade: {
+      id: 3,
+      documentId: "unidade-3",
+      nome: "Fitness Exclusive - Tiradentes",
+      localizacao: "Tiradentes, Juazeiro do Norte - CE",
+    },
+    author: {
+      id: 1,
+      documentId: "author-1",
+      username: "Fitness Exclusive",
+      email: "@academiafitnessexclusive",
+    },
+    media: {
+      images: {
+        mobile: {
+          url: "/images/blog/conexao.png",
+          alt: "Pessoa muito concentrada durante exercício com pesos",
+        },
+        desktop: {
+          url: "/images/blog/conexao.png",
+          alt: "Pessoa muito concentrada durante exercício com pesos",
+        },
+      },
+    },
+    featured: { isFeatured: false },
+    seo: {
+      metaDescription: "Conexão mente-músculo: entenda o que é e como aplicar para acelerar a hipertrofia e melhorar os resultados no treino.",
+      metaKeywords: ["hipertrofia", "conexão mente-músculo", "foco", "musculação"],
+    },
+    viewCount: 389,
+    publishedAt: new Date(2026, 2, 25).toISOString(),
+    createdAt: new Date(2026, 2, 25).toISOString(),
+    updatedAt: new Date(2026, 2, 25).toISOString(),
+  },
+
+  // ----------------------------------------------------------
   // ➕ ADICIONE NOVOS POSTS AQUI
   // ----------------------------------------------------------
 ];

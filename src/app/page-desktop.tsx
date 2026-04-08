@@ -15,6 +15,7 @@ import ScrollToTop from "../components/shared/ScrollToTop";
 import SobreNos from "@/components/desktop/SobreNos";
 import Marquee from "@/components/shared/Marquee";
 import RecentBlogSection from "@/components/desktop/RecentBlogSection";
+import InstagramSection from "@/components/desktop/InstagramSection";
 
 export default function HomeDesktop() {
   return (
@@ -33,6 +34,7 @@ export default function HomeDesktop() {
         <RecentBlogSection />
         <FAQ />
         <AulaExperimental />
+        <InstagramSection />
       </main>
       <Footer />
       <WhatsAppButton />
