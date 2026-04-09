@@ -16,6 +16,7 @@ import SobreNos from "@/components/desktop/SobreNos";
 import Marquee from "@/components/shared/Marquee";
 import RecentBlogSection from "@/components/desktop/RecentBlogSection";
 import InstagramSection from "@/components/desktop/InstagramSection";
+import SejaInvestidor from "@/components/desktop/SejaInvestidor";
 
 export default function HomeDesktop() {
   return (
@@ -24,17 +25,18 @@ export default function HomeDesktop() {
       <main>
         <HeroSection />
         <Planos />
-        <ContadorAlunos />
-        <DiferenciaisStack />
+        {/*<ContadorAlunos />*/}
+        {/*<DiferenciaisStack />*/}
         <Beneficios />
         <Avaliacoes />
         {/*<Marquee />} */}
         <Unidades />
         <SobreNos />
+        <SejaInvestidor />
+        <InstagramSection />
         <RecentBlogSection />
         <FAQ />
         <AulaExperimental />
-        <InstagramSection />
       </main>
       <Footer />
       <WhatsAppButton />

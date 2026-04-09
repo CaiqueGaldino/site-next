@@ -12,10 +12,10 @@ export default function Footer() {
               Fitness Exclusive
             </h3>
             <p className="text-gray-300 mb-6 max-w-md">
-              Transformamos vidas através do exercício físico, oferecendo a melhor estrutura 
+              Transformamos vidas através do exercício físico, oferecendo a melhor estrutura
               e acompanhamento profissional para você alcançar seus objetivos.
             </p>
-            
+
           </div>
 
           {/* Links Rápidos */}
@@ -27,8 +27,11 @@ export default function Footer() {
               <li><a href="#modalidades" className="text-gray-300 hover:text-[#EBA730] transition-colors">Diferenciais</a></li>
               <li><a href="#avaliacoes" className="text-gray-300 hover:text-[#EBA730] transition-colors">Avaliações</a></li>
               <li><a href="#contato" className="text-gray-300 hover:text-[#EBA730] transition-colors">Contato</a></li>
-              {/*<li><Link href="/investidor" className="text-gray-300 hover:text-[#EBA730] transition-colors">Seja um Investidor</Link></li>
-              <li><Link href="/franqueado" className="text-gray-300 hover:text-[#EBA730] transition-colors">Seja um Franqueado</Link></li>*/}
+              <li>
+                <Link href="/investidor" className="text-[#FAC934] hover:text-[#EBA730] font-semibold transition-colors flex items-center gap-1">
+                  ★ Seja um Investidor
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -80,7 +83,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-zinc-800 mt-8 pt-8 text-center">
+        <div className="border-t border-zinc-800 pt-8 text-center">
           <p className="text-zinc-400 text-sm">
             © {new Date().getFullYear()} Academia Fitness Exclusive. Todos os direitos reservados.
           </p>

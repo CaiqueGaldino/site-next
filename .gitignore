@@ -28,6 +28,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# database
+/.data/
+*.db
+*.db-shm
+*.db-wal
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)

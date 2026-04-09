@@ -183,6 +183,17 @@ export default function FooterMobile() {
           </div>
         </div>
 
+        {/* CTA Investidor */}
+        <div className="mb-4">
+          <Link
+            href="/investidor"
+            onClick={() => hapticFeedback('medium')}
+            className="w-full flex items-center justify-center gap-2 border-2 border-[#EBA730] text-[#FAC934] font-bold py-4 rounded-full active:scale-95 transition-transform touch-manipulation"
+          >
+            ★ Seja um Investidor
+          </Link>
+        </div>
+
         {/* CTA Final */}
         <div className="mb-8">
           <button 

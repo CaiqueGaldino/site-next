@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // output: 'export', // Desabilitado para permitir API dinâmica de investidores
   trailingSlash: true,
   basePath: '',
   assetPrefix: '',

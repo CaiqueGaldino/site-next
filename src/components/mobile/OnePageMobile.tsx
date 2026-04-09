@@ -15,6 +15,7 @@ import AvaliacoesMobile from "./AvaliacoesMobile";
 import Marquee from "../shared/Marquee";
 import RecentBlogSectionMobile from "./RecentBlogSectionMobile";
 import InstagramSectionMobile from "./InstagramSectionMobile";
+import SejaInvestidorMobile from "./SejaInvestidorMobile";
 
 type Section = "planos" | "modalidades" | "unidades" | "faq";
 
@@ -76,11 +77,11 @@ export default function OnePageMobile() {
       case "modalidades":
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
-
             <ModalidadesMobile />
             <RecentBlogSectionMobile />
             <AvaliacoesMobile />
             <InstagramSectionMobile />
+            <SejaInvestidorMobile />
             <div className="h-30"></div>
           </div>
         );
