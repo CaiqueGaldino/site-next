@@ -21,19 +21,6 @@ export default function SejaInvestidor() {
       <div className="absolute -bottom-32 left-0 w-80 h-80 bg-[#EBA730]/6 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Badge centralizado */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-6"
-        >
-          <span className="inline-flex items-center gap-2 bg-[#FAC934]/10 border border-[#FAC934]/30 text-[#FAC934] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full">
-            <Rocket className="w-3.5 h-3.5" />
-            Oportunidade de Investimento
-          </span>
-        </motion.div>
 
         {/* Título centralizado */}
         <motion.div
