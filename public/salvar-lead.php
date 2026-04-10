@@ -17,6 +17,27 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
+// Configurações do Banco de Dados
+$host = 'localhost';
+$db   = 'fitnessexclusive_investidores';
+$user = 'fitnessexclusive_investidores';
+$pass = '@bacaxi03210';
+$charset = 'utf8mb4';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+
+try {
+    $pdo = new PDO($DSN = $dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+    echo json_encode(['success' => false, 'error' => 'Falha na conexão com o banco de dados']);
+    exit();
+}
+
 // Lê o body JSON
 $input = file_get_contents('php://input');
 $data  = json_decode($input, true);
@@ -38,31 +59,15 @@ if (empty($nome) || empty($telefone) || empty($cidade)) {
     exit();
 }
 
-// Define o arquivo CSV
-$arquivo = __DIR__ . '/leads-investidores.csv';
+// Insere no banco de dados
+try {
+    $sql = "INSERT INTO leads_investidores (nome, telefone, cidade) VALUES (?, ?, ?)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$nome, $telefone, $cidade]);
 
-// Cria o cabeçalho se o arquivo for novo
-$novo = !file_exists($arquivo);
-
-$fp = fopen($arquivo, 'a');
-if (!$fp) {
-    http_response_code(500);
-    echo json_encode(['success' => false, 'error' => 'Não foi possível abrir o arquivo de dados']);
-    exit();
+    echo json_encode(['success' => true, 'message' => 'Lead salvo com sucesso no banco de dados']);
+} catch (\PDOException $e) {
+    // Se a tabela não existir, podemos tentar criar ou apenas retornar erro
+    // Aqui retornamos o erro para o usuário saber que precisa criar a tabela
+    echo json_encode(['success' => false, 'error' => 'Erro ao salvar: ' . $e->getMessage()]);
 }
-
-if ($novo) {
-    fputcsv($fp, ['Data', 'Nome', 'Telefone', 'Cidade']);
-}
-
-// Salva a linha com data/hora
-fputcsv($fp, [
-    date('d/m/Y H:i:s'),
-    $nome,
-    $telefone,
-    $cidade,
-]);
-
-fclose($fp);
-
-echo json_encode(['success' => true, 'message' => 'Lead salvo com sucesso']);

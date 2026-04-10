@@ -249,7 +249,7 @@ export default function Investidor() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {unidades.slice(0, 9).map((unidade, i) => (
+            {unidades.map((unidade, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -349,7 +349,7 @@ export default function Investidor() {
                 {loading ? "Enviando..." : "Enviar Interesse"}
               </button>
 
-              <p className="text-gray-500 text-xs text-center">
+              <p className="text-gray-500 text-xs text-center mt-4">
                 Você será redirecionado ao WhatsApp após o envio
               </p>
             </form>
