@@ -12,14 +12,14 @@ import UnidadesMobile from "./UnidadesMobile";
 import AulaExperimental from "../desktop/AulaExperimental";
 import HeroSectionMobile from "./HeroSectionMobile";
 import AvaliacoesMobile from "./AvaliacoesMobile";
-import Marquee from "../shared/Marquee";
 import RecentBlogSectionMobile from "./RecentBlogSectionMobile";
 import InstagramSectionMobile from "./InstagramSectionMobile";
 import SejaInvestidorMobile from "./SejaInvestidorMobile";
+import SejaFranqueadoMobile from "./SejaFranqueadoMobile";
 
 type Section = "planos" | "modalidades" | "unidades" | "faq";
 
-const sections: Section[] = ["planos", "modalidades", "unidades", "faq"];
+const sections: Section[] = ["planos", "unidades", "modalidades", "faq"];
 
 export default function OnePageMobile() {
   const [activeSection, setActiveSection] = useState<Section>("planos");
@@ -31,22 +31,6 @@ export default function OnePageMobile() {
     setDirection(newIndex > currentIndex ? 1 : -1);
     setActiveSection(sectionId as Section);
     hapticFeedback('medium');
-  };
-
-  const handleSwipe = (offset: number) => {
-    const currentIndex = sections.indexOf(activeSection);
-    
-    if (offset > 50 && currentIndex > 0) {
-      // Swipe right - go to previous
-      setDirection(-1);
-      setActiveSection(sections[currentIndex - 1]);
-      hapticFeedback('light');
-    } else if (offset < -50 && currentIndex < sections.length - 1) {
-      // Swipe left - go to next
-      setDirection(1);
-      setActiveSection(sections[currentIndex + 1]);
-      hapticFeedback('light');
-    }
   };
 
   const pageVariants = {
@@ -81,7 +65,6 @@ export default function OnePageMobile() {
             <RecentBlogSectionMobile />
             <AvaliacoesMobile />
             <InstagramSectionMobile />
-            <SejaInvestidorMobile />
             <div className="h-30"></div>
           </div>
         );
@@ -99,6 +82,8 @@ export default function OnePageMobile() {
       case "faq":
         return (
           <div className="h-full overflow-y-auto scrollbar-hide">
+            <SejaInvestidorMobile />
+            <SejaFranqueadoMobile />
             <FAQMobile />
             {/*<Marquee />} */}
             <AulaExperimental />
@@ -112,12 +97,12 @@ export default function OnePageMobile() {
   };
 
   return (
-    <div className="h-screen w-screen overflow-hidden bg-black flex flex-col fixed inset-0 mobile-one-page">
+    <div className="fixed inset-0 flex h-screen w-screen flex-col overflow-hidden bg-black mobile-one-page">
       {/* Banner Overlay - Aparece ao carregar */}
       <BannerOverlay />
 
       {/* Content Area - Fixed height */}
-      <div className="flex-1 overflow-hidden relative">
+      <div className="relative flex-1 overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={activeSection}
@@ -127,7 +112,7 @@ export default function OnePageMobile() {
             animate="center"
             exit="exit"
             transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
+              x: { type: "spring", stiffness: 260, damping: 32 },
               opacity: { duration: 0.2 }
             }}
             className="absolute inset-0"

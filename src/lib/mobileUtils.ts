@@ -75,24 +75,44 @@ export const isTouchDevice = (): boolean => {
   return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 };
 
+type NetworkInformationLike = {
+  effectiveType?: string;
+  downlink?: number;
+};
+
+type BatteryStatusLike = {
+  level?: number;
+  charging?: boolean;
+};
+
+type NavigatorWithDeviceInfo = Navigator & {
+  connection?: NetworkInformationLike;
+  mozConnection?: NetworkInformationLike;
+  webkitConnection?: NetworkInformationLike;
+  battery?: BatteryStatusLike;
+};
+
 // Network status detection for performance optimization
 export const useNetworkStatus = () => {
   if (typeof window === 'undefined') return { isOnline: true, isSlowConnection: false };
   
-  const connection = (navigator as any).connection || 
-                    (navigator as any).mozConnection || 
-                    (navigator as any).webkitConnection;
+  const navigatorWithDeviceInfo = navigator as NavigatorWithDeviceInfo;
+  const connection = navigatorWithDeviceInfo.connection ||
+                    navigatorWithDeviceInfo.mozConnection ||
+                    navigatorWithDeviceInfo.webkitConnection;
+  const effectiveType = connection?.effectiveType || 'unknown';
+  const downlink = connection?.downlink ?? 0;
   
   const isSlowConnection = connection && 
-    (connection.effectiveType === 'slow-2g' || 
-     connection.effectiveType === '2g' || 
-     connection.downlink < 1.5);
+    (effectiveType === 'slow-2g' ||
+     effectiveType === '2g' ||
+     downlink < 1.5);
 
   return {
     isOnline: navigator.onLine,
     isSlowConnection: Boolean(isSlowConnection),
-    effectiveType: connection?.effectiveType || 'unknown',
-    downlink: connection?.downlink || 0
+    effectiveType,
+    downlink
   };
 };
 
@@ -163,13 +183,14 @@ export const preloadImage = (src: string): Promise<void> => {
 export const useBatteryOptimization = () => {
   if (typeof window === 'undefined') return { shouldOptimize: false };
   
-  const battery = (navigator as any).battery || (navigator as any).getBattery?.();
-  const isLowBattery = battery && battery.level < 0.2;
-  const isCharging = battery && battery.charging;
+  const battery = (navigator as NavigatorWithDeviceInfo).battery;
+  const batteryLevel = battery?.level ?? 1;
+  const isLowBattery = batteryLevel < 0.2;
+  const isCharging = battery?.charging ?? false;
   
   return {
     shouldOptimize: isLowBattery && !isCharging,
-    batteryLevel: battery?.level || 1,
+    batteryLevel,
     isCharging: Boolean(isCharging)
   };
 };

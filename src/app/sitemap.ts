@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { blogPosts } from "@/lib/blog-posts";
+import { blogPosts, isVisibleBlogPost } from "@/lib/blog-posts";
 
 export const dynamic = "force-static";
 
@@ -22,9 +22,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Blog post pages — only published posts
+  // Blog post pages — only published posts without social/Instagram links
   const postPages: MetadataRoute.Sitemap = blogPosts
-    .filter((post) => post.status === "published")
+    .filter(isVisibleBlogPost)
     .map((post) => ({
       url: `${BASE_URL}/blog/${post.slug}`,
       lastModified: new Date(post.updatedAt || post.publishedAt || Date.now()),

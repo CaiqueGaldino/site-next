@@ -88,9 +88,6 @@ export interface Post {
   // SEO
   seo?: PostSEO;
   
-  // Analytics
-  viewCount: number;
-  
   // Timestamps
   publishedAt?: string;
   createdAt: string;

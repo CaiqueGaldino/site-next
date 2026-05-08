@@ -94,7 +94,6 @@ export const blogPosts: Post[] = [
       metaDescription: "Guia completo para começar sua jornada de fitness com sucesso.",
       metaKeywords: ["fitness", "treino", "iniciante", "musculação"],
     },
-    viewCount: 245,
     publishedAt: new Date(2026, 2, 5).toISOString(),
     createdAt: new Date(2026, 2, 5).toISOString(),
     updatedAt: new Date(2026, 2, 5).toISOString(),
@@ -156,7 +155,6 @@ export const blogPosts: Post[] = [
       metaDescription: "Os 10 alimentos que você deve comer após o treino para maximizar a recuperação e ganhos.",
       metaKeywords: ["nutrição", "recuperação", "alimentos", "pós-treino"],
     },
-    viewCount: 678,
     publishedAt: new Date(2026, 2, 4).toISOString(),
     createdAt: new Date(2026, 2, 4).toISOString(),
     updatedAt: new Date(2026, 2, 4).toISOString(),
@@ -214,7 +212,6 @@ export const blogPosts: Post[] = [
       metaDescription: "Tudo sobre HIIT: como funciona, benefícios e como montar seu treino intervalado.",
       metaKeywords: ["hiit", "treino intervalado", "queimar gordura", "cardio"],
     },
-    viewCount: 1087,
     publishedAt: new Date(2026, 2, 10).toISOString(),
     createdAt: new Date(2026, 2, 10).toISOString(),
     updatedAt: new Date(2026, 2, 10).toISOString(),
@@ -272,7 +269,6 @@ export const blogPosts: Post[] = [
       metaDescription: "Guia completo de suplementação para ganho de massa: whey, creatina, cafeína e mais.",
       metaKeywords: ["suplementação", "whey protein", "creatina", "ganho de massa"],
     },
-    viewCount: 2340,
     publishedAt: new Date(2026, 2, 12).toISOString(),
     createdAt: new Date(2026, 2, 12).toISOString(),
     updatedAt: new Date(2026, 2, 12).toISOString(),
@@ -328,7 +324,6 @@ export const blogPosts: Post[] = [
       metaDescription: "Saiba por que o sono é fundamental para quem pratica musculação e como melhorar sua qualidade.",
       metaKeywords: ["sono", "recuperação", "GH", "descanso", "musculação"],
     },
-    viewCount: 876,
     publishedAt: new Date(2026, 2, 14).toISOString(),
     createdAt: new Date(2026, 2, 14).toISOString(),
     updatedAt: new Date(2026, 2, 14).toISOString(),
@@ -384,7 +379,6 @@ export const blogPosts: Post[] = [
       metaDescription: "Musculação feminina: descubra os reais benefícios e derrube os mitos de vez.",
       metaKeywords: ["musculação feminina", "treino", "mulher", "mitos", "saúde"],
     },
-    viewCount: 3210,
     publishedAt: new Date(2026, 2, 16).toISOString(),
     createdAt: new Date(2026, 2, 16).toISOString(),
     updatedAt: new Date(2026, 2, 16).toISOString(),
@@ -440,7 +434,6 @@ export const blogPosts: Post[] = [
       metaDescription: "Descubra a importância da mobilidade para seu treino e aprenda exercícios essenciais.",
       metaKeywords: ["mobilidade", "flexibilidade", "prevenção de lesões", "performance"],
     },
-    viewCount: 654,
     publishedAt: new Date(2026, 2, 18).toISOString(),
     createdAt: new Date(2026, 2, 18).toISOString(),
     updatedAt: new Date(2026, 2, 18).toISOString(),
@@ -496,7 +489,6 @@ export const blogPosts: Post[] = [
       metaDescription: "Saiba por que beber água é essencial para o treino, construção muscular e perda de peso.",
       metaKeywords: ["hidratação", "água", "performance", "recuperação", "treino"],
     },
-    viewCount: 421,
     publishedAt: new Date(2026, 2, 20).toISOString(),
     createdAt: new Date(2026, 2, 20).toISOString(),
     updatedAt: new Date(2026, 2, 20).toISOString(),
@@ -552,7 +544,6 @@ export const blogPosts: Post[] = [
       metaDescription: "Descubra como o fortalecimento do core melhora sua postura, previne lesões e potencializa os treinos.",
       metaKeywords: ["core", "abdômen", "prancha", "lombar", "estabilidade"],
     },
-    viewCount: 512,
     publishedAt: new Date(2026, 2, 22).toISOString(),
     createdAt: new Date(2026, 2, 22).toISOString(),
     updatedAt: new Date(2026, 2, 22).toISOString(),
@@ -608,13 +599,11 @@ export const blogPosts: Post[] = [
       metaDescription: "Conexão mente-músculo: entenda o que é e como aplicar para acelerar a hipertrofia e melhorar os resultados no treino.",
       metaKeywords: ["hipertrofia", "conexão mente-músculo", "foco", "musculação"],
     },
-    viewCount: 389,
     publishedAt: new Date(2026, 2, 25).toISOString(),
     createdAt: new Date(2026, 2, 25).toISOString(),
     updatedAt: new Date(2026, 2, 25).toISOString(),
   },
 
-  // ----------------------------------------------------------
   // ➕ ADICIONE NOVOS POSTS AQUI
   // ----------------------------------------------------------
 ];
@@ -623,9 +612,13 @@ export const blogPosts: Post[] = [
 // 🛠️  FUNÇÕES AUXILIARES — não edite abaixo desta linha
 // ============================================================
 
+export function isVisibleBlogPost(post: Post): boolean {
+  return post.status === "published" && post.type !== "social" && !post.media?.socialUrl;
+}
+
 /** Retorna todos os posts publicados, ordenados do mais recente ao mais antigo */
 export function getBlogPostsResponse(limit = 10): PostListResponse {
-  const published = blogPosts.filter((p) => p.status === "published");
+  const published = blogPosts.filter(isVisibleBlogPost);
   const sorted = [...published].sort(
     (a, b) =>
       new Date(b.publishedAt || 0).getTime() -
@@ -648,14 +641,16 @@ export function getBlogPostsResponse(limit = 10): PostListResponse {
 
 /** Retorna um post pelo slug ou undefined se não encontrado */
 export function getBlogPostBySlug(slug: string): Post | undefined {
-  return blogPosts.find((post) => post.slug === slug);
+  return blogPosts.find((post) => post.slug === slug && isVisibleBlogPost(post));
 }
 
 /** Retorna o post em destaque conforme definido em `featuredPostSlug` */
 export function getFeaturedPost(): Post | undefined {
   if (!featuredPostSlug) return undefined;
   return blogPosts.find(
-    (post) => post.slug === featuredPostSlug && post.status === "published"
+    (post) =>
+      post.slug === featuredPostSlug &&
+      isVisibleBlogPost(post)
   );
 }
 

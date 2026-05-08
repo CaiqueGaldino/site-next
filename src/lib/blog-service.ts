@@ -128,13 +128,6 @@ export function isVideoPost(post: Post): boolean {
 }
 
 /**
- * Check if post is a social media link
- */
-export function isSocialPost(post: Post): boolean {
-  return post.type === 'social' && !!post.media?.socialUrl;
-}
-
-/**
  * Extract YouTube video ID from URL
  */
 export function extractYoutubeVideoId(url: string): string | null {

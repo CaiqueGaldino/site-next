@@ -5,9 +5,9 @@ import { notFound } from "next/navigation";
 import { fetchPostBySlug, generateBlogStaticParams } from "@/lib/strapi";
 import { fetchPosts } from "@/lib/strapi";
 import { Post } from "@/lib/types";
-import { formatPostDate, getPostTypeLabel } from "@/lib/blog-service";
+import { getPostTypeLabel } from "@/lib/blog-service";
 import { getAssetPath } from "@/lib/utils";
-import { ArrowLeft, Calendar, Eye, User, MapPin } from "lucide-react";
+import { ArrowLeft, User, MapPin } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -218,20 +218,6 @@ export default async function BlogPostPage({ params }: Props) {
                 title={post.title}
               />
             </div>
-          )}
-
-          {/* Social link */}
-          {post.type === "social" && post.media?.socialUrl && (
-            <a
-              href={post.media.socialUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 flex items-center gap-3 bg-zinc-900 rounded-2xl p-4 border border-zinc-800 hover:border-[#EBA730]/40 transition-all"
-            >
-              <span className="text-[#EBA730] font-bold">
-                Ver nas redes sociais →
-              </span>
-            </a>
           )}
 
           {/* CTA */}

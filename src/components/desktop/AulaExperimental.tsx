@@ -1,68 +1,51 @@
 "use client";
-import React, { useState } from "react";
-import { Dumbbell } from "lucide-react";
-import FormularioAgendamento from "../shared/FormularioAgendamento";
+
+import React from "react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+const points = [
+  "Sem compromisso",
+  "Totalmente gratuito",
+  "Acompanhamento profissional",
+];
 
 export default function AulaExperimental() {
-  const [modalAberto, setModalAberto] = useState(false);
-
   return (
-    <>
-    <section className="py-20 bg-black">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-[#EBA730]">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-            Experimente Gratuitamente!
+    <section className="bg-black py-24">
+      <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+        <div className="rounded-lg border border-[#EBA730]/35 bg-gradient-to-br from-zinc-950 via-black to-zinc-950 p-8 md:p-12">
+          <h2 className="section-title mx-auto max-w-3xl">
+            Experimente gratuitamente antes de começar
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Conheça nossa estrutura, equipamentos e metodologia sem compromisso. 
-            Agende sua aula experimental gratuita agora mesmo!
+          <p className="section-copy mx-auto mt-5 max-w-2xl">
+            Conheça a estrutura, os equipamentos e a metodologia sem compromisso.
+            Agende sua aula experimental gratuita agora mesmo.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <div className="flex items-center gap-2 text-white/90">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Sem compromisso</span>
-            </div>
-            <div className="flex items-center gap-2 text-white/90">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Totalmente gratuito</span>
-            </div>
-            <div className="flex items-center gap-2 text-white/90">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Acompanhamento profissional</span>
-            </div>
+
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            {points.map((point) => (
+              <div key={point} className="flex items-center gap-2 text-zinc-300">
+                <CheckCircle2 className="h-5 w-5 text-[#FAC934]" />
+                <span className="text-sm font-semibold">{point}</span>
+              </div>
+            ))}
           </div>
 
-          <div className="mt-8">
-            <a 
-              href="https://wa.me/5588992637523?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-10 py-4 rounded-full shadow-xl transition-all transform hover:scale-105 text-lg"
-            >
-              Agende Agora
-            </a>
-          </div>
+          <a
+            href="https://wa.me/5588992637523?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20aula%20experimental"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary mt-9"
+          >
+            Agendar agora
+            <ArrowRight className="h-5 w-5" />
+          </a>
 
-          <p className="text-white/80 text-sm mt-4">
-            <Dumbbell className="w-6 h-6 mr-2 inline" /> Mais de 500 alunos já experimentaram e aprovaram!
+          <p className="mt-5 text-sm text-zinc-400">
+            Mais de 500 alunos já experimentaram e aprovaram.
           </p>
         </div>
       </div>
-
-      <FormularioAgendamento 
-        isOpen={modalAberto}
-        onClose={() => setModalAberto(false)}
-        tipo="aula-experimental"
-      />
     </section>
-    </>
   );
 }

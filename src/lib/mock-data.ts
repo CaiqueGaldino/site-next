@@ -66,7 +66,6 @@ export const mockPosts: Post[] = [
       metaDescription: "Guia completo para começar sua jornada de fitness com sucesso.",
       metaKeywords: ["fitness", "treino", "iniciante", "musculação"],
     },
-    viewCount: 245,
     publishedAt: new Date(2026, 2, 5).toISOString(),
     createdAt: new Date(2026, 2, 5).toISOString(),
     updatedAt: new Date(2026, 2, 5).toISOString(),
@@ -133,60 +132,9 @@ export const mockPosts: Post[] = [
       metaDescription: "5 exercícios de CrossFit para queimar o máximo de calorias em pouco tempo.",
       metaKeywords: ["crossfit", "exercícios", "queimar calorias", "treino"],
     },
-    viewCount: 512,
     publishedAt: new Date(2026, 2, 3).toISOString(),
     createdAt: new Date(2026, 2, 3).toISOString(),
     updatedAt: new Date(2026, 2, 3).toISOString(),
-  },
-  {
-    id: 3,
-    documentId: "post-3",
-    title: "Confira o Novo Espaço de Cardio da Fitness Exclusive",
-    slug: "novo-espaco-cardio-fitness-exclusive",
-    content: `
-      <h2>Uma Revolução no Seu Treino Cardiovascular</h2>
-      <p>Temos o prazer de anunciar a abertura do nosso novo espaço de cardio, com os equipamentos mais modernos do mercado.</p>
-      
-      <h3>O que há de novo?</h3>
-      <p>15 esteiras de última geração, 10 bikes estacionárias, 8 elípticos e 5 máquinas de remo. Todos os equipamentos são equipados com telas touchscreen e programas de treino personalizados.</p>
-      
-      <h3>Ambiente climatizado</h3>
-      <p>O novo espaço é completamente climatizado, garantindo conforto total durante seu treino, independentemente das condições climáticas externas.</p>
-      
-      <h3>Personal Trainers disponíveis</h3>
-      <p>Nossos personal trainers estão disponíveis para ajudá-lo a configurar um programa de treino cardio personalizado de acordo com seus objetivos.</p>
-    `,
-    excerpt: "Conheça o novo espaço de cardio da Fitness Exclusive com os equipamentos mais modernos.",
-    type: "social",
-    status: "published",
-    unidade: {
-      id: 1,
-      documentId: "unidade-1",
-      nome: "Fitness Exclusive - Centro",
-      localizacao: "Centro de Fortaleza",
-    },
-    author: {
-      id: 1,
-      documentId: "author-1",
-      username: "coach_gabriel",
-      email: "carlos@fitnessexclusive.com.br",
-    },
-    media: {
-      socialUrl: "https://instagram.com/fitnessexclusive",
-    },
-    featured: {
-      isFeatured: false,
-      position: "carousel",
-      priority: 3,
-    },
-    seo: {
-      metaDescription: "Conheça o novo espaço de cardio da Fitness Exclusive com equipamentos de última geração.",
-      metaKeywords: ["cardio", "novo", "equipamentos", "treino"],
-    },
-    viewCount: 890,
-    publishedAt: new Date(2026, 2, 1).toISOString(),
-    createdAt: new Date(2026, 2, 1).toISOString(),
-    updatedAt: new Date(2026, 2, 1).toISOString(),
   },
   {
     id: 4,
@@ -233,7 +181,6 @@ export const mockPosts: Post[] = [
       metaDescription: "Vídeo com dicas estratégicas para treino com pesos. Assista e maximize seus resultados.",
       metaKeywords: ["vídeo", "treino", "pesos", "musculação"],
     },
-    viewCount: 1250,
     publishedAt: new Date(2026, 2, 2).toISOString(),
     createdAt: new Date(2026, 2, 2).toISOString(),
     updatedAt: new Date(2026, 2, 2).toISOString(),
@@ -293,7 +240,6 @@ export const mockPosts: Post[] = [
       metaDescription: "Os 10 alimentos que você deve comer após o treino para maximizar a recuperação e ganhos.",
       metaKeywords: ["nutrição", "recuperação", "alimentos", "pós-treino"],
     },
-    viewCount: 678,
     publishedAt: new Date(2026, 2, 4).toISOString(),
     createdAt: new Date(2026, 2, 4).toISOString(),
     updatedAt: new Date(2026, 2, 4).toISOString(),
@@ -350,7 +296,6 @@ export const mockPosts: Post[] = [
       metaDescription: "Guia completo de yoga para iniciantes. Aprenda os fundamentos e comece sua jornada wellness.",
       metaKeywords: ["yoga", "iniciante", "bem-estar", "meditação"],
     },
-    viewCount: 432,
     publishedAt: new Date(2026, 1, 28).toISOString(),
     createdAt: new Date(2026, 1, 28).toISOString(),
     updatedAt: new Date(2026, 1, 28).toISOString(),
@@ -404,7 +349,6 @@ export const mockPosts: Post[] = [
       metaDescription: "Tudo sobre HIIT: como funciona, benefícios e como montar seu treino intervalado.",
       metaKeywords: ["hiit", "treino intervalado", "queimar gordura", "cardio"],
     },
-    viewCount: 1087,
     publishedAt: new Date(2026, 2, 10).toISOString(),
     createdAt: new Date(2026, 2, 10).toISOString(),
     updatedAt: new Date(2026, 2, 10).toISOString(),
@@ -458,7 +402,6 @@ export const mockPosts: Post[] = [
       metaDescription: "Guia completo de suplementação para ganho de massa: whey, creatina, cafeína e mais.",
       metaKeywords: ["suplementação", "whey protein", "creatina", "ganho de massa"],
     },
-    viewCount: 2340,
     publishedAt: new Date(2026, 2, 12).toISOString(),
     createdAt: new Date(2026, 2, 12).toISOString(),
     updatedAt: new Date(2026, 2, 12).toISOString(),
@@ -510,7 +453,6 @@ export const mockPosts: Post[] = [
       metaDescription: "Saiba por que o sono é fundamental para quem pratica musculação e como melhorar sua qualidade.",
       metaKeywords: ["sono", "recuperação", "GH", "descanso", "musculação"],
     },
-    viewCount: 876,
     publishedAt: new Date(2026, 2, 14).toISOString(),
     createdAt: new Date(2026, 2, 14).toISOString(),
     updatedAt: new Date(2026, 2, 14).toISOString(),
@@ -562,7 +504,6 @@ export const mockPosts: Post[] = [
       metaDescription: "Musculação feminina: descubra os reais benefícios e derrube os mitos de vez.",
       metaKeywords: ["musculação feminina", "treino", "mulher", "mitos", "saúde"],
     },
-    viewCount: 3210,
     publishedAt: new Date(2026, 2, 16).toISOString(),
     createdAt: new Date(2026, 2, 16).toISOString(),
     updatedAt: new Date(2026, 2, 16).toISOString(),
@@ -614,7 +555,6 @@ export const mockPosts: Post[] = [
       metaDescription: "Descubra a importância da mobilidade para seu treino e aprenda exercícios essenciais.",
       metaKeywords: ["mobilidade", "flexibilidade", "prevenção de lesões", "performance"],
     },
-    viewCount: 654,
     publishedAt: new Date(2026, 2, 18).toISOString(),
     createdAt: new Date(2026, 2, 18).toISOString(),
     updatedAt: new Date(2026, 2, 18).toISOString(),
@@ -673,7 +613,6 @@ export const mockPosts: Post[] = [
       metaDescription: "Como treinar em casa com consistência e obter resultados mesmo sem ir à academia.",
       metaKeywords: ["treino em casa", "home gym", "consistência", "exercício"],
     },
-    viewCount: 1543,
     publishedAt: new Date(2026, 2, 20).toISOString(),
     createdAt: new Date(2026, 2, 20).toISOString(),
     updatedAt: new Date(2026, 2, 20).toISOString(),
@@ -684,7 +623,8 @@ export const mockPosts: Post[] = [
  * Helper function to get mock posts response
  */
 export function getMockPostsResponse(limit = 10): PostListResponse {
-  const sorted = [...mockPosts].sort(
+  const published = mockPosts.filter((post) => post.type !== "social" && !post.media?.socialUrl);
+  const sorted = [...published].sort(
     (a, b) =>
       new Date(b.publishedAt || 0).getTime() -
       new Date(a.publishedAt || 0).getTime()
@@ -699,7 +639,7 @@ export function getMockPostsResponse(limit = 10): PostListResponse {
         page: 1,
         pageSize: limit,
         pageCount: 1,
-        total: mockPosts.length,
+        total: published.length,
       },
     },
   };
@@ -709,5 +649,5 @@ export function getMockPostsResponse(limit = 10): PostListResponse {
  * Helper function to get a single mock post by slug
  */
 export function getMockPostBySlug(slug: string): Post | undefined {
-  return mockPosts.find((post) => post.slug === slug);
+  return mockPosts.find((post) => post.slug === slug && post.type !== "social" && !post.media?.socialUrl);
 }

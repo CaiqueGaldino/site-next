@@ -1,29 +1,27 @@
 "use client";
+
 import React, { useState } from "react";
-import { Smartphone, RefreshCw, Sparkles, Music, Clock, Users, Dumbbell, Calendar, X } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  Dumbbell,
+  RefreshCw,
+  Smartphone,
+  Sparkles,
+  Target,
+  Users,
+  X,
+  type LucideIcon,
+} from "lucide-react";
 import { beneficiosExclusivos } from "../../lib/dadosAcademia";
 import ScrollReveal from "../shared/ScrollReveal";
-import FormularioAgendamento from "../shared/FormularioAgendamento";
 import { motion, AnimatePresence } from "framer-motion";
 
-const iconNames = [
-  "Smartphone",
-  "RefreshCw",
-  "Sparkles",
-  "Music",
-  "Clock",
-  "Users",
-  "Dumbbell",
-  "Calendar",
-] as const;
-
-type IconName = typeof iconNames[number];
-
-const iconMap: Record<IconName, React.FC<any>> = {
+const iconMap: Record<string, LucideIcon> = {
   Smartphone,
   RefreshCw,
   Sparkles,
-  Music,
+  Target,
   Clock,
   Users,
   Dumbbell,
@@ -31,186 +29,155 @@ const iconMap: Record<IconName, React.FC<any>> = {
 };
 
 export default function Beneficios() {
-  const [modalAgendamentoAberto, setModalAgendamentoAberto] = useState(false);
   const [selectedBenefit, setSelectedBenefit] = useState<number | null>(null);
 
   return (
-    <section id="beneficios" className="py-20 bg-black relative overflow-hidden">
-      {/* Background decorativo */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/3 via-transparent to-[#FAC934]/3"></div>
-      <div className="absolute top-20 left-10 w-72 h-72 bg-[#EBA730]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#FAC934]/5 rounded-full blur-3xl"></div>
-      
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Título */}
+    <section id="beneficios" className="relative overflow-hidden bg-black py-24">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#EBA730]/35 to-transparent" />
+
+      <div className="section-shell relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-black mb-4 text-white">
-              BENEFÍCIOS EXCLUSIVOS
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <h2 className="section-title">
+              Mais conforto, tecnologia e liberdade{" "}
+              <span className="gold-gradient-text">no seu treino</span>
             </h2>
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="h-1 w-20 bg-gradient-to-r from-transparent to-[#EBA730]"></div>
-              <Sparkles className="w-6 h-6 text-[#EBA730]" />
-              <div className="h-1 w-20 bg-gradient-to-l from-transparent to-[#FAC934]"></div>
-            </div>
-            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              Descubra as vantagens únicas que só a Fitness Exclusive oferece para transformar sua experiência fitness
+            <p className="section-copy mx-auto mt-5 max-w-2xl">
+              Vantagens pensadas para deixar sua rotina mais simples, motivadora
+              e conectada aos seus objetivos.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Grid de benefícios */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {beneficiosExclusivos.map((beneficio, index) => {
-            const IconComponent = iconMap[beneficio.icone as IconName];
+            const IconComponent = iconMap[beneficio.icone] || Sparkles;
             return (
-              <ScrollReveal key={index} delay={index * 0.1}>
+              <ScrollReveal key={beneficio.titulo} delay={index * 0.1}>
                 <button
                   onClick={() => setSelectedBenefit(index)}
-                  className="group bg-gradient-to-br from-zinc-900 to-black rounded-3xl p-8 border-2 border-gray-700 hover:border-[#EBA730]/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#EBA730]/20 h-full w-full text-left cursor-pointer"
+                  className="brand-card group flex h-full w-full flex-col p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-[#EBA730]/45 hover:bg-zinc-900"
+                  aria-label={`Ver detalhes de ${beneficio.titulo}`}
                 >
-                  {/* Ícone */}
-                  <div className="text-[#EBA730] mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center">
-                    <IconComponent className="w-12 h-12" />
-                  </div>
-                  
-                  {/* Título */}
-                  <h3 className="text-xl font-bold text-white mb-4 text-center group-hover:text-[#EBA730] transition-colors">
-                    {beneficio.titulo}
-                  </h3>
-                  
-                  {/* Descrição */}
-                  <p className="text-gray-400 text-sm mb-6 text-center leading-relaxed">
-                    {beneficio.descricao}
-                  </p>
-                  
-                  {/* Badge "Ver mais" */}
-                  <div className="text-center mt-4">
-                    <span className="inline-block bg-[#EBA730] text-black text-xs font-bold px-4 py-2 rounded-full group-hover:bg-[#FAC934] transition-colors">
-                      Ver mais
-                    </span>
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-[#EBA730]/25 bg-[#EBA730]/10 text-[#FAC934] transition duration-300 group-hover:border-[#FAC934]/45 group-hover:bg-[#EBA730]/20">
+                    <IconComponent className="h-6 w-6" />
                   </div>
 
-                  {/* Efeito de hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#EBA730]/5 via-transparent to-[#FAC934]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <h3 className="font-display text-xl font-bold leading-snug text-white transition-colors group-hover:text-[#FAC934]">
+                    {beneficio.titulo}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-400">
+                    {beneficio.descricao}
+                  </p>
+
+                  <span className="mt-6 text-sm font-extrabold text-[#FAC934]">
+                    Ver detalhes
+                  </span>
                 </button>
               </ScrollReveal>
             );
           })}
         </div>
 
-        {/* Modal de detalhes */}
-        <AnimatePresence>
-          {selectedBenefit !== null && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-              onClick={() => setSelectedBenefit(null)}
-            >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                transition={{ type: "spring", damping: 20 }}
-                className="bg-gradient-to-br from-zinc-900 to-black rounded-3xl p-8 max-w-2xl w-full border-2 border-[#EBA730] relative max-h-[90vh] overflow-y-auto"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Close button */}
-                <button
-                  onClick={() => setSelectedBenefit(null)}
-                  className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-
-                {/* Modal content */}
-                {(() => {
-                  const beneficio = beneficiosExclusivos[selectedBenefit];
-                  const IconComponent = iconMap[beneficio.icone as IconName];
-                  return (
-                    <>
-                      {/* Header */}
-                      <div className="text-center mb-8">
-                        <div className="text-[#EBA730] mb-4 flex justify-center">
-                          <IconComponent className="w-16 h-16" />
-                        </div>
-                        <h3 className="text-3xl font-bold text-white mb-2">
-                          {beneficio.titulo}
-                        </h3>
-                        <p className="text-gray-300 text-lg">
-                          {beneficio.descricao}
-                        </p>
-                      </div>
-
-                      {/* Destaques */}
-                      <div className="space-y-4 mb-8">
-                        <h4 className="text-xl font-bold text-[#EBA730]">Benefícios:</h4>
-                        {beneficio.destaque.map((item, i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            className="flex items-start gap-3"
-                          >
-                            <div className="w-2 h-2 bg-gradient-to-r from-[#EBA730] to-[#FAC934] rounded-full flex-shrink-0 mt-2"></div>
-                            <span className="text-gray-300 text-base">{item}</span>
-                          </motion.div>
-                        ))}
-                      </div>
-
-                      {/* CTA */}
-                      <div className="text-center pt-6 border-t border-gray-700">
-                        <a
-                          href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-block bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-8 py-4 rounded-full transition-all transform hover:scale-105 text-lg shadow-lg"
-                        >
-                          Quero aproveitar!
-                        </a>
-                      </div>
-                    </>
-                  );
-                })()}
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Call to action */}
         <ScrollReveal>
-          <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-zinc-900 via-black to-zinc-900 rounded-3xl p-8 border-2 border-[#EBA730] max-w-4xl mx-auto relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#EBA730]/10 via-transparent to-[#FAC934]/10"></div>
-              <div className="relative z-10">
-                <h3 className="text-3xl font-black text-white mb-4">
-                  Pronto para começar sua transformação?
-                </h3>
-                <p className="text-gray-300 mb-6 text-lg">
-                  Aproveite todos esses benefícios exclusivos e muito mais na Fitness Exclusive
-                </p>
-                <a 
-                  href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-8 py-4 rounded-full transition-all transform hover:scale-105 text-lg shadow-lg"
-                >
-                  Quero fazer parte!
-                </a>
-              </div>
-            </div>
+          <div className="mt-16 rounded-lg border border-[#EBA730]/30 bg-gradient-to-r from-zinc-950 via-black to-zinc-950 p-8 text-center">
+            <h3 className="font-display text-3xl font-extrabold text-white">
+              Pronto para começar sua transformação?
+            </h3>
+            <p className="section-copy mx-auto mt-4 max-w-2xl">
+              Aproveite esses benefícios e conheça uma estrutura preparada para
+              acompanhar sua evolução.
+            </p>
+            <a
+              href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary mt-7"
+            >
+              Quero fazer parte
+            </a>
           </div>
         </ScrollReveal>
       </div>
 
-      <FormularioAgendamento 
-        isOpen={modalAgendamentoAberto}
-        onClose={() => setModalAgendamentoAberto(false)}
-        tipo="quero-fazer-parte"
-      />
+      <AnimatePresence>
+        {selectedBenefit !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+            onClick={() => setSelectedBenefit(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              transition={{ type: "spring", damping: 22 }}
+              className="brand-card relative max-h-[90vh] w-full max-w-2xl overflow-y-auto p-8"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedBenefit(null)}
+                className="absolute right-4 top-4 rounded-full p-2 text-zinc-400 transition hover:bg-white/10 hover:text-white"
+                aria-label="Fechar detalhes"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              {(() => {
+                const beneficio = beneficiosExclusivos[selectedBenefit];
+                const IconComponent = iconMap[beneficio.icone] || Sparkles;
+
+                return (
+                  <>
+                    <div className="mb-8 text-center">
+                      <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-lg border border-[#EBA730]/30 bg-[#EBA730]/10 text-[#FAC934]">
+                        <IconComponent className="h-8 w-8" />
+                      </div>
+                      <h3 className="font-display text-3xl font-extrabold text-white">
+                        {beneficio.titulo}
+                      </h3>
+                      <p className="mt-3 text-lg leading-relaxed text-zinc-300">
+                        {beneficio.descricao}
+                      </p>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h4 className="font-display text-lg font-bold text-[#FAC934]">
+                        Benefícios
+                      </h4>
+                      {beneficio.destaque.map((item, index) => (
+                        <motion.div
+                          key={item}
+                          initial={{ opacity: 0, x: -12 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.06 }}
+                          className="flex items-start gap-3"
+                        >
+                          <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-[#EBA730]" />
+                          <span className="leading-relaxed text-zinc-300">{item}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    <div className="mt-8 border-t border-white/10 pt-6 text-center">
+                      <a
+                        href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary"
+                      >
+                        Quero aproveitar
+                      </a>
+                    </div>
+                  </>
+                );
+              })()}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

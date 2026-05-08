@@ -1,28 +1,38 @@
 "use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getAssetPath } from "../../lib/utils";
 
+const navItems = [
+  { label: "Início", target: "inicio" },
+  { label: "Planos", target: "planos" },
+  { label: "Diferenciais", target: "modalidades" },
+  { label: "Benefícios", target: "beneficios" },
+  { label: "Unidades", target: "unidades" },
+  { label: "Avaliações", target: "avaliacoes" },
+  { label: "Contato", target: "contato" },
+];
+
 export default function HeaderDesktop() {
   const handleNavigation = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start',
-        inline: 'nearest'
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
       });
     }
   };
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl bg-black/50 backdrop-blur-md shadow-2xl z-50 border border-[#EBA730]/20 rounded-full">
-      <div className="px-10">
-        <div className="flex items-center justify-between h-14">
-          {/* Logo Desktop */}
+    <header className="fixed left-1/2 top-4 z-50 w-[95%] max-w-7xl -translate-x-1/2 rounded-full border border-white/10 bg-zinc-950/80 shadow-2xl shadow-black/40 backdrop-blur-xl">
+      <div className="px-8">
+        <div className="flex h-16 items-center justify-between gap-8">
           <div className="flex-shrink-0">
-            <div className="relative w-40 h-12">
+            <div className="relative h-12 w-40">
               <Image
                 src={getAssetPath("/images/logo.webp")}
                 alt="Fitness Exclusive"
@@ -33,64 +43,29 @@ export default function HeaderDesktop() {
             </div>
           </div>
 
-          {/* Menu Desktop */}
-          <nav className="flex space-x-6">
-            <button 
-              onClick={() => handleNavigation('inicio')} 
-              className="text-white hover:text-[#EBA730] transition-colors duration-200 font-medium text-sm bg-transparent border-0 cursor-pointer px-2 py-1 hover:scale-105 transform"
-            >
-              Início
-            </button>
-            <button 
-              onClick={() => handleNavigation('planos')} 
-              className="text-white hover:text-[#EBA730] transition-colors duration-200 font-medium text-sm bg-transparent border-0 cursor-pointer px-2 py-1 hover:scale-105 transform"
-            >
-              Planos
-            </button>
-            <button 
-              onClick={() => handleNavigation('modalidades')} 
-              className="text-white hover:text-[#EBA730] transition-colors duration-200 font-medium text-sm bg-transparent border-0 cursor-pointer px-2 py-1 hover:scale-105 transform"
-            >
-              Diferenciais
-            </button>
-            <button 
-              onClick={() => handleNavigation('beneficios')} 
-              className="text-white hover:text-[#EBA730] transition-colors duration-200 font-medium text-sm bg-transparent border-0 cursor-pointer px-2 py-1 hover:scale-105 transform"
-            >
-              Benefícios
-            </button>
-            <button 
-              onClick={() => handleNavigation('unidades')} 
-              className="text-white hover:text-[#EBA730] transition-colors duration-200 font-medium text-sm bg-transparent border-0 cursor-pointer px-2 py-1 hover:scale-105 transform"
-            >
-              Unidades
-            </button>
-            <button 
-              onClick={() => handleNavigation('avaliacoes')} 
-              className="text-white hover:text-[#EBA730] transition-colors duration-200 font-medium text-sm bg-transparent border-0 cursor-pointer px-2 py-1 hover:scale-105 transform"
-            >
-              Avaliações
-            </button>
-            <button 
-              onClick={() => handleNavigation('contato')} 
-              className="text-white hover:text-[#EBA730] transition-colors duration-200 font-medium text-sm bg-transparent border-0 cursor-pointer px-2 py-1 hover:scale-105 transform"
-            >
-              Contato
-            </button>
+          <nav className="flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1">
+            {navItems.map((item) => (
+              <button
+                key={item.target}
+                onClick={() => handleNavigation(item.target)}
+                className="rounded-full px-3 py-2 text-sm font-semibold text-zinc-200 transition duration-200 hover:bg-white/10 hover:text-[#FAC934]"
+              >
+                {item.label}
+              </button>
+            ))}
             <Link
               href="/blog"
-              className="text-white hover:text-[#EBA730] transition-colors duration-200 font-medium text-sm px-2 py-1 hover:scale-105 transform inline-block"
+              className="inline-block rounded-full px-3 py-2 text-sm font-semibold text-zinc-200 transition duration-200 hover:bg-white/10 hover:text-[#FAC934]"
             >
               Blog
             </Link>
           </nav>
 
-          {/* Botão CTA Desktop */}
           <a
             href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-sm"
+            className="btn-primary px-6 py-2.5 text-sm"
           >
             Matricule-se
           </a>

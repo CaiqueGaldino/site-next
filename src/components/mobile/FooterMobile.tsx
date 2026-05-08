@@ -20,14 +20,14 @@ export default function FooterMobile() {
   };
 
   return (
-    <footer id="contato" className="bg-black text-white py-12 border-t-2 border-[#EBA730]">
+    <footer id="contato" className="border-t border-white/10 bg-black py-12 text-white">
       <div className="px-4">
         {/* Logo e Descrição */}
         <div className="text-center mb-8">
           <h3 className="text-2xl font-black text-white mb-3">
             Fitness Exclusive
           </h3>
-          <p className="text-gray-300 text-sm leading-relaxed mb-6">
+          <p className="mb-6 text-sm leading-relaxed text-gray-400">
             Transformamos vidas através do exercício físico
           </p>
         </div>
@@ -36,7 +36,7 @@ export default function FooterMobile() {
         <div className="flex justify-center gap-4 mb-8">
           <button 
             onClick={() => hapticFeedback('medium')}
-            className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] p-3 rounded-full active:scale-95 transition-transform touch-manipulation"
+            className="rounded-lg border border-[#FAC934]/30 bg-[#FAC934] p-3 transition-transform active:scale-95 touch-manipulation"
           >
             <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -44,7 +44,7 @@ export default function FooterMobile() {
           </button>
           <button 
             onClick={() => hapticFeedback('medium')}
-            className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] p-3 rounded-full active:scale-95 transition-transform touch-manipulation"
+            className="rounded-lg border border-[#FAC934]/30 bg-[#FAC934] p-3 transition-transform active:scale-95 touch-manipulation"
           >
             <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
               <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
@@ -52,7 +52,7 @@ export default function FooterMobile() {
           </button>
           <button 
             onClick={() => hapticFeedback('medium')}
-            className="bg-gradient-to-r from-[#EBA730] to-[#FAC934] p-3 rounded-full active:scale-95 transition-transform touch-manipulation"
+            className="rounded-lg border border-[#FAC934]/30 bg-[#FAC934] p-3 transition-transform active:scale-95 touch-manipulation"
           >
             <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
@@ -63,10 +63,10 @@ export default function FooterMobile() {
         {/* Seções Colapsáveis */}
         <div className="space-y-3 mb-8">
           {/* Links Rápidos */}
-          <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-gray-700">
+          <div className="overflow-hidden rounded-lg border border-white/10 bg-zinc-950">
             <button
               onClick={() => toggleSection('links')}
-              className="w-full p-4 flex items-center justify-between touch-manipulation active:bg-gray-800"
+              className="flex w-full items-center justify-between p-4 touch-manipulation active:bg-white/5"
             >
               <span className="text-[#EBA730] font-bold">Links Rápidos</span>
               <svg
@@ -88,17 +88,17 @@ export default function FooterMobile() {
                 <button onClick={() => handleNavigation('modalidades')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Diferenciais</button>
                 <button onClick={() => handleNavigation('beneficios')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Benefícios</button>
                 <button onClick={() => handleNavigation('avaliacoes')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Avaliações</button>
-                <Link href="/investidor" onClick={() => hapticFeedback('light')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Seja um Investidor</Link>
+                <Link href="/investidor-imobiliario" onClick={() => hapticFeedback('light')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Seja um Investidor</Link>
                 <Link href="/franqueado" onClick={() => hapticFeedback('light')} className="block w-full text-left py-2 text-gray-300 active:text-[#EBA730] text-sm">Seja um Franqueado</Link>
               </div>
             )}
           </div>
 
           {/* Contato */}
-          <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-gray-700">
+          <div className="overflow-hidden rounded-lg border border-white/10 bg-zinc-950">
             <button
               onClick={() => toggleSection('contato')}
-              className="w-full p-4 flex items-center justify-between touch-manipulation active:bg-gray-800"
+              className="flex w-full items-center justify-between p-4 touch-manipulation active:bg-white/5"
             >
               <span className="text-[#EBA730] font-bold">Contato</span>
               <svg
@@ -145,52 +145,27 @@ export default function FooterMobile() {
             )}
           </div>
 
-          {/* Horários */}
-          <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-gray-700">
-            <button
-              onClick={() => toggleSection('horarios')}
-              className="w-full p-4 flex items-center justify-between touch-manipulation active:bg-gray-800"
-            >
-              <span className="text-[#EBA730] font-bold">Horários</span>
-              <svg
-                className={`w-5 h-5 text-[#EBA730] transition-transform ${
-                  activeSection === 'horarios' ? 'rotate-180' : ''
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            
-            {activeSection === 'horarios' && (
-              <div className="px-4 pb-4 space-y-2">
-                <div className="flex justify-between py-2">
-                  <span className="text-[#EBA730] text-sm font-semibold">Seg - Sex</span>
-                  <span className="text-gray-300 text-sm">05:00 - 23:00</span>
-                </div>
-                <div className="flex justify-between py-2">
-                  <span className="text-[#EBA730] text-sm font-semibold">Sábados</span>
-                  <span className="text-gray-300 text-sm">06:00 - 20:00</span>
-                </div>
-                <div className="flex justify-between py-2">
-                  <span className="text-[#EBA730] text-sm font-semibold">Domingos</span>
-                  <span className="text-gray-300 text-sm">08:00 - 18:00</span>
-                </div>
-              </div>
-            )}
-          </div>
         </div>
 
         {/* CTA Investidor */}
         <div className="mb-4">
           <Link
-            href="/investidor"
+            href="/investidor-imobiliario"
             onClick={() => hapticFeedback('medium')}
-            className="w-full flex items-center justify-center gap-2 border-2 border-[#EBA730] text-[#FAC934] font-bold py-4 rounded-full active:scale-95 transition-transform touch-manipulation"
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-[#EBA730]/60 py-4 font-bold text-[#FAC934] transition-transform active:scale-95 touch-manipulation"
           >
             ★ Seja um Investidor
+          </Link>
+        </div>
+
+        {/* CTA Franqueado */}
+        <div className="mb-4">
+          <Link
+            href="/franqueado"
+            onClick={() => hapticFeedback('medium')}
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-[#EBA730]/60 py-4 font-bold text-[#FAC934] transition-transform active:scale-95 touch-manipulation"
+          >
+            ★ Seja um Franqueado
           </Link>
         </div>
 
@@ -201,7 +176,7 @@ export default function FooterMobile() {
               hapticFeedback('heavy');
               window.open('https://wa.me/5588992637523?text=' + encodeURIComponent('Olá! Gostaria de me matricular na Fitness Exclusive!'), '_blank');
             }}
-            className="w-full bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold py-4 rounded-full shadow-lg active:scale-95 transition-transform touch-manipulation"
+            className="w-full rounded-lg bg-[#FAC934] py-4 font-bold text-black transition-colors active:scale-95 touch-manipulation"
           >
             Fale Conosco no WhatsApp
           </button>

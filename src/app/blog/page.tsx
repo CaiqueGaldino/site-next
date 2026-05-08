@@ -4,9 +4,9 @@ import Link from "next/link";
 import { fetchPosts } from "@/lib/strapi";
 import { getFeaturedPost } from "@/lib/blog-posts";
 import { Post } from "@/lib/types";
-import { formatPostDate, getPostTypeLabel } from "@/lib/blog-service";
+import { getPostTypeLabel } from "@/lib/blog-service";
 import { getAssetPath } from "@/lib/utils";
-import { ArrowLeft, Calendar, Eye, Tag } from "lucide-react";
+import { ArrowLeft, Tag } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Blog — Dicas de Fitness, Saúde e Bem-estar",
@@ -25,7 +25,6 @@ export const metadata: Metadata = {
 };
 
 function BlogPostCard({ post }: { post: Post }) {
-  const formattedDate = formatPostDate(post.publishedAt);
   const typeLabel = getPostTypeLabel(post.type);
   const imageUrl =
     post.type === "blog" && post.media?.images

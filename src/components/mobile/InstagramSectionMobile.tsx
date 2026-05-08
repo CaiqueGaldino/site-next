@@ -11,11 +11,21 @@ const posts = [
 
 const INSTAGRAM_PROFILE = "https://www.instagram.com/academiafitnessexclusive/";
 
+type InstagramWindow = Window & {
+  instgrm?: {
+    Embeds: {
+      process: () => void;
+    };
+  };
+};
+
 export default function InstagramSectionMobile() {
   useEffect(() => {
     const loadInstagramEmbed = () => {
-      if ((window as any).instgrm) {
-        (window as any).instgrm.Embeds.process();
+      const instagramWindow = window as InstagramWindow;
+
+      if (instagramWindow.instgrm) {
+        instagramWindow.instgrm.Embeds.process();
         return;
       }
       const script = document.createElement("script");
@@ -29,70 +39,63 @@ export default function InstagramSectionMobile() {
   }, []);
 
   return (
-    <section className="py-10 bg-zinc-950 relative overflow-hidden px-4">
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-purple-900/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-64 h-64 bg-pink-900/10 rounded-full blur-3xl" />
-      </div>
-
+    <section className="relative overflow-hidden bg-zinc-950 px-4 py-10">
       <div className="relative z-10">
-        {/* Header */}
-        <div className="mb-8 text-center">
-          <div className="flex justify-center mb-4">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 rounded-xl blur-md opacity-70" />
-              <div className="relative bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-3 rounded-xl">
-                <Instagram className="w-7 h-7 text-white" strokeWidth={1.8} />
-              </div>
+        <div className="mb-7">
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#EBA730]/25 bg-[#EBA730]/10 text-[#FAC934]">
+              <Instagram className="h-5 w-5" strokeWidth={1.8} />
             </div>
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#FAC934]">
+              Instagram
+            </p>
           </div>
 
-          <h2 className="text-2xl font-black mb-3 leading-tight text-white">
+          <h2 className="mb-3 font-display text-2xl font-extrabold leading-tight text-white">
             Siga-nos no{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400">
+            <span className="gold-gradient-text">
               Instagram
             </span>
           </h2>
-          <p className="text-sm text-zinc-400 max-w-xs mx-auto">
+          <p className="max-w-xs text-sm leading-relaxed text-zinc-400">
             Acompanhe dicas, rotina e novidades da Fitness Exclusive.
           </p>
         </div>
 
-        {/* Embeds em scroll horizontal no mobile */}
-        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+        <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-5 pt-2 scrollbar-hide">
           {posts.map((url, index) => (
             <div
               key={index}
-              className="snap-center flex-shrink-0 w-[300px] rounded-2xl overflow-hidden border border-zinc-800 bg-black"
+              className="relative h-[430px] w-[260px] flex-shrink-0 snap-center overflow-hidden rounded-lg border border-white/10 bg-black"
             >
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink={url}
-                data-instgrm-version="14"
-                style={{
-                  background: "#000",
-                  border: 0,
-                  borderRadius: 0,
-                  boxShadow: "none",
-                  margin: 0,
-                  maxWidth: "100%",
-                  minWidth: "280px",
-                  padding: 0,
-                  width: "100%",
-                }}
-              />
+              <div className="origin-top-left scale-[0.79]">
+                <blockquote
+                  className="instagram-media"
+                  data-instgrm-permalink={url}
+                  data-instgrm-version="14"
+                  style={{
+                    background: "#000",
+                    border: 0,
+                    borderRadius: 0,
+                    boxShadow: "none",
+                    margin: 0,
+                    maxWidth: "326px",
+                    minWidth: "326px",
+                    padding: 0,
+                    width: "326px",
+                  }}
+                />
+              </div>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-8">
+        <div className="mt-7">
           <a
             href={INSTAGRAM_PROFILE}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white font-bold px-7 py-3 rounded-full text-sm shadow-lg"
+            className="btn-primary w-full px-7 py-3 text-sm"
           >
             <Instagram className="w-5 h-5" />
             Seguir no Instagram

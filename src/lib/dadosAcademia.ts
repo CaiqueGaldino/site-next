@@ -357,13 +357,13 @@ export const beneficiosExclusivos = [
     titulo: "App Fitness Exclusive",
     descricao: "Gerencie seus treinos e pagamentos de forma fácil e rápida.",
     icone: "Smartphone",
-    destaque: ["Treinos personalizados", "Pagamentos online", "Acompanhamento de progresso", "Notificações inteligentes"]
+    destaque: ["Treinos personalizados", "Acompanhamento de progresso", "Notificações inteligentes"]
   },
   {
-    titulo: "Campanha Portabilidade Ativa", 
-    descricao: "Garanta o valor da sua academia anterior por 3 meses.",
-    icone: "RefreshCw",
-    destaque: ["Migração sem custos", "Manutenção do valor anterior", "3 meses garantidos", "Processo simplificado"]
+    titulo: "Treino por Objetivo e Avaliação Física",
+    descricao: "Plano de treino orientado pelo seu objetivo, com avaliação física para acompanhar sua evolução.",
+    icone: "Target",
+    destaque: ["Avaliação física", "Treino por objetivo", "Acompanhamento de evolução", "Atendimento especializado"]
   },
   {
     titulo: "Horário Livre",
@@ -393,23 +393,33 @@ export const beneficiosExclusivos = [
 
 export const faqItems = [
     {
-      question: "Qual é o horário de funcionamento?",
-      answer: "Nossas unidades funcionam de segunda a sexta das 5h às 23h, sábados das 8h às 16h e domingos das 9h às 13h com exceção da unidade São Luis. Algumas unidades têm horários estendidos ou reduzidos, consulte a aba de unidades para mais detalhes.",
+      question: "Vocês funcionam aos finais de semana e feriados?",
+      answer: "Sim, funcionamos aos finais de semana. Em feriados, abrimos com horário reduzido; recomendamos que o aluno acompanhe nossas redes sociais, pois sempre divulgamos por lá os horários especiais de funcionamento.",
       icon: "Clock"
     },
     {
+      question: "A aula experimental é gratuita?",
+      answer: "Sim. A aula experimental é gratuita para você conhecer a estrutura, sentir o ambiente da unidade e conversar com nossa equipe antes de escolher seu plano.",
+      icon: "Target"
+    },
+    {
+      question: "Posso acessar outras unidades?",
+      answer: "O acesso a outras unidades pode ser liberado por meio de um upgrade no seu plano. Consulte a recepção ou fale pelo WhatsApp para ver as opções disponíveis.",
+      icon: "MapPin"
+    },
+    {
       question: "Têm personal trainer disponível?",
-      answer: "Sim, temos uma equipe de personal trainers qualificados. O acompanhamento personalizado tem custo adicional. Consulte valores na recepção.",
+      answer: "Sim, temos uma equipe de personal trainers qualificados.",
       icon: "Users"
     },
     {
       question: "Como funciona o cancelamento?",
-      answer: "O cancelamento pode ser solicitado com 30 dias de antecedência. Basta comparecer à unidade com documento e comprovante de residência.",
+      answer: "O cancelamento pode ser solicitado por whatsapp ou diretamente na recepção da sua unidade. Há taxa de cancelamento de R$ 69,90.",
       icon: "FileText"
     },
     {
       question: "Posso levar acompanhantes?",
-      answer: "Acompanhantes são até cinco por mês. Consulte nossa política de acompanhantes na recepção da unidade.",
+      answer: "Você pode levar até cinco acompanhantes por mês. Observação: esse é um benefício do plano Anual Crédito.",
       icon: "Users"
     },
   ];

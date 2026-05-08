@@ -66,7 +66,7 @@ export default function AvaliacoesMobile() {
 
               {/* Comentário */}
               <p className="text-gray-300 text-sm text-center leading-relaxed mb-4 italic">
-                "{depoimentos[currentIndex].comentario}"
+                &ldquo;{depoimentos[currentIndex].comentario}&rdquo;
               </p>
 
               {/* Nome */}

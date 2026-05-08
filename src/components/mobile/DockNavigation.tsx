@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
-import { Dock, DockIcon, DockItem, DockLabel } from "../ui/shadcn-io/dock";
+import { Dock, DockIcon, DockItem } from "../ui/shadcn-io/dock";
 import { hapticFeedback } from "../../lib/mobileUtils";
 import { 
   Building2, 
   CreditCard, 
   Dumbbell, 
-  MapPin, 
-  MessageCircle,
   Phone
 } from "lucide-react";
 
@@ -30,21 +28,21 @@ export default function DockNavigation({ activeSection, onNavigate }: DockNaviga
   };
 
   return (
-    <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center px-2">
+    <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center px-3">
       <Dock
-        magnification={60}
-        distance={100}
-        className="bg-black/90 backdrop-blur-lg border-2 border-[#EBA730]/30"
+        magnification={52}
+        distance={90}
+        className="border border-white/10 bg-zinc-950/90 shadow-2xl shadow-black/50 backdrop-blur-xl"
       >
         {navigationItems.map((item) => (
           <DockItem key={item.id}>
             <DockIcon>
               <button
                 onClick={() => handleNavigate(item.id)}
-                className={`w-full h-full flex items-center justify-center rounded-lg transition-colors touch-manipulation ${
+                className={`flex h-full w-full items-center justify-center rounded-lg transition-colors touch-manipulation ${
                   activeSection === item.id
-                    ? 'text-[#EBA730]'
-                    : 'text-white hover:bg-white/10'
+                    ? 'text-[#FAC934]'
+                    : 'text-zinc-400 hover:text-white'
                 }`}
                 aria-label={item.label}
               >

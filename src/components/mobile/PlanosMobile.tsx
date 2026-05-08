@@ -45,8 +45,8 @@ interface TagProps {
 }
 
 const Tag = ({ text }: TagProps) => (
-  <div className="inline-flex items-center gap-2 bg-[#EBA730]/20 text-[#EBA730] text-xs font-bold px-3 py-1 rounded-full tracking-wider">
-    <span className="w-2 h-2 bg-[#EBA730] rounded-full"></span>
+  <div className="inline-flex items-center gap-2 rounded-lg border border-[#EBA730]/30 bg-black px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#FAC934]">
+    <span className="h-1.5 w-1.5 rounded-full bg-[#EBA730]"></span>
     {text}
   </div>
 );
@@ -64,10 +64,10 @@ const GetStartedButton = ({ isFeatured, label = 'Assinar Agora', onClick }: GetS
     rel="noopener noreferrer"
     onClick={onClick}
     aria-label={label}
-    className={`w-full text-center py-3.5 rounded-full font-bold text-sm transition-all duration-300 ease-in-out transform active:scale-95 touch-manipulation shadow-lg block ${
+    className={`block w-full rounded-lg py-3.5 text-center text-sm font-bold transition-colors duration-300 active:scale-95 touch-manipulation ${
       isFeatured
-        ? 'bg-white text-black hover:bg-gray-100'
-        : 'bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black hover:from-[#FAC934] hover:to-[#EBA730]'
+        ? 'bg-black text-white hover:bg-zinc-900'
+        : 'bg-[#FAC934] text-black hover:bg-[#EBA730]'
     }`}
   >
     {label}
@@ -82,32 +82,30 @@ interface FeatureListItemProps {
 const FeatureListItem = ({ children, isFeatured }: FeatureListItemProps) => (
   <li className="flex items-start gap-3">
     <div
-      className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
-        isFeatured ? 'bg-white/25' : 'bg-gray-800'
+      className={`mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-lg ${
+        isFeatured ? 'bg-black/10' : 'bg-zinc-900'
       }`}
     >
-      <CheckIcon className={`${isFeatured ? 'text-white' : 'text-[#EBA730]'} w-3.5 h-3.5`} />
+      <CheckIcon className={`${isFeatured ? 'text-black' : 'text-[#EBA730]'} w-3.5 h-3.5`} />
     </div>
-    <span className={`text-xs ${isFeatured ? 'text-white/90' : 'text-gray-300'} leading-tight`}>{children}</span>
+    <span className={`text-xs ${isFeatured ? 'text-black/75' : 'text-gray-300'} leading-tight`}>{children}</span>
   </li>
 );
 
 const Header = () => (
-  <header className="relative text-center mb-8 px-4 z-10">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#EBA730]/20 rounded-full filter blur-3xl opacity-40 -z-10" aria-hidden="true"></div>
-
-    <div className="flex justify-center mb-3 animate-fade-in-down" style={{animationDelay: '0.2s'}}>
-      <Tag text="MAIS DE 5.000 ALUNOS" />
+  <header className="relative z-10 mb-7 px-4 text-center">
+    <div className="mb-3 flex justify-center animate-fade-in-down" style={{animationDelay: '0.2s'}}>
+      <Tag text="MAIS DE 25.000 ALUNOS" />
     </div>
 
-    <h2 className="text-2xl font-black text-white leading-tight tracking-tight animate-fade-in-down mb-2">
+    <h2 className="mb-2 font-display text-2xl font-extrabold leading-tight text-white animate-fade-in-down">
       Planos para{' '}
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EBA730] to-[#FAC934]">
         todos os objetivos
       </span>
     </h2>
 
-    <p className="text-gray-400 text-sm max-w-md mx-auto animate-fade-in-down" style={{animationDelay: '0.4s'}}>
+    <p className="mx-auto max-w-md text-sm text-zinc-400 animate-fade-in-down" style={{animationDelay: '0.4s'}}>
       Escolha o plano ideal e alcance seus objetivos com a Fitness Exclusive.
     </p>
   </header>
@@ -125,26 +123,26 @@ interface PricingCardProps {
 
 const PricingCard = ({ nome, preco, periodo, descricao, beneficios, popular, onAssinar }: PricingCardProps) => (
   <article
-    className={`relative p-5 rounded-2xl transition-all duration-300 ease-in-out flex-shrink-0 w-[280px] snap-center ${
+    className={`relative w-[280px] flex-shrink-0 snap-center rounded-lg p-5 transition-colors duration-300 ${
       popular
-        ? 'bg-gradient-to-b from-[#EBA730] to-[#FAC934] text-white shadow-2xl scale-105'
-        : 'bg-black border-2 border-gray-800 text-white shadow-xl'
+        ? 'border border-[#FAC934]/50 bg-[#FAC934] text-black'
+        : 'border border-white/10 bg-black text-white'
     }`}
     aria-label={`${nome} plan`}
   >
     {popular && (
       <div className="absolute -top-3 right-6">
-        <span className="inline-flex items-center gap-1 rounded-full bg-white/20 text-white text-xs font-bold px-3 py-1 backdrop-blur">
+        <span className="inline-flex items-center gap-1 rounded-lg bg-black px-3 py-1 text-xs font-bold text-[#FAC934]">
           <Flame className="w-3 h-3" /> POPULAR
         </span>
       </div>
     )}
     
     <div className="flex items-center gap-3 mb-3">
-      <ProPlanIcon className={`w-4 h-4 ${popular ? 'text-white/80' : 'text-gray-500'}`} />
+      <ProPlanIcon className={`w-4 h-4 ${popular ? 'text-black/55' : 'text-gray-500'}`} />
       <h3
-        className={`text-xs font-bold tracking-widest uppercase ${
-          popular ? 'text-white/80' : 'text-gray-500'
+        className={`text-xs font-bold uppercase ${
+          popular ? 'text-black/60' : 'text-gray-500'
         }`}
       >
         {nome}
@@ -152,11 +150,11 @@ const PricingCard = ({ nome, preco, periodo, descricao, beneficios, popular, onA
     </div>
 
     <div className="mb-3 flex items-baseline gap-1.5">
-      <span className={`text-2xl font-black ${popular ? 'text-white' : 'text-white'}`}>{preco}</span>
-      <span className={`${popular ? 'text-white/70' : 'text-gray-400'} text-xs`}>{periodo}</span>
+      <span className={`text-2xl font-black ${popular ? 'text-black' : 'text-white'}`}>{preco}</span>
+      <span className={`${popular ? 'text-black/60' : 'text-gray-400'} text-xs`}>{periodo}</span>
     </div>
 
-    <p className={`mb-5 text-xs ${popular ? 'text-white/85' : 'text-gray-400'} min-h-[2rem]`}>{descricao}</p>
+    <p className={`mb-5 min-h-[2rem] text-xs ${popular ? 'text-black/70' : 'text-gray-400'}`}>{descricao}</p>
 
     <div className="mb-5">
       <GetStartedButton isFeatured={popular} onClick={onAssinar} />
@@ -169,7 +167,7 @@ const PricingCard = ({ nome, preco, periodo, descricao, beneficios, popular, onA
         </FeatureListItem>
       ))}
       {beneficios.length > 5 && (
-        <li className={`text-xs font-semibold pl-8 ${popular ? 'text-white' : 'text-[#EBA730]'}`}>
+        <li className={`pl-8 text-xs font-semibold ${popular ? 'text-black/70' : 'text-[#EBA730]'}`}>
           +{beneficios.length - 5} benefícios
         </li>
       )}
@@ -226,13 +224,13 @@ export default function PlanosMobile() {
         }
       `}</style>
       
-      <section id="planos" className="py-6 bg-zinc-900 flex flex-col">
+      <section id="planos" className="flex flex-col bg-zinc-950 py-10">
         <div className="px-4">
           <Header />
           
           <div 
             ref={scrollContainerRef}
-            className="flex gap-4 overflow-x-auto pb-6 pt-6 snap-x snap-mandatory scrollbar-hide"
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-6 pt-5 scrollbar-hide"
             style={{ 
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',

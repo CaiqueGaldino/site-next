@@ -5,7 +5,7 @@
  */
 
 import { Post, PostListResponse, PostFilters, PostUnidade } from './types';
-import { getMockPostsResponse, getMockPostBySlug } from './blog-posts';
+import { getMockPostsResponse, getMockPostBySlug, isVisibleBlogPost } from './blog-posts';
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 const API_TOKEN = process.env.STRAPI_API_TOKEN;
@@ -43,6 +43,8 @@ function buildQueryParams(filters?: PostFilters): URLSearchParams {
   
   if (filters?.type) {
     params.append('filters[type][$eq]', filters.type);
+  } else {
+    params.append('filters[type][$ne]', 'social');
   }
   
   if (filters?.unidade) {
@@ -109,10 +111,14 @@ export async function fetchPosts(filters?: PostFilters): Promise<PostListRespons
   });
   
   try {
-    return await strapiRequest<PostListResponse>(
+    const response = await strapiRequest<PostListResponse>(
       `/posts?${params.toString()}`,
       { revalidate: parseInt(process.env.REVALIDATE_POSTS || '3600') }
     );
+    return {
+      ...response,
+      data: response.data.filter(isVisibleBlogPost),
+    };
   } catch (error) {
     console.log('📊 Strapi unavailable, using mock data');
     return getMockPostsResponse(filters?.limit || 10);
@@ -126,7 +132,8 @@ export async function fetchPostBySlug(slug: string): Promise<Post | null> {
   // Use mock data if enabled
   if (USE_MOCK_DATA) {
     console.log(`📄 Fetching post "${slug}" from mock data`);
-    return getMockPostBySlug(slug) || null;
+    const post = getMockPostBySlug(slug) || null;
+    return post && isVisibleBlogPost(post) ? post : null;
   }
 
   const params = new URLSearchParams();
@@ -139,10 +146,12 @@ export async function fetchPostBySlug(slug: string): Promise<Post | null> {
       { revalidate: parseInt(process.env.REVALIDATE_POSTS || '3600') }
     );
     
-    return response.data[0] || null;
+    const post = response.data[0] || null;
+    return post && isVisibleBlogPost(post) ? post : null;
   } catch (error) {
     console.log(`📄 Strapi unavailable, fetching "${slug}" from mock data`);
-    return getMockPostBySlug(slug) || null;
+    const post = getMockPostBySlug(slug) || null;
+    return post && isVisibleBlogPost(post) ? post : null;
   }
 }
 
@@ -158,6 +167,7 @@ export async function fetchFeaturedPosts(limit = 3): Promise<Post[]> {
     
     return mockResponse.data
       .filter((post) => {
+        if (!isVisibleBlogPost(post)) return false;
         if (!post.featured?.isFeatured) return false;
         
         const startDate = post.featured.startDate ? new Date(post.featured.startDate) : null;
@@ -175,6 +185,7 @@ export async function fetchFeaturedPosts(limit = 3): Promise<Post[]> {
   params.append('populate', '*');
   params.append('filters[status][$eq]', 'published');
   params.append('filters[featured][isFeatured][$eq]', 'true');
+  params.append('filters[type][$ne]', 'social');
   params.append('sort', '-featured.priority,-publishedAt');
   params.append('pagination[pageSize]', limit.toString());
   
@@ -188,6 +199,7 @@ export async function fetchFeaturedPosts(limit = 3): Promise<Post[]> {
     
     // Filter posts where featured dates are still valid
     return response.data.filter((post) => {
+      if (!isVisibleBlogPost(post)) return false;
       if (!post.featured?.isFeatured) return false;
       
       const startDate = post.featured.startDate ? new Date(post.featured.startDate) : null;
@@ -205,6 +217,7 @@ export async function fetchFeaturedPosts(limit = 3): Promise<Post[]> {
     
     return mockResponse.data
       .filter((post) => {
+        if (!isVisibleBlogPost(post)) return false;
         if (!post.featured?.isFeatured) return false;
         
         const startDate = post.featured.startDate ? new Date(post.featured.startDate) : null;
@@ -301,39 +314,6 @@ export async function fetchUnidades(): Promise<PostUnidade[]> {
       ).values()
     );
     return unidades;
-  }
-}
-
-/**
- * Increment view count for a post (client-side mutation)
- * This is typically called from the client
- */
-export async function incrementPostViewCount(postId: number): Promise<void> {
-  if (!API_TOKEN) {
-    console.warn('Cannot increment view count: STRAPI_API_TOKEN not set');
-    return;
-  }
-  
-  if (USE_MOCK_DATA) {
-    console.log('📊 Mock mode: view count not incremented');
-    return;
-  }
-  
-  try {
-    await strapiRequest(
-      `/posts/${postId}`,
-      {
-        method: 'PUT',
-        body: JSON.stringify({
-          data: {
-            viewCount: { increment: 1 },
-          },
-        }),
-      }
-    );
-  } catch (error) {
-    // Silently fail - view count is not critical
-    console.debug('Failed to increment view count', error);
   }
 }
 

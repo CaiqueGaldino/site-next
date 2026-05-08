@@ -4,18 +4,16 @@ import { Post } from "@/lib/types";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  formatPostDateFull,
   getPostTypeLabel,
   getYoutubeEmbedUrl,
 } from "@/lib/blog-service";
-import { Calendar, MapPin, Eye } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 interface PostContentProps {
   post: Post;
 }
 
 export function PostContent({ post }: PostContentProps) {
-  const formattedDate = formatPostDateFull(post.publishedAt);
   const postTypeLabel = getPostTypeLabel(post.type);
   const youtubeEmbedUrl = post.type === 'video' && post.media?.youtubeUrl 
     ? getYoutubeEmbedUrl(post.media.youtubeUrl) 
@@ -95,20 +93,6 @@ export function PostContent({ post }: PostContentProps) {
           </div>
         )}
         
-        {post.type === "social" && post.media?.socialUrl && (
-          <div className="bg-gradient-to-br from-zinc-900 to-black rounded-3xl p-12 text-center border-2 border-gray-800">
-            <p className="text-gray-300 mb-6">Confira este conteúdo em nossa rede social:</p>
-            <a
-              href={post.media.socialUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold px-8 py-4 rounded-full transition-all transform hover:scale-105"
-            >
-              Abrir no Instagram
-              <span className="text-lg">→</span>
-            </a>
-          </div>
-        )}
       </motion.div>
       
       {/* Excerpt */}

@@ -4,7 +4,6 @@ import { Post } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { formatPostDateFull, getYoutubeEmbedUrl } from "@/lib/blog-service";
 import { ChevronRight, Play } from "lucide-react";
 
 interface FeaturedPostBannerProps {
@@ -12,7 +11,6 @@ interface FeaturedPostBannerProps {
 }
 
 export function FeaturedPostBanner({ post }: FeaturedPostBannerProps) {
-  const formattedDate = formatPostDateFull(post.publishedAt);
   const isVideo = post.type === 'video' && post.media?.youtubeUrl;
 
   return (

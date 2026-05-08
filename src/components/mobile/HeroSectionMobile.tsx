@@ -1,82 +1,64 @@
 "use client";
-import React from "react";
+
 import Image from "next/image";
 
 export default function HeroSectionMobile() {
   return (
-    <main className="relative w-full min-h-screen bg-black overflow-hidden">
-      
-      {/* 1. Imagem de Fundo */}
-      <div className="absolute inset-0 z-0">
+    <main className="relative min-h-[100svh] overflow-hidden bg-black">
+      <div className="absolute inset-0">
         <Image
           src="/images/hero section mobile/fundo.webp"
           alt="Academia Fitness Exclusive"
           fill
-          className="object-cover object-center brightness-75"
+          className="object-cover object-center opacity-70"
           priority
         />
-        
-        {/* Gradiente sutil na base para garantir leitura do texto rodapé */}
-        <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-black via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black" />
       </div>
 
-      {/* 2. Topo Amarelo Curvo */}
-      <div className="relative z-10 w-full bg-[#FFD700] pt-8 pb-6 rounded-b-[60px] shadow-lg">
-        <h1 className="text-center text-6xl leading-[0.9] text-black uppercase tracking-tight font-black">
-          Treine na
-          <br />
-          <span className="block">Melhor!</span>
-        </h1>
+      <div className="absolute inset-x-0 bottom-24 top-16 z-10">
+        <Image
+          src="/images/hero section mobile/pessoas.webp"
+          alt="Personal trainers da Fitness Exclusive"
+          fill
+          className="object-contain object-bottom"
+          priority
+        />
       </div>
 
-      {/* 3. Imagem das Pessoas */}
-      <div className="absolute top-[-60px] left-0 right-0 z-10 flex justify-center">
-        <div className="relative w-full h-[900px]">
-          <Image
-            src="/images/hero section mobile/pessoas.webp"
-            alt="Personal Trainers"
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
-      </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[15] h-[46svh] bg-gradient-to-t from-black via-black/85 to-transparent" />
 
-      {/* 4. Etiqueta de Preço */}
-      <div className="absolute top-[55%] right-0 z-20 flex flex-col items-end">
-        
-        {/* Pílula Preta: "Planos a partir de" */}
-        <div className="bg-black border-2 border-[#FFD700] text-white text-[10px] font-bold uppercase py-1.5 px-6 rounded-tl-lg mb-[-8px] mr-[-12px] z-0 tracking-wider text-center">
-          Planos a partir de
+      <section className="relative z-20 flex min-h-[100svh] flex-col px-5 pb-32 pt-10">
+        <div className="max-w-[280px]">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-[#FAC934]">
+            Fitness Exclusive
+          </p>
+          <h1 className="font-display text-5xl font-extrabold leading-[0.95] text-white">
+            Treine na{" "}
+            <span className="block text-[#FAC934]">Melhor!</span>
+          </h1>
         </div>
 
-        {/* Bloco Amarelo: Preço */}
-        <div className="bg-[#FFD700] text-black py-2 pl-6 pr-4 rounded-l-3xl shadow-2xl flex items-start leading-none z-10">
-          <span className="text-lg font-bold mt-1 mr-1">R$</span>
-          <span className="text-6xl font-black tracking-tighter">97</span>
-          <span className="text-3xl font-bold mt-1">,00</span>
+        <div className="mt-auto">
+          <div className="mb-5 inline-flex items-end gap-2 rounded-lg border border-[#FAC934]/35 bg-black/70 px-4 py-3 backdrop-blur-md">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400">
+                Planos a partir de
+              </p>
+              <div className="mt-1 flex items-start leading-none text-[#FAC934]">
+                <span className="mt-1 text-base font-black">R$</span>
+                <span className="font-display text-5xl font-extrabold">97</span>
+                <span className="mt-1 text-2xl font-black">,00</span>
+              </div>
+            </div>
+          </div>
+
+          <p className="max-w-sm text-sm font-semibold uppercase leading-relaxed text-white">
+            Reconhecida pelo alto padrão, premiada pela qualidade e escolhida por
+            quem busca resultados reais.
+          </p>
         </div>
-      </div>
-
-      {/* 5. Texto do Rodapé */}
-      <div className="absolute bottom-40 left-0 w-full z-20 px-6 text-center">
-        <p className="text-white text-[12px] md:text-xs font-bold uppercase leading-relaxed tracking-wide">
-          Reconhecida pelo alto padrão, premiada pela qualidade e escolhida por quem busca resultados reais.
-        </p>
-      </div>
-
-      {/* 6. Seta para Baixo Piscando */}
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 animate-pulse">
-        <svg 
-          className="w-8 h-8 text-[#FFD700]" 
-          fill="none" 
-          strokeWidth="3" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-        </svg>
-      </div>
+      </section>
     </main>
   );
 }

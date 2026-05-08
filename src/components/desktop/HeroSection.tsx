@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { getAssetPath } from "../../lib/utils";
 
 export default function HeroSection() {
@@ -8,11 +10,8 @@ export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Delay menor para animação começar mais rápido
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
-    
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
@@ -35,114 +34,125 @@ export default function HeroSection() {
     }
   };
 
-  // Efeito parallax - fundo se move mais devagar
-  const parallaxOffset = scrollY * 0.2;
+  const parallaxOffset = scrollY * 0.12;
 
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative flex min-h-screen items-center overflow-hidden bg-black pt-24"
     >
-      {/* Background com efeito parallax */}
       <div
-        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-        style={{
-          transform: `translateY(${parallaxOffset}px)`,
-        }}
+        className={`absolute inset-0 z-0 transition-opacity duration-700 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ transform: `translateY(${parallaxOffset}px)` }}
       >
         <Image
           src={getAssetPath("/images/hero section/hs-fundo.webp")}
-          alt="Background Academia"
+          alt="Academia Fitness Exclusive"
           fill
           className="object-cover"
           priority
           quality={100}
         />
-        {/* Overlay gradiente para melhorar legibilidade */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black" />
       </div>
 
-      {/* Conteúdo */}
-      <div className="relative z-20 max-w-7xl mx-auto px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Lado Esquerdo - Texto e Botões */}
-          <div className="space-y-4 max-w-3xl">
-            {/* Título Principal */}
-            <h1 className={`text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-none tracking-tight whitespace-nowrap transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-              TREINE EM UMA
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EBA730] to-[#FAC934]">
-                ACADEMIA COMPLETA
-              </span>
-            </h1>
+      <div className="pointer-events-none absolute bottom-[-18vh] right-[-8vw] z-10 hidden h-[124vh] w-[74vw] max-w-[1180px] lg:block">
+        <div
+          className={`relative h-full w-full transition duration-700 ${
+            isLoaded ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
+          }`}
+          style={{
+            transform: `translate3d(${isLoaded ? "0" : "40px"}, ${-parallaxOffset * 0.08}px, 0)`,
+          }}
+        >
+          <Image
+            src={getAssetPath("/images/hero section/pessoas.webp")}
+            alt="Equipe Fitness Exclusive"
+            fill
+            className="object-contain object-bottom"
+            priority
+            quality={100}
+          />
+        </div>
+      </div>
 
-            {/* Preço em Destaque */}
-            <div className={`space-y-1 transition-all duration-1000 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-              <p className="text-xl lg:text-4xl text-white font-bold tracking-wide whitespace-nowrap">
-                PLANOS A PARTIR DE{" "}
-                <span className="relative inline-block">
-                  <span className="absolute inset-0 bg-[#EBA730] rounded-lg transform -skew-x-[18deg]"></span>
-                  <span className="relative text-black px-4 py-1 font-black">
-                    R$ 97,00
-                  </span>
-                </span>
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-80 bg-gradient-to-b from-transparent via-black/78 to-black" />
+
+      <div className="section-shell relative z-30 w-full">
+        <div className="max-w-3xl pb-16">
+          <h1
+            className={`font-display text-5xl font-extrabold leading-[0.95] text-white transition duration-700 lg:text-6xl xl:text-7xl ${
+              isLoaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+            }`}
+          >
+            Treine em uma
+            <br />
+            <span className="gold-gradient-text whitespace-nowrap">
+              academia completa
+            </span>
+          </h1>
+
+          <p
+            className={`mt-6 max-w-xl text-lg leading-relaxed text-zinc-300 transition duration-700 delay-100 ${
+              isLoaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+            }`}
+          >
+            Estrutura moderna, equipamentos de ponta e acompanhamento
+            profissional para você começar hoje.
+          </p>
+
+          <div
+            className={`mt-8 flex items-end gap-4 transition duration-700 delay-200 ${
+              isLoaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+            }`}
+          >
+            <div>
+              <p className="mb-1 text-sm font-extrabold uppercase text-[#FAC934]">
+                Planos a partir de
               </p>
-            </div>
-
-            {/* Descrição */}
-            <p className={`text-sm lg:text-base text-gray-300 max-w-xl leading-relaxed tracking-wider transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-              ESTRUTURA MODERNA E EQUIPAMENTOS DE PONTA.
-            </p>
-
-            {/* Botões de Call-to-Action */}
-            <div className={`flex flex-col sm:flex-row gap-3 pt-2 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-              {/* Botão Primário */}
-              <a
-                href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative px-6 py-3 bg-gradient-to-r from-[#EBA730] to-[#FAC934] text-black font-bold text-sm rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#EBA730]/50 text-center"
-              >
-                <span className="relative z-10">QUERO COMEÇAR AGORA</span>
-                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-              </a>
-
-              {/* Botão Secundário */}
-              <button
-                onClick={handleScrollToPlanos}
-                className="group relative px-6 py-3 bg-transparent text-[#EBA730] font-bold text-sm rounded-lg border-2 border-[#EBA730] overflow-hidden transition-all duration-300 hover:bg-[#EBA730] hover:text-black hover:scale-105 hover:shadow-2xl hover:shadow-[#EBA730]/50"
-              >
-                <span className="relative z-10">VER PLANOS DISPONÍVEIS</span>
-              </button>
+              <div className="flex items-end leading-none">
+                <span className="font-display text-6xl font-extrabold text-white lg:text-7xl">
+                  R$ 97
+                </span>
+                <span className="pb-1 font-display text-3xl font-extrabold text-white lg:text-4xl">
+                  ,00
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Lado Direito - Imagem do Homem */}
-          <div className="relative h-[650px] lg:h-[750px] hidden lg:block">
-            <div
-              className={`relative w-full h-full transition-opacity duration-1000 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-              style={{
-                transform: `translate3d(${isLoaded ? '0' : '80px'}, ${-parallaxOffset * 0.15 + 60}px, 0)`,
-                maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
-              }}
+          <div
+            className={`mt-8 flex flex-col gap-3 transition duration-700 delay-300 sm:flex-row ${
+              isLoaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+            }`}
+          >
+            <a
+              href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary text-sm"
             >
-              <Image
-                src={getAssetPath("/images/hero section/pessoas.webp")}
-                alt="Personal Trainer"
-                fill
-                className="object-cover object-right"
-                priority
-                quality={100}
-              />
-            </div>
+              Quero começar agora
+              <ArrowRight className="h-5 w-5" />
+            </a>
+
+            <button onClick={handleScrollToPlanos} className="btn-secondary text-sm">
+              Ver planos
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Gradiente de transição suave para a próxima seção - SOBRE todos os elementos */}
-      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-b from-transparent via-[#0a0a0a]/70 to-[#0a0a0a] z-30 pointer-events-none" />
+      <button
+        onClick={handleScrollToPlanos}
+        className="absolute bottom-6 left-1/2 z-40 -translate-x-1/2 rounded-full border border-white/10 bg-black/40 p-3 text-[#FAC934] transition hover:border-[#EBA730]/60 hover:bg-[#EBA730]/10"
+        aria-label="Ver planos"
+      >
+        <ChevronDown className="h-6 w-6" />
+      </button>
     </section>
   );
 }

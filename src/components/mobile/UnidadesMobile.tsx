@@ -85,22 +85,23 @@ export default function UnidadesMobile() {
   }, [searchTerm, selectedFilter]);
 
   return (
-    <section id="unidades" className="py-8 bg-black">
+    <section id="unidades" className="bg-zinc-950 py-12">
       <div className="px-4">
-        {/* Título */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-black text-white mb-2">
-            NOSSAS UNIDADES
-          </h2>
-          <p className="text-sm text-gray-300">
+        <div className="mb-8">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#FAC934]">
+            Unidades
+          </p>
+          <h2 className="font-display text-3xl font-extrabold leading-tight text-white">
             Encontre a unidade mais próxima
+          </h2>
+          <p className="mt-3 max-w-sm text-sm leading-relaxed text-zinc-400">
+            Busque por nome ou cidade e veja os dados essenciais para chegar até a Fitness Exclusive.
           </p>
         </div>
 
-        {/* Barra de Busca */}
         <div className="mb-6">
           <div className="relative">
-            <div className="flex items-center bg-zinc-900 border-2 border-gray-700 rounded-full px-4 py-3 focus-within:border-[#EBA730] transition-colors">
+            <div className="flex items-center rounded-lg border border-white/10 bg-black px-4 py-3 transition-colors focus-within:border-[#EBA730]">
               <svg className="w-5 h-5 text-gray-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -130,9 +131,8 @@ export default function UnidadesMobile() {
               )}
             </div>
 
-            {/* Sugestões */}
             {showSuggestions && suggestions.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-zinc-900 border-2 border-[#EBA730] rounded-2xl shadow-xl z-50">
+              <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-lg border border-[#EBA730]/40 bg-zinc-950 shadow-xl">
                 {suggestions.map((suggestion, idx) => (
                   <button
                     key={idx}
@@ -152,9 +152,8 @@ export default function UnidadesMobile() {
             )}
           </div>
 
-          {/* Badge do filtro ativo */}
           {selectedFilter && (
-            <div className="mt-3 inline-flex items-center gap-2 bg-[#EBA730]/20 border border-[#EBA730] rounded-full px-3 py-1.5">
+            <div className="mt-3 inline-flex items-center gap-2 rounded-lg border border-[#EBA730]/40 bg-[#EBA730]/10 px-3 py-1.5">
               <span className="text-[#EBA730] font-semibold text-xs">Filtro: {selectedFilter}</span>
               <button
                 onClick={() => setSelectedFilter(null)}
@@ -166,7 +165,6 @@ export default function UnidadesMobile() {
           )}
         </div>
 
-        {/* Lista de Unidades */}
         <div className="space-y-4">
           {filteredUnidades.length > 0 ? (
             filteredUnidades.map((unidade, idx) => (
@@ -175,9 +173,9 @@ export default function UnidadesMobile() {
                 href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-zinc-900 rounded-2xl overflow-hidden border-2 border-gray-700 hover:border-[#EBA730] transition-all duration-300 cursor-pointer"
+                className="block cursor-pointer overflow-hidden rounded-lg border border-white/10 bg-black transition-colors duration-300 hover:border-[#EBA730]"
               >
-                <div className="relative h-32 overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
                   <Image
                     src={unidade.mobile || unidade.desktop}
                     alt={unidade.nome}
@@ -227,7 +225,7 @@ export default function UnidadesMobile() {
                         e.stopPropagation();
                         handleMapClick(unidade.endereco, unidade.cidade);
                       }}
-                      className="flex-1 bg-gradient-to-r from-[#EBA730] to-[#FAC934] hover:from-[#FAC934] hover:to-[#EBA730] text-black font-bold py-2 rounded-full text-xs transition-colors active:scale-95"
+                      className="flex-1 rounded-lg bg-[#FAC934] py-2 text-xs font-bold text-black transition-colors active:scale-95 hover:bg-[#EBA730]"
                     >
                       Mapa
                     </button>
@@ -237,7 +235,7 @@ export default function UnidadesMobile() {
                         e.stopPropagation();
                         handleCallClick(unidade.telefone);
                       }}
-                      className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 rounded-full text-xs transition-colors active:scale-95"
+                      className="flex-1 rounded-lg border border-white/10 bg-zinc-900 py-2 text-xs font-bold text-white transition-colors active:scale-95 hover:bg-zinc-800"
                     >
                       Ligar
                     </button>

@@ -1,104 +1,65 @@
 "use client";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
-import { hapticFeedback } from "../../lib/mobileUtils";
-import AvaliacoesMobile from "./AvaliacoesMobile";
-import Image from "next/image";
 
-const slides = [
-  "/images/slide-mobile/avaliacao-mobile-app.webp",
-  "/images/slide-mobile/slide-app-mobile.webp"
+import React from "react";
+import { Activity, ClipboardCheck, Dumbbell, Smartphone } from "lucide-react";
+
+const highlights = [
+  {
+    icon: ClipboardCheck,
+    title: "Avaliação física",
+    description: "Ponto de partida para entender seu momento e acompanhar evolução.",
+  },
+  {
+    icon: Dumbbell,
+    title: "Treino por objetivo",
+    description: "Planos organizados para hipertrofia, emagrecimento, condicionamento e saúde.",
+  },
+  {
+    icon: Smartphone,
+    title: "App Fitness Exclusive",
+    description: "Treinos, pagamentos e acompanhamento reunidos em uma rotina mais simples.",
+  },
 ];
 
 export default function ModalidadesMobile() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => {
-    hapticFeedback('light');
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    hapticFeedback('light');
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const handleSwipe = (offset: number) => {
-    if (offset > 50) {
-      prevSlide();
-    } else if (offset < -50) {
-      nextSlide();
-    }
-  };
-
   return (
-    <div className="relative bg-gradient-to-br from-black via-zinc-900 to-black">
-      {/* Carrossel em Tela Cheia */}
-      <div className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Slides com Imagens */}
-        <AnimatePresence mode="wait" custom={currentSlide}>
-          <motion.div
-            key={currentSlide}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragEnd={(e, { offset }) => handleSwipe(offset.x)}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0"
-          >
-            <div className="relative w-full h-full">
-              <Image
-                src={slides[currentSlide]}
-                alt={`Slide ${currentSlide + 1}`}
-                fill
-                className="object-fill"
-                priority
-              />
-            </div>
-          </motion.div>
-        </AnimatePresence>
+    <section id="modalidades" className="bg-black px-4 py-12">
+      <div className="mb-8">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#FAC934]">
+          Experiência
+        </p>
+        <h2 className="font-display text-3xl font-extrabold leading-tight text-white">
+          Treinos pensados para cada objetivo
+        </h2>
+        <p className="mt-3 max-w-sm text-sm leading-relaxed text-zinc-400">
+          Uma rotina mais clara, com orientação profissional, acompanhamento e
+          estrutura completa para você evoluir com consistência.
+        </p>
+      </div>
 
-        {/* Indicadores */}
-        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                hapticFeedback('light');
-                setCurrentSlide(index);
-              }}
-              className={`touch-manipulation transition-all duration-300 ${
-                index === currentSlide 
-                  ? 'w-8 h-3 bg-[#EBA730] rounded-full' 
-                  : 'w-3 h-3 rounded-full bg-gray-600'
-              }`}
-              aria-label={`Ir para slide ${index + 1}`}
-            />
-          ))}
-          {/* Setinha Piscando */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-          animate={{
-            y: [0, 10, 0],
-            opacity: [0.5, 1, 0.5]
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <ChevronDown className="w-12 h-12 text-[#EBA730]" />
-        </motion.div>
+      <div className="rounded-lg border border-white/10 bg-zinc-950 p-5">
+        <div className="mb-5 flex items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-[#FAC934]/30 bg-[#FAC934]/10 text-[#FAC934]">
+            <Activity className="h-5 w-5" />
+          </div>
+          <div>
+            <p className="text-sm font-bold text-white">Método Exclusive</p>
+            <p className="text-xs text-zinc-500">Avaliar, orientar e evoluir</p>
+          </div>
         </div>
 
-        
+        <div className="space-y-3">
+          {highlights.map((item) => (
+            <div key={item.title} className="rounded-lg border border-white/10 bg-black p-4">
+              <div className="mb-3 flex items-center gap-3">
+                <item.icon className="h-5 w-5 text-[#FAC934]" />
+                <h3 className="font-display text-base font-bold text-white">{item.title}</h3>
+              </div>
+              <p className="text-sm leading-relaxed text-zinc-400">{item.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      
-    </div>
+    </section>
   );
 }
