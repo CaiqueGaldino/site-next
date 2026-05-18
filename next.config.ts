@@ -1,28 +1,28 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: "export",
   trailingSlash: true,
-  basePath: '',
-  assetPrefix: '',
+  basePath: "",
+  assetPrefix: "",
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cms.fitnessexclusive.com.br',
+        protocol: "https",
+        hostname: "cms.fitnessexclusive.com.br",
       },
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '1337',
+        protocol: "http",
+        hostname: "localhost",
+        port: "1337",
       },
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
+        protocol: "https",
+        hostname: "images.unsplash.com",
       },
     ],
     qualities: [75, 90, 100],
-    unoptimized: true
+    unoptimized: true,
   },
   eslint: {
     ignoreDuringBuilds: true,

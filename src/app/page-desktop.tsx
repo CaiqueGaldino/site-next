@@ -29,7 +29,7 @@ export default function HomeDesktop() {
         {/*<DiferenciaisStack />*/}
         <Beneficios />
         <Avaliacoes />
-        {/*<Marquee />} */}
+        <Marquee />
         <Unidades />
         <SobreNos />
         <SejaInvestidor />
