@@ -10,26 +10,36 @@ export default function ErickCoelhoPage() {
   return (
     <ProfileContactPage
       name="Erick Coelho"
-      role="Fitness Exclusive"
-      imageSrc="/images/hero section/pessoas.webp"
+      imageSrc="/images/erick.png"
       imageAlt="Erick Coelho"
-      imagePosition="72% center"
-      summary="Erick Coelho atua na Fitness Exclusive com foco em relacionamento, expansao e atendimento a parceiros. Entre em contato para conversar sobre oportunidades, apresentacoes comerciais e proximos passos."
+      imagePosition="center 16%"
+      translations={{
+        "pt-BR": {
+          role: "Fitness Exclusive",
+          summary:
+            "Erick Coelho atua na Fitness Exclusive com foco em relacionamento, expansao e atendimento a parceiros. Entre em contato para conversar sobre oportunidades, apresentacoes comerciais e proximos passos.",
+        },
+        en: {
+          role: "Fitness Exclusive",
+          summary:
+            "Erick Coelho works at Fitness Exclusive with a focus on relationships, expansion, and partner support. Get in touch to discuss opportunities, business introductions, and next steps.",
+        },
+      }}
       contacts={[
         {
-          label: "Email",
+          labelKey: "email",
           value: "erickcoelho@fitnessexclusive.com.br",
           href: "mailto:erickcoelho@fitnessexclusive.com.br",
           icon: "mail",
         },
         {
-          label: "Telefone",
+          labelKey: "phone",
           value: "+55 (88) 99263-7523",
           href: "tel:+5588992637523",
           icon: "phone",
         },
         {
-          label: "WeChat",
+          labelKey: "wechat",
           value: "erickcoelho",
           icon: "wechat",
         },

@@ -10,26 +10,37 @@ export default function LeandroBatistaPage() {
   return (
     <ProfileContactPage
       name="Leandro Batista"
-      role="Fitness Exclusive"
-      imageSrc="/images/hero section/hs-leandro.webp"
+      imageSrc="/images/leandro.png"
       imageAlt="Leandro Batista"
-      imagePosition="center top"
-      summary="Leandro Batista lidera iniciativas da Fitness Exclusive com foco em crescimento, experiencia do cliente e parcerias estrategicas. Entre em contato para apresentacoes, agenda comercial e oportunidades."
+      imagePosition="center 18%"
+      mobileLayout="narrow"
+      translations={{
+        "pt-BR": {
+          role: "Fitness Exclusive",
+          summary:
+            "Leandro Batista lidera iniciativas da Fitness Exclusive com foco em crescimento, experiencia do cliente e parcerias estrategicas. Entre em contato para apresentacoes, agenda comercial e oportunidades.",
+        },
+        en: {
+          role: "Fitness Exclusive",
+          summary:
+            "Leandro Batista leads Fitness Exclusive initiatives focused on growth, customer experience, and strategic partnerships. Get in touch for introductions, business meetings, and new opportunities.",
+        },
+      }}
       contacts={[
         {
-          label: "Email",
+          labelKey: "email",
           value: "leandrobatista@fitnessexclusive.com.br",
           href: "mailto:leandrobatista@fitnessexclusive.com.br",
           icon: "mail",
         },
         {
-          label: "Telefone",
+          labelKey: "phone",
           value: "+55 (88) 99263-7523",
           href: "tel:+5588992637523",
           icon: "phone",
         },
         {
-          label: "WeChat",
+          labelKey: "wechat",
           value: "leandrobatista",
           icon: "wechat",
         },
