@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { fetchPostBySlug, generateBlogStaticParams } from "@/lib/strapi";
-import { fetchPosts } from "@/lib/strapi";
+import {
+  blogPosts,
+  getBlogPostBySlug,
+  getBlogPostsResponse,
+  isVisibleBlogPost,
+} from "@/lib/blog-posts";
 import { Post } from "@/lib/types";
 import { getPostTypeLabel } from "@/lib/blog-service";
 import { getAssetPath } from "@/lib/utils";
@@ -14,12 +18,14 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return generateBlogStaticParams();
+  return blogPosts.filter(isVisibleBlogPost).map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = await fetchPostBySlug(slug);
+  const post = getBlogPostBySlug(slug);
   if (!post) return { title: "Post não encontrado | Blog Fitness Exclusive" };
 
   const imageUrl =
@@ -96,7 +102,7 @@ function RelatedPostCard({ post }: { post: Post }) {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = await fetchPostBySlug(slug);
+  const post = getBlogPostBySlug(slug);
 
   if (!post) notFound();
 
@@ -105,16 +111,9 @@ export default async function BlogPostPage({ params }: Props) {
       ? post.media.images.desktop.url
       : null;
 
-  // Fetch related posts
-  let relatedPosts: Post[] = [];
-  try {
-    const allPosts = await fetchPosts({ limit: 100 });
-    relatedPosts = (allPosts.data || [])
-      .filter((p) => p.documentId !== post.documentId && p.type === "blog")
-      .slice(0, 3);
-  } catch {
-    relatedPosts = [];
-  }
+  const relatedPosts = getBlogPostsResponse(100).data
+    .filter((p) => p.documentId !== post.documentId && p.type === "blog")
+    .slice(0, 3);
 
   return (
     <div className="min-h-screen bg-black text-white">

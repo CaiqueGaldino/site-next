@@ -9,15 +9,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cms.fitnessexclusive.com.br",
-      },
-      {
-        protocol: "http",
-        hostname: "localhost",
-        port: "1337",
-      },
-      {
-        protocol: "https",
         hostname: "images.unsplash.com",
       },
     ],

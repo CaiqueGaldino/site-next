@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { fetchPosts } from "@/lib/strapi";
-import { getFeaturedPost } from "@/lib/blog-posts";
+import { getBlogPostsResponse, getFeaturedPost } from "@/lib/blog-posts";
 import { Post } from "@/lib/types";
 import { getPostTypeLabel } from "@/lib/blog-service";
 import { getAssetPath } from "@/lib/utils";
@@ -79,14 +78,8 @@ function BlogPostCard({ post }: { post: Post }) {
   );
 }
 
-export default async function BlogPage() {
-  let posts: Post[] = [];
-  try {
-    const response = await fetchPosts({ limit: 100 });
-    posts = response.data || [];
-  } catch {
-    posts = [];
-  }
+export default function BlogPage() {
+  const posts = getBlogPostsResponse(100).data || [];
 
   // Get featured post from centralized config (blog-posts.ts)
   const featuredPost = getFeaturedPost();

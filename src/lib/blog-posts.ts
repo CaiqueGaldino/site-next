@@ -654,7 +654,3 @@ export function getFeaturedPost(): Post | undefined {
   );
 }
 
-// Aliases para retrocompatibilidade com strapi.ts / mock-data.ts
-export const mockPosts = blogPosts;
-export const getMockPostsResponse = getBlogPostsResponse;
-export const getMockPostBySlug = getBlogPostBySlug;

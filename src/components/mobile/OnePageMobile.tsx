@@ -85,7 +85,6 @@ export default function OnePageMobile() {
             <SejaInvestidorMobile />
             <SejaFranqueadoMobile />
             <FAQMobile />
-            {/*<Marquee />} */}
             <AulaExperimental />
             <div className="h-24"></div>
           </div>

@@ -95,7 +95,7 @@ export interface Post {
 }
 
 /**
- * Response from Strapi list endpoint
+ * Paginated post list response
  */
 export interface PostListResponse {
   data: Post[];
@@ -107,25 +107,4 @@ export interface PostListResponse {
       total: number;
     };
   };
-}
-
-/**
- * Response from Strapi single endpoint
- */
-export interface PostSingleResponse {
-  data: Post;
-  meta: Record<string, unknown>;
-}
-
-/**
- * Filter options for fetching posts
- */
-export interface PostFilters {
-  unidade?: string;
-  status?: PostStatus;
-  featured?: boolean;
-  type?: PostType;
-  limit?: number;
-  page?: number;
-  search?: string;
 }

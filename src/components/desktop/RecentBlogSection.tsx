@@ -1,11 +1,11 @@
 import { Post } from "@/lib/types";
 import { PostCard } from "@/components/blog";
-import { mockPosts } from "@/lib/mock-data";
+import { getBlogPostsResponse } from "@/lib/blog-posts";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function RecentBlogSection() {
-  const posts: Post[] = mockPosts.slice(0, 3);
+  const posts: Post[] = getBlogPostsResponse(3).data;
 
   if (!posts || posts.length === 0) {
     return null;
