@@ -99,29 +99,29 @@ export default function Franqueado() {
   const [loading, setLoading] = useState(false);
 
   const heroImage =
-    unidades.find((unidade) => unidade.nome === "Premium")?.desktop ??
-    "/images/unidades/unidade-premium.webp";
+    unidades.find((unidade) => unidade.nome === "Aeroporto")?.desktop ??
+    "/images/unidades/unidade-aeroporto.webp";
   const unidadeOperacaoPrincipal =
     unidades.find((item) => item.nome === "Tianguá") ?? unidades[0];
   const unidadeFormulario = unidades.find((item) => item.nome === "Barbalha");
   const galeria = [
-    { unidade: unidades.find((item) => item.nome === "Premium"), destaque: false },
-    { unidade: unidades.find((item) => item.nome === "Barbalha"), destaque: false },
-    { unidade: unidades.find((item) => item.nome === "Crato"), destaque: true },
+    { unidade: unidades.find((item) => item.nome === "Aeroporto"), destaque: false },
+    { unidade: unidades.find((item) => item.nome === "Tianguá"), destaque: false },
+    { unidade: unidades.find((item) => item.nome === "Barbalha"), destaque: true },
   ].filter(
     (item): item is { unidade: (typeof unidades)[number]; destaque: boolean } =>
       Boolean(item.unidade),
   );
   const unidadesDestaque = [
-    { unidade: unidades.find((item) => item.nome === "Crato"), destaque: true },
-    { unidade: unidades.find((item) => item.nome === "Premium"), destaque: false },
+    { unidade: unidades.find((item) => item.nome === "Barbalha"), destaque: true },
+    { unidade: unidades.find((item) => item.nome === "AABB Crato"), destaque: false },
+    { unidade: unidades.find((item) => item.nome === "Tianguá"), destaque: true },
     { unidade: unidades.find((item) => item.nome === "Tiradentes"), destaque: false },
     { unidade: unidades.find((item) => item.nome === "Lagoa Seca"), destaque: false },
     { unidade: unidades.find((item) => item.nome === "São José"), destaque: false },
     { unidade: unidades.find((item) => item.nome === "Salesianos"), destaque: false },
     { unidade: unidades.find((item) => item.nome === "Aeroporto"), destaque: true },
     { unidade: unidades.find((item) => item.nome === "Matriz Araripina"), destaque: false },
-    { unidade: unidades.find((item) => item.nome === "AABB Crato"), destaque: false },
   ].filter(
     (item): item is { unidade: (typeof unidades)[number]; destaque: boolean } =>
       Boolean(item.unidade),

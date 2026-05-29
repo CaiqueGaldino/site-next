@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getAssetPath } from "../../lib/utils";
@@ -16,6 +16,9 @@ const navItems = [
 ];
 
 export default function HeaderDesktop() {
+  const [isFranchiseOpen, setIsFranchiseOpen] = useState(false);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   const handleNavigation = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -25,6 +28,19 @@ export default function HeaderDesktop() {
         inline: "nearest",
       });
     }
+  };
+
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+    setIsFranchiseOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setIsFranchiseOpen(false);
+    }, 150);
   };
 
   return (
@@ -61,14 +77,48 @@ export default function HeaderDesktop() {
             </Link>
           </nav>
 
-          <a
-            href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary px-6 py-2.5 text-sm"
-          >
-            Matricule-se
-          </a>
+          <div className="flex items-center gap-3">
+            {/* Botão Franquia com Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                onClick={() => setIsFranchiseOpen(!isFranchiseOpen)}
+                className="btn-primary px-6 py-2.5 text-sm"
+              >
+                Franquia
+              </button>
+              
+              {/* Dropdown Menu */}
+              {isFranchiseOpen && (
+                <div className="absolute top-full mt-2 w-48 rounded-lg border border-white/10 bg-zinc-900/95 shadow-2xl shadow-black/40 backdrop-blur-xl">
+                  <Link
+                    href="/investidor"
+                    className="block w-full px-4 py-3 text-left text-sm font-semibold text-zinc-200 transition duration-200 hover:bg-white/10 hover:text-[#FAC934] rounded-t-lg"
+                  >
+                    Seja Investidor
+                  </Link>
+                  <Link
+                    href="/franqueado"
+                    className="block w-full px-4 py-3 text-left text-sm font-semibold text-zinc-200 transition duration-200 hover:bg-white/10 hover:text-[#FAC934] rounded-b-lg"
+                  >
+                    Seja Franqueado
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <a
+              href="https://fitnessexclusive.com.br/campanha/todasunidades.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary px-6 py-2.5 text-sm"
+            >
+              Matricule-se
+            </a>
+          </div>
         </div>
       </div>
     </header>

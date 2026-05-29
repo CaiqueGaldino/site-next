@@ -6,6 +6,7 @@ import { hapticFeedback, smoothScrollTo } from "../../lib/mobileUtils";
 
 export default function HeaderMobile() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isFranchiseOpen, setIsFranchiseOpen] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -127,6 +128,51 @@ export default function HeaderMobile() {
                 >
                   Contato
                 </button>
+
+                {/* Franquia Submenu */}
+                <div className="relative">
+                  <button 
+                    onClick={() => setIsFranchiseOpen(!isFranchiseOpen)} 
+                    className="w-full text-left px-6 py-4 text-white hover:text-[#EBA730] hover:bg-white/5 text-base font-medium bg-transparent border-0 cursor-pointer transition-all active:bg-white/10 flex items-center justify-between"
+                  >
+                    Franquia
+                    <svg 
+                      className={`w-4 h-4 transition-transform ${isFranchiseOpen ? 'rotate-180' : ''}`} 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </button>
+                  
+                  {isFranchiseOpen && (
+                    <div className="bg-white/5 border-t border-b border-[#EBA730]/20">
+                      <a
+                        href="/investidor"
+                        onClick={() => {
+                          hapticFeedback('light');
+                          setIsMenuOpen(false);
+                          setIsFranchiseOpen(false);
+                        }}
+                        className="block w-full text-left px-8 py-3 text-white hover:text-[#EBA730] hover:bg-white/5 text-base font-medium transition-all active:bg-white/10"
+                      >
+                        Seja Investidor
+                      </a>
+                      <a
+                        href="/franqueado"
+                        onClick={() => {
+                          hapticFeedback('light');
+                          setIsMenuOpen(false);
+                          setIsFranchiseOpen(false);
+                        }}
+                        className="block w-full text-left px-8 py-3 text-white hover:text-[#EBA730] hover:bg-white/5 text-base font-medium transition-all active:bg-white/10"
+                      >
+                        Seja Franqueado
+                      </a>
+                    </div>
+                  )}
+                </div>
                 
                 {/* Divider */}
                 <div className="border-t border-[#EBA730]/20 mx-4 my-2"></div>

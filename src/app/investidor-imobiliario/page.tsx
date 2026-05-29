@@ -92,7 +92,7 @@ const modeloComercial = [
 ];
 
 const heroUnit = unidades.find((unidade) => unidade.nome === "Barbalha") ?? unidades[0];
-const premiumUnit = unidades.find((unidade) => unidade.nome === "Premium") ?? unidades[0];
+const modeloUnit = unidades.find((unidade) => unidade.nome === "Aeroporto") ?? unidades[0];
 
 function buildWhatsAppUrl(formData: FormData) {
   const mensagem = `Olá! Tenho interesse na oportunidade de investidor imobiliário da Fitness Exclusive.
@@ -244,16 +244,16 @@ export default function InvestidorImobiliario() {
               <div className="mt-10 overflow-hidden rounded-lg border border-white/10">
                 <div className="relative aspect-[16/9] w-full">
                   <Image
-                    src={premiumUnit.desktop}
-                    alt={premiumUnit.nome}
+                    src={modeloUnit.desktop}
+                    alt={modeloUnit.nome}
                     fill
                     sizes="(min-width: 1024px) 420px, 100vw"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-2xl font-black text-white">{premiumUnit.nome}</h3>
-                    <p className="mt-1 text-sm text-gray-300">{premiumUnit.cidade}</p>
+                    <h3 className="text-2xl font-black text-white">{modeloUnit.nome}</h3>
+                    <p className="mt-1 text-sm text-gray-300">{modeloUnit.cidade}</p>
                   </div>
                 </div>
                 <div className="p-5">
