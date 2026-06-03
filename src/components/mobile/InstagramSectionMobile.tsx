@@ -21,21 +21,20 @@ type InstagramWindow = Window & {
 
 export default function InstagramSectionMobile() {
   useEffect(() => {
-    const loadInstagramEmbed = () => {
-      const instagramWindow = window as InstagramWindow;
-
-      if (instagramWindow.instgrm) {
-        instagramWindow.instgrm.Embeds.process();
-        return;
-      }
-      const script = document.createElement("script");
-      script.src = "//www.instagram.com/embed.js";
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-    };
-
-    loadInstagramEmbed();
+    // TODO: Instagram embed can trigger permission requests
+    // const loadInstagramEmbed = () => {
+    //   const instagramWindow = window as InstagramWindow;
+    //   if (instagramWindow.instgrm) {
+    //     instagramWindow.instgrm.Embeds.process();
+    //     return;
+    //   }
+    //   const script = document.createElement("script");
+    //   script.src = "//www.instagram.com/embed.js";
+    //   script.async = true;
+    //   script.defer = true;
+    //   document.body.appendChild(script);
+    // };
+    // loadInstagramEmbed();
   }, []);
 
   return (

@@ -86,7 +86,7 @@ export function PostContent({ post }: PostContentProps) {
             <iframe
               src={youtubeEmbedUrl}
               title={post.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="encrypted-media; picture-in-picture"
               allowFullScreen
               className="w-full h-full"
             />
